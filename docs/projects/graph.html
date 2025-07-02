@@ -135,14 +135,14 @@
             <div class="flex items-center gap-6">
               <a
                 class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
-                href="/projects.html"
+                href="./projects.html"
                 >Projects</a
               >
               <!-- <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="#blog">Blog</a> -->
             </div>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 shadow-sm"
-              style="background-image: url('/images/BowersCIS.JPG')"
+              style="background-image: url('./images/BowersCIS.JPG')"
             ></div>
           </nav>
         </header>
@@ -154,7 +154,7 @@
               <header class="relative">
                 <div
                   class="w-full h-96 bg-center bg-no-repeat bg-cover"
-                  style="background-image: url('/images/GRG Updated.png')"
+                  style="background-image: url('./images/GRG Updated.png')"
                 >
                   <div
                     class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
@@ -164,7 +164,7 @@
                   <nav aria-label="breadcrumb" class="mb-2">
                     <ol class="flex items-center space-x-2 text-sm">
                       <li>
-                        <a class="hover:underline" href="/projects.html"
+                        <a class="hover:underline" href="./projects.html"
                           >Projects</a
                         >
                       </li>
@@ -548,7 +548,7 @@
                 <div class="mt-12 pt-8 border-t border-slate-200">
                   <a
                     class="inline-flex items-center text-[#1672ce] hover:text-[#1361b3] font-medium group"
-                    href="/projects.html"
+                    href="./projects.html"
                   >
                     <svg
                       class="mr-2 size-5 transform group-hover:-translate-x-1 transition-transform"
@@ -654,11 +654,11 @@
             currentPath === link.getAttribute("href")
           ) {
             if (
-              link.getAttribute("href") === "/projects.html" ||
+              link.getAttribute("href") === "./projects.html" ||
               currentPath.includes("project-detail.html")
             ) {
               const projectsMainLink = document.querySelector(
-                'header nav a[href="/projects.html"]'
+                'header nav a[href="./projects.html"]'
               );
               if (projectsMainLink)
                 projectsMainLink.classList.add("active-nav-link");
@@ -668,9 +668,9 @@
           }
         });
         // If on the root path or index.html, highlight "Projects" by default
-        if (currentPath === "/" || currentPath === "/index.html") {
+        if (currentPath === "/" || currentPath === "./index.html") {
           const projectsLink = document.querySelector(
-            'header nav a[href="/projects.html"]'
+            'header nav a[href="./projects.html"]'
           );
           if (projectsLink) {
             projectsLink.classList.add("active-nav-link");

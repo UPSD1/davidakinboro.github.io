@@ -68,12 +68,7 @@
             <div class="flex items-center gap-6">
               <a
                 class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
-                href="#research"
-                >Research Projects</a
-              >
-              <a
-                class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
-                href="/projects.html"
+                href="./projects.html"
                 >Projects</a
               >
               <!-- <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="/blog.html">Blog</a>
@@ -81,7 +76,7 @@
             </div>
             <div
               class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 shadow-sm"
-              style="background-image: url('/images/BowersCIS.JPG')"
+              style="background-image: url('./images/BowersCIS.JPG')"
             ></div>
           </nav>
         </header>
@@ -117,11 +112,11 @@
             >
               <a
                 class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
-                href="/projects/legal.html"
+                href="./projects/legal.html"
               >
                 <div
                   class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-                  style="background-image: url('/images/law.png')"
+                  style="background-image: url('./images/law.png')"
                 ></div>
                 <div class="p-5 flex flex-col flex-grow">
                   <h3
@@ -158,17 +153,17 @@
               </a>
               <a
                 class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
-                href="/projects/graph.html"
+                href="./projects/graph.html"
               >
                 <div
                   class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-                  style="background-image: url('/images/GRG Updated.png')"
+                  style="background-image: url('./images/GRG Updated.png')"
                 ></div>
                 <div class="p-5 flex flex-col flex-grow">
                   <h3
                     class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
                   >
-                    GraphRAG: An AI Teaching Assistant for the Modern Classroom
+                    An AI Teaching Assistant for the Modern Classroom 
                   </h3>
                   <p
                     class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
@@ -200,11 +195,11 @@
               </a>
               <a
                 class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
-                href="/projects/doctest.html"
+                href="./projects/doctest.html"
               >
                 <div
                   class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-                  style="background-image: url('/images/doctest.png')"
+                  style="background-image: url('./images/doctest.png')"
                 ></div>
                 <div class="p-5 flex flex-col flex-grow">
                   <h3
@@ -369,9 +364,9 @@
           }
         });
         // If no specific page matches (e.g. on index.html or '/'), highlight Projects
-        if (currentPath === "/" || currentPath === "/index.html") {
+        if (currentPath === "/" || currentPath === "./index.html") {
           const projectsLink = document.querySelector(
-            'header nav a[href="/projects.html"]'
+            'header nav a[href="./projects.html"]'
           ); // or the main page link if that's preferred
           if (projectsLink) {
             projectsLink.classList.add("active-nav-link");
