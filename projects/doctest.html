@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <title>Project: Automated Unit Test Generation - David Akinboro</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+    <style>
+      .hover-glow {
+        transition: box-shadow 0.3s ease-in-out;
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 15px 5px rgba(22, 114, 206, 0.3);
+      }
+      .active-nav-link {
+        color: #1672ce;
+        position: relative;
+      }
+      .active-nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #1672ce;
+      }
+      .markdown-body h2 {
+        font-size: 1.5em;
+        font-weight: 600;
+        border-bottom: 1px solid #eaecef;
+        padding-bottom: 0.3em;
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 12px;
+      }
+      .markdown-body p {
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+      .markdown-body ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 16px;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          Courier, monospace;
+        background-color: #f6f8fa;
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        font-size: inherit;
+        border-radius: 0;
+      }
+      .markdown-body pre {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 16px;
+        overflow: auto;
+        line-height: 1.45;
+        border-radius: 6px;
+        margin-bottom: 16px;
+      }
+      .date-badge {
+        background-color: rgba(22, 114, 206, 0.1);
+        color: #1672ce;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+      style="font-family: Inter, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 bg-white sticky top-0 z-50 shadow-sm"
+        >
+          <a
+            class="flex items-center gap-3 text-slate-800 hover:text-[#1672ce] transition-colors"
+            href="/"
+          >
+            <div class="size-7 text-[#1672ce]">
+              <svg
+                fill="none"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <h1 class="text-xl font-bold leading-tight tracking-tight">
+              David Akinboro
+            </h1>
+          </a>
+          <nav class="flex flex-1 justify-end items-center gap-8">
+            <div class="flex items-center gap-6">
+              <a
+                class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
+                href="/projects.html"
+                >Projects</a
+              >
+              <!-- <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="#blog">Blog</a> -->
+            </div>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 shadow-sm"
+              style="background-image: url('/images/BowersCIS.JPG')"
+            ></div>
+          </nav>
+        </header>
+        <main class="px-10 lg:px-20 flex flex-1 justify-center py-12">
+          <div
+            class="layout-content-container flex flex-col w-full max-w-4xl gap-10"
+          >
+            <article class="bg-white shadow-xl rounded-lg overflow-hidden">
+              <header class="relative">
+                <div
+                  class="w-full h-96 bg-center bg-no-repeat bg-cover"
+                  style="background-image: url('/images/doctest.png')"
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+                  ></div>
+                </div>
+                <div class="absolute bottom-0 left-0 p-8 text-white">
+                  <nav aria-label="breadcrumb" class="mb-2">
+                    <ol class="flex items-center space-x-2 text-sm">
+                      <li>
+                        <a class="hover:underline" href="/projects.html"
+                          >Projects</a
+                        >
+                      </li>
+                      <li>
+                        <svg
+                          class="size-4 fill-current"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                            fill-rule="evenodd"
+                          ></path>
+                        </svg>
+                      </li>
+                      <li class="font-semibold">
+                        Automated Unit Test Generation
+                      </li>
+                    </ol>
+                  </nav>
+                  <h1 class="text-4xl font-bold leading-tight tracking-tight">
+                    Automated Unit Test Generation: From 'Cool Demo' to
+                    'Actually Works'
+                  </h1>
+                  <p class="mt-2 text-lg text-slate-200">
+                    Learning the hard way that getting from 'cool demo' to
+                    'actually reliable' is the real challenge.
+                  </p>
+                </div>
+              </header>
+              <div class="p-8 markdown-body text-slate-700">
+                <div class="date-badge">Fall 2024</div>
+
+                <section>
+                  <h2>The Problem: Testing is Essential, Testing is Tedious</h2>
+                  <p>
+                    Here's a truth every developer knows but doesn't want to
+                    admit: writing tests sucks. It's not that tests aren't
+                    important – they absolutely are. It's that test writing
+                    feels like the programming equivalent of doing dishes. You
+                    know you need to do it, but you'd rather spend your time
+                    building the actual product.
+                  </p>
+
+                  <p>
+                    The numbers back this up. Developers typically spend 30-40%
+                    of their time on testing-related activities, yet most
+                    codebases still have inadequate test coverage. When
+                    deadlines loom, guess what gets cut first? It's not the
+                    shiny new feature – it's the comprehensive test suite that
+                    might catch bugs before users do.
+                  </p>
+
+                  <p>
+                    This seemed like the perfect problem for AI to solve. LLMs
+                    can understand code, they can write code, and they can read
+                    documentation. In theory, they should be able to look at a
+                    function and its docstring and generate a complete test
+                    suite. Easy, right?
+                  </p>
+
+                  <p>
+                    Spoiler alert: it's not easy. And that gap between "cool
+                    demo" and "actually reliable system" is where the real
+                    learning happens.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>Why This Gets Hard Fast</h2>
+                  <p>
+                    Writing tests isn't just about generating code that runs.
+                    It's about anticipating edge cases, understanding the
+                    semantic intent behind documentation, and creating tests
+                    that actually catch bugs rather than just passing with the
+                    happy path.
+                  </p>
+
+                  <p>
+                    When you ask a human to write tests, they're doing several
+                    things simultaneously:
+                  </p>
+                  <ul>
+                    <li>
+                      Parsing the function signature and understanding what
+                      inputs are valid
+                    </li>
+                    <li>
+                      Reading the docstring and inferring the intended behavior
+                    </li>
+                    <li>
+                      Thinking about edge cases, error conditions, and boundary
+                      values
+                    </li>
+                    <li>
+                      Writing assertions that meaningfully test the function's
+                      correctness
+                    </li>
+                  </ul>
+
+                  <p>
+                    Current LLMs are decent at the first two, okay at the third,
+                    and surprisingly bad at the fourth. They'll generate tests
+                    that look plausible but fail to actually validate the
+                    function's behavior in meaningful ways.
+                  </p>
+
+                  <p>
+                    And then there's the evaluation problem. How do you measure
+                    whether an AI-generated test is "good"? Syntax is easy to
+                    check, but semantic correctness? Test quality? Coverage of
+                    important edge cases? That's where things get complicated.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>Building a Systematic Approach</h2>
+                  <p>
+                    I tackled this with my collaborator Ethan Yu, using the
+                    HumanEval+ dataset as our foundation. This gave us 164
+                    programming problems with existing test suites – perfect for
+                    training and evaluation. But even with good data, we
+                    immediately hit problems.
+                  </p>
+
+                  <h3>The Dataset Challenge</h3>
+                  <p>
+                    The original HumanEval+ dataset had wildly inconsistent test
+                    coverage. Some functions had one test case, others had over
+                    a hundred. When we tried to train models on this, they had
+                    no idea when to stop generating tests. We'd get incomplete
+                    outputs, token limit overruns, and models that couldn't
+                    follow basic instructions about how many tests to generate.
+                  </p>
+
+                  <p>
+                    So we reconstructed the entire dataset. We standardized on
+                    5, 7, 9, or 11 test cases per function and rebuilt the
+                    training data to be consistent. This wasn't glamorous work,
+                    but it was essential – you can't evaluate model performance
+                    if the model can't even generate well-formed output.
+                  </p>
+
+                  <h3>The Model Comparison</h3>
+                  <p>We tested multiple approaches:</p>
+                  <ul>
+                    <li>
+                      <strong>Fine-tuned LLaMA 3.0/3.1</strong>: Our attempt to
+                      specialize a general model for test generation
+                    </li>
+                    <li>
+                      <strong>CodeLLaMA</strong>: Hypothesis that code-specific
+                      models would perform better
+                    </li>
+                    <li>
+                      <strong>GPT-3.5</strong>: Baseline comparison with a
+                      widely-used model
+                    </li>
+                    <li>
+                      <strong>Gemini</strong>: Additional comparison point
+                    </li>
+                  </ul>
+
+                  <p>
+                    Each model was fine-tuned on our reconstructed dataset and
+                    evaluated on the same criteria.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>The Evaluation Framework: Beyond "Does It Compile?"</h2>
+                  <p>
+                    Here's where most AI code generation projects fail: they
+                    focus on whether the generated code is syntactically correct
+                    and call it a day. But syntactically correct code that
+                    doesn't actually test the function is worse than useless –
+                    it gives you false confidence.
+                  </p>
+
+                  <p>We built a dual-lens evaluation system:</p>
+
+                  <p>
+                    <strong>Syntax Validation</strong>: Does the generated code
+                    parse correctly? Can it run without crashing?
+                  </p>
+
+                  <p>
+                    <strong>Semantic Accuracy</strong>: Do the generated tests
+                    actually validate the function's behavior? We extracted
+                    inputs and expected outputs from generated assertions, ran
+                    them against the original functions, and checked whether the
+                    tests would pass or fail correctly.
+                  </p>
+
+                  <p>
+                    Only tests that passed both criteria were considered
+                    successful. This revealed the real challenge: getting models
+                    to generate semantically meaningful tests, not just
+                    syntactically correct code.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>Mutation Testing: Finding the Real Gaps</h2>
+                  <p>
+                    But we wanted to go further. Even if a model generates tests
+                    that work on the original function, how robust are those
+                    tests? Will they catch bugs if the function changes?
+                  </p>
+
+                  <p>
+                    Traditional mutation testing tools like mutmut weren't
+                    suitable for our custom test format, so we developed an
+                    LLM-based mutation approach using Gemini. We had it
+                    introduce subtle bugs into functions:
+                  </p>
+                  <ul>
+                    <li>Changing arithmetic operators (+ to -, * to /)</li>
+                    <li>Modifying logical conditions (<= to <)</li>
+                    <li>Tweaking return values slightly</li>
+                  </ul>
+
+                  <p>
+                    Then we tested whether our generated test suites would catch
+                    these mutations. The results were... humbling.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>Real Results: The Good, Bad, and Ugly</h2>
+                  <p>Let's be honest about the numbers:</p>
+
+                  <p>
+                    <strong>Gemini</strong>: 46.67% accuracy, 100% syntax
+                    validity<br />
+                    <strong>GPT-3.5</strong>: 40% accuracy, 83.3% syntax
+                    validity<br />
+                    <strong>Our fine-tuned model</strong>: 38.46% accuracy,
+                    86.7% syntax validity
+                  </p>
+
+                  <p>
+                    These aren't terrible numbers, but they're not
+                    production-ready either. And mutation testing revealed even
+                    bigger problems – our fine-tuned model dropped to just
+                    26.92% accuracy when tested against mutated functions.
+                  </p>
+
+                  <p>
+                    What this told us: current models are decent at generating
+                    tests that pass on the original function, but they're not
+                    great at generating tests that would catch real bugs.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>What I Actually Learned</h2>
+                  <p>
+                    The technical results were interesting, but the bigger
+                    lessons were about the nature of building reliable AI
+                    systems:
+                  </p>
+
+                  <p>
+                    <strong>The Demo vs. Reality Gap is Real</strong>: It's easy
+                    to build a system that generates impressive-looking test
+                    code. It's much harder to build one that generates tests
+                    that actually improve code quality.
+                  </p>
+
+                  <p>
+                    <strong>Evaluation is Everything</strong>: Without rigorous
+                    evaluation frameworks, you can't tell the difference between
+                    a system that works and one that just looks like it works.
+                    We spent as much time building evaluation tools as we did
+                    building the core system.
+                  </p>
+
+                  <p>
+                    <strong>Robustness is Rare</strong>: Models that perform
+                    well on standard benchmarks often fail when you introduce
+                    even small variations. Our mutation testing revealed how
+                    brittle current approaches really are.
+                  </p>
+
+                  <p>
+                    <strong>Specialization Isn't Always Better</strong>:
+                    Somewhat surprisingly, our fine-tuned code-specific models
+                    didn't dramatically outperform general models like Gemini.
+                    This suggests that model architecture and training data
+                    quality matter more than domain specialization alone.
+                  </p>
+                </section>
+
+                <section>
+                  <h2>
+                    The Bigger Picture: Building Systems That Actually Work
+                  </h2>
+                  <p>
+                    This project reinforced something I've learned throughout my
+                    research: the gap between "cool AI demo" and "reliable
+                    system" is enormous, and bridging it requires systematic
+                    thinking about evaluation, robustness, and failure modes.
+                  </p>
+
+                  <p>
+                    The techniques we developed here – particularly the
+                    comprehensive evaluation framework and LLM-based mutation
+                    testing – directly inform my current work on evaluating
+                    reasoning capabilities in language models. The fundamental
+                    challenge is the same: how do you measure whether an AI
+                    system actually works, rather than just appears to work?
+                  </p>
+
+                  <p>
+                    And the lesson about robustness connects to broader
+                    questions in AI alignment. If we're building AI systems that
+                    need to work reliably in the real world, we need to
+                    understand how they fail and why. Test generation might seem
+                    like a narrow technical problem, but the principles apply
+                    much more broadly.
+                  </p>
+
+                  <p>
+                    The goal isn't just to generate code that looks right – it's
+                    to build systems that are reliable, robust, and actually
+                    improve the software development process. That's much harder
+                    than the initial demo, but it's the only way to create AI
+                    tools that developers will actually trust and use.
+                  </p>
+                </section>
+
+                <div class="mt-12 pt-8 border-t border-slate-200">
+                  <a
+                    class="inline-flex items-center text-[#1672ce] hover:text-[#1361b3] font-medium group"
+                    href="/projects.html"
+                  >
+                    <svg
+                      class="mr-2 size-5 transform group-hover:-translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15 19l-7-7 7-7"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                    Back to All Projects
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </main>
+        <footer class="bg-slate-800 text-slate-300 mt-16">
+          <div class="flex justify-center">
+            <div class="flex max-w-5xl w-full flex-1 flex-col">
+              <div
+                class="flex flex-col gap-6 px-10 py-10 text-center @container items-center"
+              >
+                <div class="flex flex-wrap justify-center gap-6">
+                  <!-- <a aria-label="Twitter Profile" class="text-slate-400 hover:text-white transition-colors" href="#">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
+</svg>
+</a> -->
+                  <a
+                    aria-label="LinkedIn Profile"
+                    class="text-slate-400 hover:text-white transition-colors"
+                    href="https://www.linkedin.com/in/davidakinboro/"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="28px"
+                      viewBox="0 0 256 256"
+                      width="28px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    aria-label="GitHub Profile"
+                    class="text-slate-400 hover:text-white transition-colors"
+                    href="https://github.com/UPSD1"
+                  >
+                    <svg
+                      fill="currentColor"
+                      height="28px"
+                      viewBox="0 0 256 256"
+                      width="28px"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <p class="text-slate-400 text-sm font-normal leading-normal">
+                  © 2025 David Akinboro. All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+      // Update active nav link based on current page
+      window.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname;
+        document.querySelectorAll("header nav a").forEach((link) => {
+          link.classList.remove("active-nav-link");
+          // Check if the link's href is a prefix of the current path OR if it's an exact match for other pages
+          if (
+            (currentPath.startsWith(link.getAttribute("href")) &&
+              link.getAttribute("href") !== "/") ||
+            currentPath === link.getAttribute("href")
+          ) {
+            if (
+              link.getAttribute("href") === "/projects.html" ||
+              currentPath.includes("project-detail.html")
+            ) {
+              const projectsMainLink = document.querySelector(
+                'header nav a[href="/projects.html"]'
+              );
+              if (projectsMainLink)
+                projectsMainLink.classList.add("active-nav-link");
+            } else {
+              link.classList.add("active-nav-link");
+            }
+          }
+        });
+        // If on the root path or index.html, highlight "Projects" by default
+        if (currentPath === "/" || currentPath === "/index.html") {
+          const projectsLink = document.querySelector(
+            'header nav a[href="/projects.html"]'
+          );
+          if (projectsLink) {
+            projectsLink.classList.add("active-nav-link");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
