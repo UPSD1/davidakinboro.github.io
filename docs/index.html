@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html><head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
 <title>David Akinboro - Portfolio</title>
@@ -26,13 +28,12 @@
        .item-card {
     display: flex;
     background-color: white;
-    border-radius: 0.75rem; /* 12px */
+    border-radius: 0.75rem; 
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
-/* What I'm working on */
 .item-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -41,30 +42,98 @@
 .item-accent-bar {
     flex-shrink: 0;
     width: 6px;
-    background-color: #1672ce; /* Your theme's blue color */
+    background: linear-gradient(135deg, #1672ce 0%, #4f46e5 100%);
 }
 
 .item-content {
-    padding: 1.5rem; /* 24px */
+    padding: 1.5rem; 
 }
 
 .item-title {
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem; 
     font-weight: 600;
-    color: #1e293b; /* slate-800 */
-    margin-bottom: 0.5rem; /* 8px */
+    color: #1e293b; 
+    margin-bottom: 0.75rem; 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .item-description {
-    font-size: 1rem; /* 16px */
-    color: #475569; /* slate-600 */
+    font-size: 0.95rem; 
+    color: #475569; 
     line-height: 1.6;
+    margin-bottom: 1rem;
 } 
+
+.item-description:last-child {
+    margin-bottom: 0;
+}
+
+/* Enhanced Research Cards */
+.research-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.research-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1672ce 0%, #4f46e5 100%);
+}
+
+.research-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.research-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.research-card h3 .icon {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.research-card p {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.research-card p:last-child {
+    margin-bottom: 0;
+}
 
 /* Teaching Section */
 .teaching-list-container {
     background-color: white;
-    border-radius: 0.75rem; /* 12px */
+    border-radius: 0.75rem; 
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     overflow: hidden;
 }
@@ -72,191 +141,216 @@
 .teaching-item {
     display: flex;
     align-items: center;
-    padding: 1.25rem 1.5rem; /* 20px 24px */
-    border-bottom: 1px solid #e5e7eb; /* A light line between items */
+    padding: 1.25rem 1.5rem; 
+    border-bottom: 1px solid #e5e7eb; 
 }
 
-/* Removes the border from the last item */
 .teaching-item:last-child {
     border-bottom: none;
 }
 
 .teaching-icon {
-    font-size: 1.875rem; /* 30px */
-    margin-right: 1.5rem; /* 24px */
+    font-size: 1.875rem; 
+    margin-right: 1.5rem; 
 }
 
 .course-title {
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem; 
     font-weight: 600;
-    color: #1e293b; /* slate-800 */
+    color: #1e293b; 
 }
 
 .course-semester {
-    font-size: 1rem; /* 16px */
-    color: #64748b; /* slate-500 */
+    font-size: 1rem; 
+    color: #64748b; 
     margin-top: 2px;
 }
 
-/* Next Goals Section Styles */
-.section {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+    .main-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .hero-section {
+        padding: 1rem;
+    }
+    
+    .hero-image {
+        min-height: 8rem;
+        width: 8rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-text {
+        font-size: 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .research-card {
+        padding: 1.25rem;
+    }
+    
+    .research-card h3 {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .teaching-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .teaching-icon {
+        margin-right: 0;
+    }
+    
+    .contact-section {
+        padding: 1.5rem;
+    }
 }
 
-.container {
-    max-width: 960px; /* Constrained width works well for a vertical flow */
-    margin: 0 auto;
-    padding: 0 1rem;
+@media (max-width: 640px) {
+    .header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.section-content {
-    max-width: 800px;
-    margin: 0 auto 2rem auto;
-    text-align: center;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.section-content .subline {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-top: 0.5rem;
-}
-
-/* Styles for the Flow Layout */
-.goals-flow-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the items and connectors */
-    margin-top: 3rem;
-}
-
-.goal-flow-item {
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    width: 100%;
-    max-width: 700px; /* Control the max width of the items */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-    border: 1px solid #e9ecef;
-}
-
-.goal-flow-icon {
-    font-size: 2.5rem;
-    margin-right: 1.5rem;
-    background-color: #eef6ff; /* A light blue background for the icon */
-    padding: 0.75rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70px;
-    height: 70px;
-}
-
-.goal-flow-content h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #222;
-}
-
-.goal-flow-content p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-/* The vertical connecting line */
-.goal-flow-connector {
-    width: 2px;
-    height: 3rem; /* The space between items */
-    background-color: #d0d7de;
-}
-
-/* Remove the last connector line */
-.goals-flow-container .goal-flow-connector:last-of-type {
+.mobile-menu {
     display: none;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 640px) {
-    .goal-flow-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    .goal-flow-icon {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    background-color: #1672ce;
+    color: white;
+    border-color: #1672ce;
+    transform: translateY(-1px);
+}
+
+.social-link svg {
+    width: 1rem;
+    height: 1rem;
 }
     </style>
 </head>
 <body class="bg-slate-50">
 <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
 <div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
+<header class="header flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-4 lg:px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
 <div class="flex items-center gap-3 text-slate-800">
 <div class="size-7 text-[#1672ce]">
 <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h1 class="text-slate-800 text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
+<h1 class="text-slate-800 text-lg lg:text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
 </div>
-<nav class="flex flex-1 justify-end items-center gap-8">
-<div class="flex items-center gap-6">
+<nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+<div class="nav-links flex items-center gap-6">
 <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="./projects.html">Projects</a>
-<!-- <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="#blog">Blog</a> -->
 </div>
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("./images/BowersCIS.JPG");'></div>
+<!-- Mobile menu button -->
+<div class="mobile-menu">
+<button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
+<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("./images/BowersCIS.JPG");'></div>
 </nav>
 </header>
-<main class="px-20 lg:px-40 flex flex-1 justify-center py-10">
-<div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-12">
-<section class="flex p-4 @container items-center justify-center">
+<main class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-6 lg:py-10">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-8 lg:gap-12">
+<section class="hero-section flex p-4 @container items-center justify-center">
 <div class="flex w-full flex-col gap-6 items-center text-center">
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-36 w-36 shadow-lg border-4 border-white" style='background-image: url("./images/BowersCIS.JPG");'></div>
+<div class="hero-image bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-36 w-36 shadow-lg border-4 border-white" style='background-image: url("./images/BowersCIS.JPG");'></div>
 <div class="flex flex-col items-center gap-1">
-<h1 class="text-slate-900 text-3xl font-bold leading-tight tracking-tight">David Akinboro</h1>
-<!-- <p class="text-slate-600 text-lg font-normal leading-normal">MS in Computer Science, Cornell University</p> -->
-<!-- <p class="text-slate-600 text-lg font-normal leading-normal">Natural Language Processing | Reinforcement Learning - Building Aligned Systems</p> --> 
-<section class="text-slate-700 text-lg space-y-4">
+<h1 class="hero-title text-slate-900 text-2xl lg:text-3xl font-bold leading-tight tracking-tight">David Akinboro</h1>
+<section class="hero-text text-slate-700 text-base lg:text-lg space-y-4">
       <p>
-        I'm obsessed with a simple question: can we build AI systems that actually think through problems instead of just pattern-matching their way to answers?
+        I build AI systems that solve real problems, not just academic ones.
       </p>
       <p>
-        That question drives my research at <strong>Cornell University</strong>, where I'm wrapping up my MS in Computer Science as part of a selective 12-student program. I work with <a href="https://www.cs.cornell.edu/home/cardie/"><strong>Claire Cardie</strong></a> on reinforcement learning and natural language processing, specifically using RL and efficient test-time scaling to make language models reason more systematically while keeping costs realistic.
+        Right now, I'm wrapping up my MS in Computer Science at <strong>Cornell University</strong>, where I work with <a href="https://www.cs.cornell.edu/home/cardie/"><strong>Claire Cardie</strong></a> on making language models actually reason through problems instead of just pattern-matching their way to answers. But here's what's different about my approach: before diving into AI research, I spent time in software engineering and sales.
       </p>
       <p>
-        But what makes my approach different is, before diving into AI research, I spent time in software engineering and sales. That experience taught me to look beyond academic benchmarks and ask harder questions - like whether a "brilliant" model actually works when real people need to use it in messy, real-world situations.
+        That means I've been on both sides – building production systems that need to handle real users and real data, and working directly with clients to understand what actually solves their problems.
       </p>
       <p>
-        My focus is building aligned reasoning systems that are both transparent and trustworthy. Because what's the point of breakthrough research if it never makes it out of the lab to help actual people solve actual problems?
+        I want to ship AI that professionals can actually rely on when it matters. Because what's the point of breakthrough research if it never makes it out of the lab to help actual people solve actual problems?
       </p>
 </section>
 
+<!-- Social Links -->
+<div class="social-links flex flex-col sm:flex-row items-center gap-3 mt-4">
+<a href="https://github.com/UPSD1" target="_blank" class="social-link">
+<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+</svg>
+View Projects
+</a>
+<a href="https://www.linkedin.com/in/davidakinboro/" target="_blank" class="social-link">
+<svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"></path>
+</svg>
+Connect
+</a>
+</div>
+
 </div>
 <a class="inline-flex items-center justify-center rounded-lg bg-[#1672ce] px-6 py-3 text-base font-medium text-white shadow-md hover:bg-[#1361b3] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1672ce] focus:ring-offset-2" href="#contact">
-                  Get in Touch
-                </a>
+Get in Touch
+</a>
 </div>
 </section>
 <section id="projects">
 <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-6">Systems I've Built</h2>
-<p class="subline"><em>Here's how I've been putting these ideas into practice</em></p> 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 p-4">
+<p class="subline px-4"><em>Here's how I've been putting these ideas into practice</em></p> 
+<div class="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 p-4">
 <div class="flex flex-col gap-3 pb-3 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300">
 <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" style='background-image: url("./images/law.png");'></div>
 <div class="p-4">
@@ -274,46 +368,58 @@
 <div class="flex flex-col gap-3 pb-3 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300">
 <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" style='background-image: url("./images/doctest.png");'></div>
 <div class="p-4">
-<h3 class="text-slate-800 text-lg font-semibold leading-normal line-clamp-2"><a href="./projects/doctest.html"></a>Automated Unit Test Generation: Making Reliable Code Less Painful</a></h3>
+<h3 class="text-slate-800 text-lg font-semibold leading-normal line-clamp-2"><a href="./projects/doctest.html">Automated Unit Test Generation: Making Reliable Code Less Painful</a></h3>
 <p class="text-slate-600 text-sm font-normal leading-normal mt-1">Built a systematic pipeline that generates Python unit tests from docstrings, then uses mutation testing to verify the tests actually catch bugs.</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- What I'm working on Currently -->
-<section class="py-12 bg-slate-50">
+<!-- Enhanced Current Research Section -->
+<section class="py-8 lg:py-12">
     <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-6">Current Research</h2>
-        <div class="space-y-4">
+        <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-8">Current Research</h2>
+        <div class="space-y-6">
 
-            <div class="item-card">
-                <div class="item-accent-bar"></div>
-                <div class="item-content">
-                    <h3 class="item-title"><a href="https://lexlens.app/">Making AI Show Its Work</a></h3>
-                    <p class="item-description">
-                        Most legal AI is a black box - you get answers but no explanation of how it got there. I'm building what I call "glass box" legal AI using attention analysis and interpretability techniques. Every conclusion the system makes can be traced back to specific facts and evidence. It's like having an AI that can highlight exactly which sentences influenced its reasoning.
-                    </p>
-                </div>
+            <div class="research-card">
+                <h3>
+                    <span class="icon">🔍</span>
+                    <a href="https://lexlens.app/" class="hover:text-[#1672ce] transition-colors">Glass Box AI: Making Black Boxes Transparent</a>
+                </h3>
+                <p>
+                    Most legal AI gives you answers with zero explanation. You ask about contract precedents, it spits out cases, and you're supposed to just trust it got there correctly. That's fine for consumer apps, but useless for professionals who need to stake their reputation on the reasoning.
+                </p>
+                <p>
+                    We're building what we call "glass box" legal AI – systems where every conclusion can be traced back to specific evidence. Using attention analysis and interpretability techniques, you can see exactly which facts and legal principles influenced each decision. It's like having an AI research assistant that can highlight its sources and explain its logic.
+                </p>
+                <p>
+                    The technical challenge isn't just accuracy – it's building trust. Legal professionals need to understand not just <em>what</em> the AI concluded, but <em>how</em> it got there and <em>when</em> they should question it.
+                </p>
             </div>
 
-            <div class="item-card">
-                <div class="item-accent-bar"></div>
-                <div class="item-content">
-                    <h3 class="item-title"><a href="https://lexlens.app/">Building AI You Can Actually Trust</a></h3>
-                    <p class="item-description">
-                        My other project addresses the bigger question: how do you deploy AI in high-stakes situations like legal analysis or medical diagnosis? I'm developing a multi-stage system where each reasoning step has built-in safety checks and human oversight points. The goal isn't just accurate AI - it's AI that professionals can confidently rely on when it matters.
-                    </p>
-                </div>
+            <div class="research-card">
+                <h3>
+                    <span class="icon">🛡️</span>
+                    <a href="https://lexlens.app/" class="hover:text-[#1672ce] transition-colors">Multi-Stage Safety: AI That Knows Its Limits</a>
+                </h3>
+                <p>
+                    Here's the real problem with deploying AI in high-stakes domains: most systems are overconfident. They'll confidently give you the wrong answer about a medical diagnosis or legal precedent.
+                </p>
+                <p>
+                    I'm developing a multi-stage approach with built-in safety checks and human oversight points. Instead of one big AI making all the decisions, you get a system that breaks complex reasoning into steps, flags uncertainty, and hands off to humans when it hits its limits.
+                </p>
+                <p>
+                    The goal isn't just accurate AI – it's AI that professionals can confidently rely on because it's honest about what it knows and what it doesn't.
+                </p>
             </div>
 
         </div>
     </div>
 </section>
 
-<section class="py-12">
+<section class="py-8 lg:py-12">
     <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">Teaching Experience</h2>
+        <h2 class="text-2xl lg:text-3xl font-bold text-center text-slate-900 mb-8">Teaching Experience</h2>
         
         <div class="teaching-list-container">
             <div class="teaching-item">
@@ -322,7 +428,7 @@
                 </span>
                 <div class="teaching-details">
                     <h3 class="course-title">CS 2800: Discrete Structures</h3>
-                    <p class="course-semester">Teaching Assistant, Fall 2023 & Fall 2024</p>
+                    <p class="course-semester">Graduate Teaching Assistant, Fall 2023 & Fall 2024</p>
                 </div>
             </div>
 
@@ -332,75 +438,23 @@
                 </span>
                 <div class="teaching-details">
                     <h3 class="course-title">CS 1110: Introduction to Python</h3>
-                    <p class="course-semester">Teaching Assistant, Spring 2024</p>
+                    <p class="course-semester">Graduate Teaching Assistant, Spring 2024</p>
                 </div>
             </div>
-
             <div class="teaching-item">
                 <span class="teaching-icon">🧠</span>
                 <div class="teaching-details">
                     <h3 class="course-title">CS 1700: Elements of Artificial Intelligence</h3>
-                    <p class="course-semester">Teaching Assistant, Spring 2025</p>
+                    <p class="course-semester">Graduate Teaching Assistant, Spring 2025</p>
                 </div>
             </div>
 
-        </div>
-    </div>
-</section>
-
-<!-- What's Next -->
-<section class="section">
-    <div class="container">
-        <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-6">What's Next</h2>
-        <div class="section-content">
-            <p>I'm not just thinking about the future - I'm actively building it: </p>
-            <p class="subline"><em>I'll update links to each of these over time.</em></p>
-        </div>
-
-        <div class="goals-flow-container">
-            <div class="goal-flow-item">
-                <div class="goal-flow-icon">🤝</div>
-                <div class="goal-flow-content">
-                    <h3>Industry Collaboration (Active)</h3>
-                    <p>Currently in conversations with Edtech startups and law school about deploying transparent reasoning systems.</p>
-                </div>
-            </div>
-
-            <div class="goal-flow-connector"></div>
-
-            <div class="goal-flow-item">
-                <div class="goal-flow-icon">🔬</div>
-                <div class="goal-flow-content">
-                    <h3>Research Team Formation (In Progress)</h3>
-                    <p>Building a collaborative network with fellow researchers and industry practitioners focused on responsible AI deployment. We're currently three people with complementary expertise in safety, evaluation, and domain applications - looking to expand to 5-6 core members by fall 2025.</p>
-                </div>
-            </div>
-
-            <div class="goal-flow-connector"></div>
-
-            <div class="goal-flow-item">
-                <div class="goal-flow-icon">🇳🇬</div>
-                <div class="goal-flow-content">
-                    <h3>Local Impact Initiative (Planning Phase)</h3>
-                    <p>Developing partnerships with Nigerian tech organizations to translate AI research into practical solutions for education and governance. Already connected with two local startups interested in responsible AI deployment for emerging markets.</p>
-                </div>
-            </div>
-            
-            <div class="goal-flow-connector"></div>
-
-            <div class="goal-flow-item">
-                <div class="goal-flow-icon">🛠️</div>
-                <div class="goal-flow-content">
-                    <h3>Open Source Tools (Q4 2025 Launch)</h3>
-                    <p>Releasing evaluation frameworks and interpretability tools that make it easier for teams to build trustworthy AI systems. Because good intentions aren't enough - you need practical tools that actually work</p>
-                </div>
-            </div>
         </div>
     </div>
 </section>
 
 <!-- Contact me-->
-<section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg" id="contact">
+<section class="contact-section bg-white p-6 sm:p-8 rounded-xl shadow-lg" id="contact">
   <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-5 border-b border-slate-200 mb-6">Let's Connect</h2>
   
   <div class="max-w-lg mx-auto">
@@ -494,17 +548,12 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
 <div class="flex max-w-[960px] flex-1 flex-col">
 <div class="flex flex-col gap-6 px-5 py-10 text-center @container items-center">
 <div class="flex flex-wrap justify-center gap-5">
-<!-- <a class="text-slate-400 hover:text-white transition-colors" href="#">
-<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
-<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
-</svg>
-</a> -->
-<a class="text-slate-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/davidakinboro/">
+<a class="text-slate-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/davidakinboro/" target="_blank" aria-label="LinkedIn Profile">
 <svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
 <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
 </svg>
 </a>
-<a class="text-slate-400 hover:text-white transition-colors" href="https://github.com/UPSD1">
+<a class="text-slate-400 hover:text-white transition-colors" href="https://github.com/UPSD1" target="_blank" aria-label="GitHub Profile">
 <svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
 <path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
 </svg>
