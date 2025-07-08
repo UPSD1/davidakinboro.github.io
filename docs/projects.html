@@ -1,6 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
     <link
       as="style"
@@ -31,6 +32,109 @@
         height: 2px;
         background-color: #1672ce;
       }
+      
+      /* Mobile Responsive Improvements */
+      @media (max-width: 768px) {
+        .mobile-header {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+          padding-top: 0.75rem !important;
+          padding-bottom: 0.75rem !important;
+        }
+        
+        .mobile-main {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+          padding-top: 2rem !important;
+          padding-bottom: 2rem !important;
+        }
+        
+        .mobile-title {
+          font-size: 2rem !important;
+          line-height: 1.1 !important;
+        }
+        
+        .mobile-subtitle {
+          font-size: 1rem !important;
+          line-height: 1.5 !important;
+        }
+        
+        .mobile-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
+        }
+        
+        .mobile-card {
+          margin-bottom: 0.5rem;
+        }
+        
+        .mobile-card-title {
+          font-size: 1.125rem !important;
+          line-height: 1.3 !important;
+        }
+        
+        .mobile-card-text {
+          font-size: 0.875rem !important;
+          line-height: 1.4 !important;
+        }
+        
+        .mobile-footer {
+          margin-top: 3rem !important;
+          padding: 2rem 1rem !important;
+        }
+      }
+      
+      @media (max-width: 640px) {
+        .logo-text {
+          font-size: 1rem !important;
+        }
+        
+        .nav-links {
+          display: none;
+        }
+        
+        .mobile-menu {
+          display: block;
+        }
+        
+        .mobile-header {
+          padding-left: 0.75rem !important;
+          padding-right: 0.75rem !important;
+        }
+        
+        .mobile-main {
+          padding-left: 0.75rem !important;
+          padding-right: 0.75rem !important;
+        }
+        
+        .mobile-title {
+          font-size: 1.75rem !important;
+        }
+        
+        .mobile-grid {
+          gap: 1rem !important;
+        }
+      }
+      
+      /* Default mobile menu hidden */
+      .mobile-menu {
+        display: none;
+      }
+      
+      /* Ensure images are responsive */
+      .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        background-size: cover;
+        background-position: center;
+      }
+      
+      @media (max-width: 640px) {
+        .project-image {
+          height: 180px;
+        }
+      }
     </style>
   </head>
   <body class="bg-slate-50">
@@ -40,13 +144,13 @@
     >
       <div class="layout-container flex h-full grow flex-col">
         <header
-          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 bg-white sticky top-0 z-50 shadow-sm"
+          class="mobile-header flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 bg-white sticky top-0 z-50 shadow-sm"
         >
           <a
-            class="flex items-center gap-3 text-slate-800 hover:text-[#1672ce] transition-colors"
-            href="/"
+            class="flex items-center gap-2 lg:gap-3 text-slate-800 hover:text-[#1672ce] transition-colors"
+            href="./index.html"
           >
-            <div class="size-7 text-[#1672ce]">
+            <div class="size-6 lg:size-7 text-[#1672ce]">
               <svg
                 fill="none"
                 viewBox="0 0 48 48"
@@ -60,71 +164,69 @@
                 ></path>
               </svg>
             </div>
-            <h1 class="text-xl font-bold leading-tight tracking-tight">
+            <h1 class="logo-text text-lg lg:text-xl font-bold leading-tight tracking-tight">
               David Akinboro
             </h1>
           </a>
-          <nav class="flex flex-1 justify-end items-center gap-8">
-            <div class="flex items-center gap-6">
+          <nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+            <div class="nav-links flex items-center gap-6">
               <a
                 class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
                 href="./projects.html"
                 >Projects</a
               >
-              <!-- <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="/blog.html">Blog</a>
-<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="/contact.html">Contact</a> -->
+            </div>
+            <!-- Mobile menu button -->
+            <div class="mobile-menu">
+              <button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
             </div>
             <div
-              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 shadow-sm"
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm"
               style="background-image: url('./images/BowersCIS.JPG')"
             ></div>
           </nav>
         </header>
-        <main class="px-10 lg:px-20 flex flex-1 justify-center py-12">
+        <main class="mobile-main px-10 lg:px-20 flex flex-1 justify-center py-12">
           <div
-            class="layout-content-container flex flex-col w-full max-w-5xl gap-10"
+            class="layout-content-container flex flex-col w-full max-w-5xl gap-6 lg:gap-10"
           >
             <section class="flex flex-col gap-4">
               <div class="flex items-center justify-between">
                 <h1
-                  class="text-slate-900 text-3xl font-bold leading-tight tracking-tight"
+                  class="mobile-title text-slate-900 text-3xl font-bold leading-tight tracking-tight"
                 >
                   Projects
                 </h1>
-                <!-- <div class="flex items-center gap-2">
-<span class="text-slate-600 text-sm">Sort by:</span>
-<select class="form-select rounded-md border-slate-300 shadow-sm focus:border-[#1672ce] focus:ring focus:ring-[#1672ce] focus:ring-opacity-50 text-sm">
-<option>Most Recent</option>
-<option>Most Popular</option>
-<option>By Topic</option>
-</select>
-</div> -->
               </div>
-              <p class="text-slate-600 text-lg">
+              <p class="mobile-subtitle text-slate-600 text-lg">
                 Here's how I've been putting these ideas into practice. 
                 Each project started with a real problem I encountered, and I built working solutions that people actually use.
               </p>
             </section>
             <section
-              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              class="mobile-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               id="projects-grid"
             >
               <a
-                class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
+                class="mobile-card flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
                 href="./projects/legal.html"
               >
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  class="project-image w-full bg-center bg-no-repeat aspect-video bg-cover"
                   style="background-image: url('./images/law.png')"
                 ></div>
-                <div class="p-5 flex flex-col flex-grow">
+                <div class="p-4 lg:p-5 flex flex-col flex-grow">
                   <h3
-                    class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
+                    class="mobile-card-title text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
                   >
                     LegalReasoner: AI That Reasons, Not Just Searches
                   </h3>
                   <p
-                    class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
+                    class="mobile-card-text text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
                   >
                     Built for Cornell law students who were spending 4+ hours on 90-minute research assignments.
                   </p>
@@ -151,21 +253,21 @@
               </a>
 
               <a
-                class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
+                class="mobile-card flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
                 href="./projects/graph.html"
               >
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  class="project-image w-full bg-center bg-no-repeat aspect-video bg-cover"
                   style="background-image: url('./images/GRG Updated.png')"
                 ></div>
-                <div class="p-5 flex flex-col flex-grow">
+                <div class="p-4 lg:p-5 flex flex-col flex-grow">
                   <h3
-                    class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
+                    class="mobile-card-title text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
                   >
                     An AI Teaching Assistant for the Modern Classroom 
                   </h3>
                   <p
-                    class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
+                    class="mobile-card-text text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
                   >
                     Inspired by Harvard's CS50 work, but built for Cornell's needs. 79% accuracy on complex conceptual questions, matching human TA performance.
                   </p>
@@ -191,22 +293,22 @@
                 </div>
               </a>
               <a
-                class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
+                class="mobile-card flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
                 href="./projects/doctest.html"
               >
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  class="project-image w-full bg-center bg-no-repeat aspect-video bg-cover"
                   style="background-image: url('./images/doctest.png')"
                 ></div>
-                <div class="p-5 flex flex-col flex-grow">
+                <div class="p-4 lg:p-5 flex flex-col flex-grow">
                   <h3
-                    class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
+                    class="mobile-card-title text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
                   >
                     Automated Unit Test Generation: From 'Cool Demo' to
                     'Actually Works'
                   </h3>
                   <p
-                    class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
+                    class="mobile-card-text text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
                   >
                     Making Reliable Code Less Painful.
                   </p>
@@ -232,21 +334,21 @@
                 </div>
               </a>
               <a
-                class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
+                class="mobile-card flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
                 href="./projects/flakytest.html"
               >
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  class="project-image w-full bg-center bg-no-repeat aspect-video bg-cover"
                   style="background-image: url('./images/flakytest.png')"
                 ></div>
-                <div class="p-5 flex flex-col flex-grow">
+                <div class="p-4 lg:p-5 flex flex-col flex-grow">
                   <h3
-                    class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
+                    class="mobile-card-title text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
                   >
                     The Hunt for Flaky Tests: When Code Analysis Meets Reality
                   </h3>
                   <p
-                    class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
+                    class="mobile-card-text text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
                   >
                     Building tools that help ML teams ship more reliable software
                   </p>
@@ -273,21 +375,21 @@
               </a>
 
               <a
-                class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
-                href="./codesynthesi.html"
+                class="mobile-card flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group"
+                href="./projects/codesynthesi.html"
               >
                 <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                  class="project-image w-full bg-center bg-no-repeat aspect-video bg-cover"
                   style="background-image: url('./images/codeSynthesis.png')"
                 ></div>
-                <div class="p-5 flex flex-col flex-grow">
+                <div class="p-4 lg:p-5 flex flex-col flex-grow">
                   <h3
-                    class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
+                    class="mobile-card-title text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors"
                   >
                     Making AI Code Generation Actually Reliable
                   </h3>
                   <p
-                    class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
+                    class="mobile-card-text text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow"
                   >
                    From 82.9% to 84.1% - The methodical work of improving AI code synthesis through systematic evaluation
                   </p>
@@ -312,40 +414,19 @@
                   </div>
                 </div>
               </a>
-
-              <!-- <a class="flex flex-col gap-4 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 group" href="/project-detail.html">
-<div class="w-full bg-center bg-no-repeat aspect-video bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXz_pYqQ_oI_tXwF8sK7jL4mN2vR1gU6yP-tH-xG-wD0aR_uS-zX_cE9vF_wL7qX_iK5tO_vJ_eH4zT_sY-uM9iJ_wN_oA8lB_xT_vG-qY7zP2wO9lE8kM_sV_nJ_rT_xP_bW_jI_aL_nU8zK7cR_");'></div>
-<div class="p-5 flex flex-col flex-grow">
-<h3 class="text-slate-800 text-xl font-semibold leading-snug group-hover:text-[#1672ce] transition-colors">Research on Ethical AI</h3>
-<p class="text-slate-600 text-sm font-normal leading-relaxed mt-2 flex-grow">Conducted in-depth research into the ethical implications of AI, focusing on bias detection, fairness, and transparency in machine learning models.</p>
-<div class="mt-4 flex items-center text-sm font-medium text-[#1672ce] group-hover:underline">
-<span>View Details</span>
-<svg class="ml-1 size-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
-</svg>
-</div>
-</div>
-</a> -->
             </section>
             <div class="flex justify-center mt-8">
-              <!-- <button class="inline-flex items-center justify-center rounded-lg bg-[#1672ce] px-8 py-3 text-base font-medium text-white shadow-md hover:bg-[#1361b3] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1672ce] focus:ring-offset-2">
-                  Load More Projects
-                </button> -->
+              <!-- Load more button placeholder if needed -->
             </div>
           </div>
         </main>
-        <footer class="bg-slate-800 text-slate-300 mt-16">
+        <footer class="mobile-footer bg-slate-800 text-slate-300 mt-16">
           <div class="flex justify-center">
             <div class="flex max-w-5xl w-full flex-1 flex-col">
               <div
-                class="flex flex-col gap-6 px-10 py-10 text-center @container items-center"
+                class="flex flex-col gap-6 px-5 lg:px-10 py-6 lg:py-10 text-center @container items-center"
               >
                 <div class="flex flex-wrap justify-center gap-6">
-                  <!-- <a aria-label="Twitter Profile" class="text-slate-400 hover:text-white transition-colors" href="#">
-<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
-<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
-</svg>
-</a> -->
                   <a
                     aria-label="LinkedIn Profile"
                     class="text-slate-400 hover:text-white transition-colors"

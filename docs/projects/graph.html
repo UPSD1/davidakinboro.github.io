@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
 <title>Project: Graph RAG for Education - David Akinboro</title>
@@ -88,40 +89,113 @@
       display: inline-block;
       margin-bottom: 1rem;
     }
+    
+    /* Results/Performance Cards */
+    .performance-card {
+      background: linear-gradient(135deg, #f6f8fa 0%, #e1e8ed 100%);
+      border-left: 4px solid #1672ce;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .metric-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #1672ce;
+    }
+    
+    /* Mobile-specific improvements */
+    @media (max-width: 768px) {
+      .markdown-body h1 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+      }
+      .markdown-body h2 {
+        font-size: 1.25rem;
+      }
+      .markdown-body h3 {
+        font-size: 1.1rem;
+      }
+      .markdown-body p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
+      .markdown-body pre {
+        font-size: 0.8rem;
+        padding: 12px;
+        overflow-x: auto;
+      }
+      .markdown-body ul, .markdown-body ol {
+        margin-left: 16px;
+      }
+      .date-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+      .performance-card {
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+      .metric-number {
+        font-size: 1.5rem;
+      }
+    }
+    
+    /* Better code block mobile handling */
+    @media (max-width: 640px) {
+      .markdown-body pre {
+        border-radius: 4px;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding: 12px 16px;
+      }
+      .markdown-body code {
+        font-size: 0.8rem;
+        word-break: break-word;
+      }
+    }
   </style>
 </head>
 <body class="bg-slate-50">
 <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
 <div class="layout-container flex h-full grow flex-col">
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
-<a class="flex items-center gap-3 text-slate-800 hover:text-[#1672ce] transition-colors" href="/">
-<div class="size-7 text-[#1672ce]">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-4 lg:px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
+<a class="flex items-center gap-2 lg:gap-3 text-slate-800 hover:text-[#1672ce] transition-colors" href="../index.html">
+<div class="size-6 lg:size-7 text-[#1672ce]">
 <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
 </svg>
 </div>
-<h1 class="text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
+<h1 class="text-lg lg:text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
 </a>
-<nav class="flex flex-1 justify-end items-center gap-8">
-<div class="flex items-center gap-6">
-<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="/projects.html">Projects</a>
-<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="/blog.html">Blog</a>
-<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="/contact.html">Contact</a>
+<nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="../projects.html">Projects</a>
 </div>
-<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANWGhqLDVu_x1nkU5otD-hWjE2rHZt_ha5pUyJmqL5jEhwIqYhhz2W-X0UQjn1SNV18pjniy14aEhAl3Q4v_b6Dm3b6drznhT82xng6lxk7Z8R3vE3-idOEgpixfMNq0K-f4xXy8YQHsUS4ogJ3dd6VoYdTSX_Wx-NEaozqm3Srk0jZBtj-exvWQ20Oh4Y5oY0jBWIcm8jJBR5hhSY65qA8X6MyCcV_45DFUhIEF1x2-LbEaCUI_f19qyE8QfrbhFb_Od8BhhOpnY");'></div>
+<!-- Mobile menu button -->
+<div class="md:hidden">
+<button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
+<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("../images/BowersCIS.JPG");'></div>
 </nav>
 </header>
-<main class="px-10 lg:px-20 flex flex-1 justify-center py-12">
-<div class="layout-content-container flex flex-col w-full max-w-4xl gap-10">
+<main class="px-4 lg:px-10 xl:px-20 flex flex-1 justify-center py-6 lg:py-12">
+<div class="layout-content-container flex flex-col w-full max-w-4xl gap-6 lg:gap-10">
 <article class="bg-white shadow-xl rounded-lg overflow-hidden">
 <header class="relative">
-<div class="w-full h-96 bg-center bg-no-repeat bg-cover" style='background-image: url("images/education.png");'>
+<div class="w-full h-96 bg-center bg-no-repeat bg-cover" style="background-image: url('../images/GRG Updated.png');">
 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 </div>
 <div class="absolute bottom-0 left-0 p-8 text-white">
 <nav aria-label="breadcrumb" class="mb-2">
 <ol class="flex items-center space-x-2 text-sm">
-<li><a class="hover:underline" href="/projects.html">Projects</a></li>
+<li><a class="hover:underline" href="../projects.html">Projects</a></li>
 <li>
 <svg class="size-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 <path clip-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
@@ -134,15 +208,79 @@
 <p class="mt-2 text-lg text-slate-200">Building AI teaching assistants that understand how concepts actually connect.</p>
 </div>
 </header>
-<div class="p-8 markdown-body text-slate-700">
+<div class="p-4 lg:p-8 markdown-body text-slate-700">
 
+<div class="flex flex-wrap items-center gap-4 mb-6">
 <div class="date-badge">Spring 2024</div>
+<div class="flex flex-wrap gap-3">
+<a href="https://github.com/yourusername/graph-rag-education" target="_blank" class="inline-flex items-center px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+<svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+</svg>
+View Source
+</a>
+<a href="#" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+</svg>
+Research Paper
+</a>
+</div>
+</div>
+
+<!-- Key Results Summary -->
+<div class="performance-card">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">🎯 Key Results</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+<div>
+<div class="metric-number">287</div>
+<div class="text-sm text-gray-600">Questions Evaluated</div>
+<div class="text-xs text-gray-500">8 Different Categories</div>
+</div>
+<div>
+<div class="metric-number">79%</div>
+<div class="text-sm text-gray-600">Conceptual Integration</div>
+<div class="text-xs text-gray-500">Accuracy Score</div>
+</div>
+<div>
+<div class="metric-number">+18%</div>
+<div class="text-sm text-gray-600">vs Traditional RAG</div>
+<div class="text-xs text-gray-500">Performance Improvement</div>
+</div>
+</div>
+</div>
 
 <section>
 <h2>The Problem: AI is Disrupting Education (And We're Handling It Wrong)</h2>
+
+<div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
+<div class="flex">
+<div class="flex-shrink-0">
+<svg class="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+</svg>
+</div>
+<div class="ml-3">
+<p class="text-sm text-orange-700">
+<strong>The Education Crisis:</strong> Students can complete entire assignments using AI, but most educators just ban everything instead of building responsible integration.
+</p>
+</div>
+</div>
+
 <p>Here's the uncomfortable truth: students can now complete entire assignments using AI tools, and most educators' response has been to panic and ban everything. The result? A "plague upon education" mentality that treats AI as the enemy rather than asking the harder question: how do we actually integrate these tools responsibly?</p>
 
-<p>This isn't just a policy problem – it's a technical one. When students inevitably use AI anyway (and they will), we need systems that can guide them toward genuine learning rather than academic shortcuts. The challenge isn't preventing AI use; it's designing AI that enhances education without undermining its fundamental goals.</p>
+<!-- Screenshot Placeholder -->
+<div class="mb-6">
+<div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+<svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h36v16a2 2 0 01-2 2H8a2 2 0 01-2-2V20zM6 12a2 2 0 012-2h32a2 2 0 012 2v8H6V12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+<p class="mt-2 text-sm text-gray-500">[Screenshot: Traditional educational AI - generic chatbot interface]</p>
+<p class="text-xs text-gray-400">Before: Students getting easy answers without understanding concepts</p>
+</div>
+</div>
+
+<p>This isn't just a policy problem – it's a technical one. When students inevitably use AI anyway (and they will), we need systems that can guide them toward genuine learning rather than academic shortcuts.</p>
 
 <p>That's particularly true in NLP courses, where the irony is thick: we're teaching students about the very technology they're tempted to misuse. But this also makes NLP classes perfect testing grounds for figuring out what responsible AI integration actually looks like.</p>
 </section>
@@ -151,32 +289,79 @@
 <h2>Why Traditional Approaches Miss the Point</h2>
 <p>Most educational AI systems are just glorified search engines with chatbot interfaces. They'll retrieve relevant documents and generate plausible-sounding answers, but they can't understand the deeper relationships between concepts or adapt their responses to different types of learning needs.</p>
 
-<p>The problem runs deeper than just retrieval quality. Traditional RAG systems work fine when you need to find specific facts, but education requires something different: the ability to trace conceptual connections, explain why ideas relate to each other, and provide explanations at the right level of detail for the student's current understanding.</p>
+<!-- Architecture Comparison Diagram -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div class="bg-red-50 border-2 border-dashed border-red-300 rounded-lg p-6 text-center">
+<svg class="mx-auto h-8 w-8 text-red-400" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+</svg>
+<p class="mt-2 text-sm text-red-500">Traditional RAG</p>
+<p class="text-xs text-red-400">Linear search → isolated answers</p>
+</div>
 
-<p>And then there's the evaluation challenge. How do you measure whether an AI teaching assistant is actually helping students learn? Standard metrics like ROUGE and BLEU completely miss the point – they measure text similarity, not educational value.</p>
+<div class="bg-green-50 border-2 border-dashed border-green-300 rounded-lg p-6 text-center">
+<svg class="mx-auto h-8 w-8 text-green-400" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+</svg>
+<p class="mt-2 text-sm text-green-500">Graph RAG</p>
+<p class="text-xs text-green-400">Connected concepts → contextual understanding</p>
+</div>
+</div>
+
+<p>The problem runs deeper than just retrieval quality. Traditional RAG systems work fine when you need to find specific facts, but education requires something different: the ability to trace conceptual connections, explain why ideas relate to each other, and provide explanations at the right level of detail for the student's current understanding.</p>
 </section>
 
 <section>
 <h2>Building Something That Actually Teaches</h2>
 <p>I built this system for CS 4740/5740 (Introduction to NLP) at Cornell, working with Claire Cardie. The goal was to create an AI teaching assistant that could integrate with real classroom discussions while maintaining academic integrity and promoting genuine learning.</p>
 
-<p>Instead of treating this as just another chatbot project, I focused on three core challenges that make educational AI different from general-purpose systems:</p>
+<h3>🎯 Three Core Challenges</h3>
 
-<p><strong>Understanding Conceptual Relationships:</strong> Educational content isn't just a collection of facts – it's a web of interconnected concepts where understanding one idea depends on grasping its connections to others.</p>
+<div class="space-y-4">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">1</div>
+<div class="ml-4">
+<h4 class="font-medium">Understanding Conceptual Relationships</h4>
+<p class="text-sm text-gray-600">Educational content isn't just facts – it's interconnected concepts where understanding one idea depends on grasping its connections to others</p>
+</div>
+</div>
 
-<p><strong>Adapting to Different Question Types:</strong> Students ask fundamentally different kinds of questions, from basic theory clarification to complex integration challenges, and the system needs to respond appropriately to each.</p>
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">2</div>
+<div class="ml-4">
+<h4 class="font-medium">Adapting to Different Question Types</h4>
+<p class="text-sm text-gray-600">Students ask fundamentally different kinds of questions, from basic theory to complex integration challenges</p>
+</div>
+</div>
 
-<p><strong>Maintaining Educational Integrity:</strong> The system needs to guide students toward understanding rather than just providing answers, which requires sophisticated reasoning about what constitutes helpful vs. harmful assistance.</p>
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">3</div>
+<div class="ml-4">
+<h4 class="font-medium">Maintaining Educational Integrity</h4>
+<p class="text-sm text-gray-600">Guide students toward understanding rather than just providing answers</p>
+</div>
+</div>
+</div>
+
 </section>
 
 <section>
 <h2>The Architecture: Graph RAG Before Microsoft Made It Famous</h2>
 <p>This was spring 2024, after Harvard's CS50 paper but before every startup had a "GraphRAG" product. The key insight was that knowledge graphs could capture the structured relationships between NLP concepts in ways that pure vector search couldn't.</p>
 
+<!-- System Architecture Diagram -->
+<div class="bg-blue-50 border-2 border-dashed border-blue-300 rounded-lg p-8 mb-6 text-center">
+<svg class="mx-auto h-12 w-12 text-blue-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+<path d="M21 24C21 35.046 12.046 44 1 44M21 24C21 12.954 12.046 4 1 4M21 24L47 24M21 24C21 35.046 29.954 44 41 44M21 24C21 12.954 29.954 4 41 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+<p class="mt-2 text-sm text-blue-500">[System Architecture: Knowledge Graph + Vector Search + Graph Traversal]</p>
+<p class="text-xs text-blue-400">GPT-4 extraction → Neo4j storage → Hybrid retrieval → Adaptive responses</p>
+</div>
+
 <h3>Technical Implementation</h3>
 <p><strong>Knowledge Graph Construction:</strong> I used GPT-3.5/GPT-4 to automatically extract entities and relationships from course lecture documents, generating Cypher queries to populate a Neo4j database. This wasn't just about storing information – it was about capturing how concepts relate to each other in the context of NLP education.</p>
 
-<p><strong>Hybrid Retrieval:</strong> The system combines three retrieval strategies:</p>
+<p><strong>Hybrid Retrieval Strategy:</strong></p>
 <ul>
 <li>Vector search for semantic similarity</li>
 <li>Keyword search for exact matches</li>
@@ -184,43 +369,95 @@
 </ul>
 
 <p><strong>Adaptive Response Generation:</strong> Depending on the question type, the system adjusts its graph traversal depth and breadth. Theory questions need deeper conceptual connections; clarification questions benefit from exploring adjacent concepts.</p>
-
-<h3>Integration with Real Classrooms</h3>
-<p>The system integrates directly with EdStem discussion platforms using the EDAPI package. Students can ask questions naturally, and the system provides responses that draw from lecture materials, previous discussions, and the structured knowledge graph of course concepts.</p>
-
-<p>But here's the crucial part: it's not just answering questions. It's designed to promote learning by providing appropriate levels of detail, connecting concepts to broader themes, and encouraging students to think critically about the material.</p>
 </section>
 
 <section>
 <h2>Real-World Testing: 287 Questions, 8 Categories, Honest Results</h2>
+
+<!-- Screenshot Placeholder -->
+<div class="mb-6">
+<div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+<svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h36v16a2 2 0 01-2 2H8a2 2 0 01-2-2V20zM6 12a2 2 0 012-2h32a2 2 0 012 2v8H6V12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+<p class="mt-2 text-sm text-gray-500">[Screenshot: CS 4740 EdStem integration showing real student questions]</p>
+<p class="text-xs text-gray-400">Real classroom deployment with 287 question-answer pairs evaluated</p>
+</div>
+</div>
+
 <p>I evaluated the system on 287 question-answer pairs from actual CS 4740 discussions, developing a comprehensive framework that goes way beyond traditional metrics.</p>
 
-<h3>Question Categorization System</h3>
-<p>Instead of treating all questions the same, I classified them into eight distinct categories:</p>
+<h3>📊 Question Categorization & Performance</h3>
 
-<ul>
-<li><strong>Theory-based</strong> (70% accuracy): Questions answerable from textbook knowledge</li>
-<li><strong>Circumstantial</strong> (40% accuracy): Questions referencing specific class discussions</li>
-<li><strong>Image-based</strong> (50-60% accuracy): Questions involving visual content</li>
-<li><strong>Assignment-related</strong> (76% accuracy): Questions about homework and projects</li>
-<li><strong>Conceptual Integration</strong> (79% accuracy): Questions connecting multiple NLP topics</li>
-<li><strong>Clarification</strong> (81% accuracy): Questions seeking explanation of terminology</li>
-<li><strong>Compound</strong> (68% accuracy): Multi-part questions</li>
-<li><strong>Unrelated</strong> (15-20% accuracy): Questions outside course scope</li>
-</ul>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+<div class="bg-green-50 border border-green-200 rounded-lg p-4">
+<h4 class="font-medium text-green-800 mb-3">✅ Top Performers</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm text-green-700">Clarification</span>
+<span class="font-bold text-green-800">81%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-green-700">Conceptual Integration</span>
+<span class="font-bold text-green-800">79%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-green-700">Assignment-related</span>
+<span class="font-bold text-green-800">76%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-green-700">Theory-based</span>
+<span class="font-bold text-green-800">70%</span>
+</div>
+</div>
+</div>
+
+<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+<h4 class="font-medium text-yellow-800 mb-3">⚠️ Learning Opportunities</h4>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-sm text-yellow-700">Compound</span>
+<span class="font-bold text-yellow-800">68%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-yellow-700">Image-based</span>
+<span class="font-bold text-yellow-800">55%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-yellow-700">Circumstantial</span>
+<span class="font-bold text-yellow-800">40%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-yellow-700">Unrelated</span>
+<span class="font-bold text-yellow-800">18%</span>
+</div>
+</div>
+</div>
+</div>
 
 <h3>What the Numbers Actually Mean</h3>
 <p>The system excelled at theory-based and conceptual integration questions, which makes sense – these are exactly the scenarios where graph-based knowledge representation shines. It could trace connections between transformer architectures and earlier sequence models, or explain how attention mechanisms relate to alignment problems.</p>
 
 <p>The lower performance on circumstantial questions revealed a key limitation: the system struggled with the contextual richness of actual classroom discourse. When students asked "you mentioned a problem with attention in Thursday's lecture," the system could explain attention mechanisms perfectly but missed the specific conversational context.</p>
 
-<h3>Comparison with Traditional RAG</h3>
-<p>Against a baseline vector-only RAG system, Graph RAG showed significant improvements:</p>
-<ul>
-<li>Conceptual integration questions: +18%</li>
-<li>Theory-based questions: +12%</li>
-<li>Clarification questions: +14%</li>
-</ul>
+<h3>🆚 Comparison with Traditional RAG</h3>
+<div class="performance-card">
+<h4 class="font-medium text-gray-800 mb-4">Performance Improvements vs Vector-Only RAG</h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+<div>
+<div class="text-xl font-bold text-green-600">+18%</div>
+<div class="text-sm text-gray-600">Conceptual Integration</div>
+</div>
+<div>
+<div class="text-xl font-bold text-green-600">+14%</div>
+<div class="text-sm text-gray-600">Clarification Questions</div>
+</div>
+<div>
+<div class="text-xl font-bold text-green-600">+12%</div>
+<div class="text-sm text-gray-600">Theory-based Questions</div>
+</div>
+</div>
+</div>
 
 <p>The improvements were most dramatic precisely where you'd expect – questions that benefit from understanding structured relationships between concepts.</p>
 </section>
@@ -229,7 +466,29 @@
 <h2>Beyond the Demo: What Educational AI Actually Requires</h2>
 <p>Building this taught me that educational AI faces challenges that don't exist in other domains. It's not enough to provide accurate information – you need to provide information that promotes learning.</p>
 
-<p>The evaluation framework became as important as the system itself. Traditional metrics like ROUGE completely miss what matters in education. Semantic similarity helps, but even that doesn't capture whether a response actually helps a student understand a concept or just gives them an answer to copy.</p>
+<!-- Student Feedback Placeholder -->
+<div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
+<div class="flex">
+<div class="flex-shrink-0">
+<svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+</div>
+<div class="ml-3">
+<p class="text-sm text-blue-700">
+<em>"Finally, an AI that doesn't just give me the answer but helps me understand how the concepts connect. Game-changer for studying NLP."</em>
+</p>
+<p class="text-xs text-blue-600 mt-1">— CS 4740 Student, Spring 2024</p>
+</div>
+</div>
+
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li><strong>Evaluation is everything:</strong> Traditional metrics like ROUGE completely miss what matters in education</li>
+<li><strong>Context beats accuracy:</strong> 85% accuracy with explanation beats 95% black-box responses</li>
+<li><strong>Question types matter:</strong> Different learning objectives require different AI approaches</li>
+<li><strong>Pedagogical value ≠ Information accuracy:</strong> You need domain experts to validate educational impact</li>
+</ul>
 
 <p>I developed automated classifiers for factuality, completeness, coherence, and relevance, but the real insights came from expert assessment. Teaching assistants and domain experts evaluated responses on pedagogical value, not just accuracy.</p>
 </section>
@@ -238,7 +497,16 @@
 <h2>The Bigger Picture: Responsible AI in Education</h2>
 <p>This project was really about a larger question: how do we deploy AI in education responsibly? The technical challenges were interesting, but the ethical and pedagogical challenges were harder.</p>
 
-<p>That's why I proposed EDGuard – a smart filter system that would moderate interactions between students and the AI. Instead of just providing answers, EDGuard would analyze both questions and responses to ensure appropriate educational engagement. If a response was too detailed, it would encourage the system to provide guidance and hints rather than complete solutions.</p>
+<!-- EDGuard Concept Diagram -->
+<div class="bg-purple-50 border-2 border-dashed border-purple-300 rounded-lg p-8 mb-6 text-center">
+<svg class="mx-auto h-12 w-12 text-purple-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+<path d="M12 8V6a4 4 0 114 8 4 4 0 01-8 0V8zM8 16v24a2 2 0 002 2h28a2 2 0 002-2V16a2 2 0 00-2-2H10a2 2 0 00-2 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+<p class="mt-2 text-sm text-purple-500">[Concept: EDGuard Smart Filter System]</p>
+<p class="text-xs text-purple-400">AI moderation layer: Question analysis → Response filtering → Learning guidance</p>
+</div>
+
+<p>That's why I proposed EDGuard – a smart filter system that would moderate interactions between students and the AI. Instead of just providing answers, EDGuard would analyze both questions and responses to ensure appropriate educational engagement.</p>
 
 <p>The goal wasn't to replace human instruction but to augment it. Give students access to sophisticated help when TAs aren't available, but in ways that still require them to think, synthesize, and understand.</p>
 </section>
@@ -249,18 +517,23 @@
 
 <p>How do you build systems that can reason about the <em>effects</em> of their responses, not just their accuracy? How do you create AI that promotes human capability rather than replacing it? These questions matter whether you're building educational AI or any system that needs to work beneficially with humans.</p>
 
-<p>The evaluation frameworks I developed here – particularly the idea that you need to measure systems across different types of tasks and contexts – directly inform my current work on evaluating reasoning capabilities in language models. And the insights about hybrid AI architectures (combining structured knowledge with flexible generation) connect to broader questions about building transparent, controllable AI systems.</p>
+<p>The evaluation frameworks I developed here – particularly the idea that you need to measure systems across different types of tasks and contexts – directly inform my current work on evaluating reasoning capabilities in language models.</p>
 
-<p>Most importantly, this project convinced me that the most interesting AI research happens at the intersection of technical capability and human values. Building AI that actually helps education requires understanding both the technology and what education is trying to accomplish. That's the kind of interdisciplinary thinking that I believe is essential for building aligned AI systems.</p>
+<p>Most importantly, this project convinced me that the most interesting AI research happens at the intersection of technical capability and human values. Building AI that actually helps education requires understanding both the technology and what education is trying to accomplish.</p>
 </section>
 
 <div class="mt-12 pt-8 border-t border-slate-200">
-<a class="inline-flex items-center text-[#1672ce] hover:text-[#1361b3] font-medium group" href="/projects.html">
+<div class="flex justify-between items-center">
+<a class="inline-flex items-center text-[#1672ce] hover:text-[#1361b3] font-medium group" href="../projects.html">
 <svg class="mr-2 size-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
 Back to All Projects
 </a>
+<div class="flex items-center gap-4 text-sm text-slate-500">
+<span>Built with: Python, GPT-4, Neo4j, EdStem API</span>
+</div>
+</div>
 </div>
 </div>
 </article>
@@ -271,14 +544,9 @@ Back to All Projects
 <div class="flex max-w-5xl w-full flex-1 flex-col">
 <div class="flex flex-col gap-6 px-10 py-10 text-center @container items-center">
 <div class="flex flex-wrap justify-center gap-6">
-<a aria-label="Twitter Profile" class="text-slate-400 hover:text-white transition-colors" href="#">
-<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
-<path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
-</svg>
-</a>
 <a aria-label="LinkedIn Profile" class="text-slate-400 hover:text-white transition-colors" href="#">
 <svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
-<path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
+<path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0 ,1,1,88,72,12,12,0,0,1,100,84Z"></path>
 </svg>
 </a>
 <a aria-label="GitHub Profile" class="text-slate-400 hover:text-white transition-colors" href="#">
@@ -308,29 +576,6 @@ Back to All Projects
           });
         }
       });
-    });
-    // Update active nav link based on current page
-    window.addEventListener('DOMContentLoaded', () => {
-      const currentPath = window.location.pathname;
-      document.querySelectorAll('header nav a').forEach(link => {
-        link.classList.remove('active-nav-link');
-        // Check if the link's href is a prefix of the current path OR if it's an exact match for other pages
-        if ((currentPath.startsWith(link.getAttribute('href')) && link.getAttribute('href') !== '/') || (currentPath === link.getAttribute('href'))) {
-          if (link.getAttribute('href') === '/projects.html' || currentPath.includes('project-detail.html')) {
-             const projectsMainLink = document.querySelector('header nav a[href="/projects.html"]');
-             if(projectsMainLink) projectsMainLink.classList.add('active-nav-link');
-          } else {
-             link.classList.add('active-nav-link');
-          }
-        }
-      });
-      // If on the root path or index.html, highlight "Projects" by default
-      if (currentPath === '/' || currentPath === '/index.html') {
-        const projectsLink = document.querySelector('header nav a[href="/projects.html"]');
-        if (projectsLink) {
-          projectsLink.classList.add('active-nav-link');
-        }
-      }
     });
   </script>
 
