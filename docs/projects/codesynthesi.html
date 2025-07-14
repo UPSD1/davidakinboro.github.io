@@ -192,8 +192,8 @@
 <li class="font-semibold">AI Code Synthesis</li>
 </ol>
 </nav>
-<h1 class="text-4xl font-bold leading-tight tracking-tight">Making AI Code Generation Actually Reliable</h1>
-<p class="mt-2 text-lg text-slate-200">From 82.9% to 84.1% - The methodical work of improving AI code synthesis through systematic evaluation.</p>
+<h1 class="text-4xl font-bold leading-tight tracking-tight">Systematic Prompt Engineering for Code Generation</h1>
+<p class="mt-2 text-lg text-slate-200">A methodical evaluation of prompt improvements on HumanEval using Gemini 1.5 Flash.</p>
 </div>
 </header>
 <div class="p-4 lg:p-8 markdown-body text-slate-700">
@@ -201,113 +201,61 @@
 <div class="flex flex-wrap items-center gap-4 mb-6">
 <div class="date-badge">Fall 2024</div>
 <div class="flex flex-wrap gap-3">
-<a href="https://github.com/yourusername/ai-code-synthesis" target="_blank" class="inline-flex items-center px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+<!-- <a href="https://github.com/yourusername/ai-code-synthesis" target="_blank" class="inline-flex items-center px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
 </svg>
 View Source
-</a>
-<a href="#" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+</a> -->
+<a href="https://colab.research.google.com/drive/1ThmbsCxWJvLi5VQg_6y3GEckaMWk92al?usp=sharing" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-2M14 4h6m0 0v6m0-6L10 14"></path>
 </svg>
-Evaluation Report
+Colab
 </a>
 </div>
 </div>
 
 <section>
-<h2>The Challenge: Beyond the "Cool Demo" Stage</h2>
+<h2>The Challenge: Measuring Prompt Engineering Impact</h2>
 
-<div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
-<div class="flex">
-<div class="flex-shrink-0">
-<svg class="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
-<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-</svg>
-</div>
-<div class="ml-3">
-<p class="text-sm text-orange-700">
-<strong>The AI Code Generation Problem:</strong> Easy to build impressive demos, much harder to create reliable production-ready tools.
-</p>
-</div>
-</div>
+<p>Code generation models like Gemini can produce syntactically correct code that fails to solve the actual problem. While demos showcase impressive capabilities, systematic evaluation reveals the gap between "generates plausible code" and "generates correct code."</p>
 
-<p>AI code generation has this problem: it's easy to build something that looks impressive in a demo, but much harder to create something that actually works reliably in practice.</p>
+<p>I used HumanEval—164 hand-crafted programming problems—to measure whether targeted prompt engineering could improve functional correctness. Each problem provides a function signature and docstring, requiring the model to generate working code that passes comprehensive test suites.</p>
 
-<p>**The critical difference:**</p>
-<ul>
-<li>"Generates plausible code" vs "Generates correct code"</li>
-<li>Cherry-picked examples vs systematic evaluation</li>
-<li>One-off successes vs consistent performance</li>
-</ul>
-
-<p>I wanted to understand this gap systematically using the HumanEval benchmark – 164 programming problems that represent the gold standard for evaluating code generation.</p>
+<p><strong>The key question:</strong> Can systematic prompt improvements measurably increase pass rates on a standard benchmark?</p>
 </section>
 
 <section>
-<h2>The Baseline: Understanding What We're Working With</h2>
+<h2>Baseline: Simple Prompt, Measured Results</h2>
 
-<p>I started with a straightforward approach: give Gemini the raw problem descriptions from HumanEval and see what happens. No fancy prompting, no few-shot examples, just the basic function signature and docstring.</p>
+<p>I started with Gemini 1.5 Flash using a minimal system prompt:</p>
 
-<!-- Screenshot Placeholder -->
-<div class="mb-6">
-<div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-<svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h36v16a2 2 0 01-2 2H8a2 2 0 01-2-2V20zM6 12a2 2 0 012-2h32a2 2 0 012 2v8H6V12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-<p class="mt-2 text-sm text-gray-500">[Screenshot: HumanEval evaluation interface showing baseline results]</p>
-<p class="text-xs text-gray-400">EvalPlus framework output with pass@1 scores and detailed test results</p>
-</div>
-</div>
+<pre><code class="language-python">Your role is to generate the function body based solely on the docstring</code></pre>
+
+<p>This basic approach established the baseline performance across all 164 HumanEval problems. Using greedy decoding (temperature=0) ensured reproducible results for accurate comparison.</p>
 
 <div class="metric-card p-6 rounded-lg mb-6">
-<h3 class="text-lg font-semibold mb-2">Baseline Results</h3>
+<h3 class="text-lg font-semibold mb-2">Baseline Performance</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div>
 <p class="text-2xl font-bold text-blue-600">82.9%</p>
-<p class="text-sm text-gray-600">Base HumanEval Pass@1</p>
+<p class="text-sm text-gray-600">HumanEval Pass@1</p>
 </div>
 <div>
 <p class="text-2xl font-bold text-blue-600">75.6%</p>
-<p class="text-sm text-gray-600">Base + Extra Tests Pass@1</p>
+<p class="text-sm text-gray-600">HumanEval+ Pass@1</p>
 </div>
 </div>
 </div>
 
-<h3>📊 Context: Where This Stands</h3>
-
-<div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-<div>
-<div class="text-lg font-semibold text-gray-600">Original Codex (2021)</div>
-<div class="text-2xl font-bold text-red-600">28.8%</div>
-</div>
-<div>
-<div class="text-lg font-semibold text-blue-600">Our Baseline</div>
-<div class="text-2xl font-bold text-blue-600">82.9%</div>
-</div>
-<div>
-<div class="text-lg font-semibold text-gray-600">GPT-4o (2024)</div>
-<div class="text-2xl font-bold text-green-600">90.2%</div>
-</div>
-</div>
-</div>
-
-<p>**The failure analysis:** Take HumanEval_10, the `make_palindrome` function. The baseline implementation had classic issues:</p>
-<ul class="space-y-1">
-<li>Incorrect indexing for palindrome checking</li>
-<li>Poor handling of edge cases like "cata"</li>
-<li>Wrong assumptions about suffix vs. prefix checking</li>
-</ul>
+<p>The baseline already performed well, making meaningful improvements challenging. Failed solutions typically showed algorithmic errors rather than syntax issues—problems that better prompting could potentially address.</p>
 </section>
 
 <section>
-<h2>The Systematic Improvement Approach</h2>
-<p>Instead of randomly trying different prompts, I focused on systematic prompt engineering based on what actually goes wrong in code generation. The key insight was that most failures aren't about the AI not knowing how to code – they're about the AI not understanding the specific requirements and quality expectations.</p>
+<h2>Targeted Prompt Engineering</h2>
 
-<h3>The Improved System Prompt</h3>
-<p>I replaced the generic prompt with a more specific one that emphasizes the systematic approach to code generation:</p>
+<p>Instead of random prompt variations, I analyzed failure patterns and designed a more specific system prompt:</p>
 
 <pre><code class="language-python">SYSTEM = '''
 You are a Python coding assistant specializing in program synthesis.
@@ -317,74 +265,72 @@ The generated function should fulfill the requirements specified in the docstrin
 Ensure that the implementation is syntactically correct, logically aligned with the problem statement, and uses best practices for Python programming.
 '''</code></pre>
 
-<p>This might seem like a small change, but it addresses several key issues:</p>
+<p>This prompt addresses specific issues observed in failed solutions:</p>
 <ul>
 <li><strong>Explicit quality expectations:</strong> "syntactically correct, logically aligned with the problem statement"</li>
-<li><strong>Clear scope definition:</strong> "auto-complete Python functions using the information provided in the docstring"</li>
-<li><strong>Best practices emphasis:</strong> "uses best practices for Python programming"</li>
-<li><strong>Test-driven mindset:</strong> "pass the provided examples"</li>
+<li><strong>Clear task definition:</strong> "auto-complete Python functions using the information provided in the docstring"</li>
+<li><strong>Test-aware mindset:</strong> "pass the provided examples"</li>
+<li><strong>Best practices emphasis:</strong> Encourages clean, maintainable code</li>
 </ul>
 </section>
 
 <section>
-<h2>The Results: Meaningful Progress</h2>
-<p>The systematic approach paid off:</p>
+<h2>Measured Improvements</h2>
+
+<p>The systematic prompt engineering produced consistent improvements:</p>
 
 <div class="metric-card p-6 rounded-lg mb-6">
-<h3 class="text-lg font-semibold mb-2">Improved Results</h3>
+<h3 class="text-lg font-semibold mb-2">Improved Performance</h3>
 <div class="grid grid-cols-2 gap-4">
 <div>
 <p class="text-2xl font-bold text-green-600">84.1%</p>
-<p class="text-sm text-gray-600">Base HumanEval Pass@1</p>
+<p class="text-sm text-gray-600">HumanEval Pass@1</p>
 <p class="text-xs text-green-600">+1.2% improvement</p>
 </div>
 <div>
 <p class="text-2xl font-bold text-green-600">78.0%</p>
-<p class="text-sm text-gray-600">Base + Extra Tests Pass@1</p>
+<p class="text-sm text-gray-600">HumanEval+ Pass@1</p>
 <p class="text-xs text-green-600">+2.4% improvement</p>
 </div>
 </div>
 </div>
 
-<p>Now, 1.2% might not sound like much, but in the context of AI code generation, it's actually quite significant. This represents solving 2 additional problems out of 164 – and in a field where Claude 3 Opus scores 84.9% and represents state-of-the-art performance, every percentage point matters.</p>
-
-<p>More importantly, the improvement was consistent across different types of problems, which suggests that the systematic approach addresses fundamental issues rather than just getting lucky on a few edge cases.</p>
+<p>While 1.2% may seem modest, it represents solving 2 additional problems out of 164. In code generation benchmarks, where state-of-the-art models cluster within a few percentage points, consistent improvements across problem types indicate systematic rather than random gains.</p>
 </section>
 
 <section>
-<h2>Case Study: The Palindrome Function Fix</h2>
-<p>The most instructive example was revisiting HumanEval_10 with the improved approach. The baseline implementation failed because it couldn't correctly implement the two-step palindrome algorithm. The improved version succeeded by:</p>
+<h2>Case Study: Algorithmic Reasoning Improvement</h2>
 
+<p>HumanEval_10 (<code>make_palindrome</code>) illustrates the improvement pattern. This function should find the shortest palindrome by identifying the longest palindromic suffix and prepending the reversed prefix.</p>
+
+<p><strong>Baseline failure:</strong> The generated code had incorrect palindrome checking logic and failed on test cases like "cata" → "atcata".</p>
+
+<p><strong>Improved solution:</strong> The better prompt led to:</p>
 <ul>
-<li><strong>Breaking down the problem:</strong> Created a helper function `is_palindrome` for cleaner logic</li>
-<li><strong>Implementing the correct algorithm:</strong> Properly found the longest palindromic postfix and appended the reversed prefix</li>
-<li><strong>Handling edge cases:</strong> Correctly processed strings like "cata" and empty strings</li>
-<li><strong>Using clear structure:</strong> Maintainable code with descriptive variable names</li>
+<li>Correct implementation of the two-step palindrome algorithm</li>
+<li>Helper function decomposition (<code>is_palindrome</code>)</li>
+<li>Proper edge case handling for empty strings</li>
+<li>Clear, maintainable code structure</li>
 </ul>
 
-<p>This wasn't just about getting the right answer – it was about generating code that a human developer could actually read, understand, and maintain.</p>
+<p>This represents the core improvement: better reasoning about algorithmic requirements and code organization, not just different syntax.</p>
 </section>
 
 <section>
-<h2>The Evaluation Framework: Beyond Simple Metrics</h2>
-<p>One of the most valuable parts of this project was building a robust evaluation framework using the EvalPlus library. This goes beyond just "does it work?" to "does it work reliably across different test cases?"</p>
+<h2>Implementation and Evaluation</h2>
 
-<h3>Systematic Testing Process</h3>
+<p>The evaluation used the EvalPlus framework, which extends HumanEval with additional test cases to catch edge case failures. The process:</p>
+
 <ul>
-<li><strong>Automated Code Generation:</strong> Generate solutions for all 164 problems with consistent temperature settings</li>
-<li><strong>Functional Correctness Testing:</strong> Run each generated solution against comprehensive test suites</li>
-<li><strong>Edge Case Validation:</strong> Test with both basic and extended test cases (the "Plus" in EvalPlus)</li>
-<li><strong>Failure Analysis:</strong> Categorize and analyze failures to understand systematic issues</li>
+<li><strong>Generate solutions:</strong> Process all 164 problems with both baseline and improved prompts</li>
+<li><strong>Functional testing:</strong> Execute generated code against comprehensive test suites</li>
+<li><strong>Performance measurement:</strong> Calculate pass@1 rates for both base and extended test sets</li>
+<li><strong>Failure analysis:</strong> Examine specific failures to understand improvement patterns</li>
 </ul>
 
-<p>The framework made it possible to run controlled experiments and measure the impact of different prompt engineering strategies objectively. Without this systematic approach, I would have been stuck with anecdotal evidence and cherry-picked examples.</p>
-</section>
+<p>The systematic approach enabled controlled comparison between prompting strategies, avoiding the cherry-picking common in prompt engineering demonstrations.</p>
 
-<section>
-<h2>Technical Implementation Details</h2>
-<p>For those interested in the technical specifics, here's how the core evaluation pipeline works:</p>
-
-<h3>Code Generation Pipeline</h3>
+<h3>Core Implementation</h3>
 <pre><code class="language-python">def program_synthesis_improved(input_prompt: str, model, **kwargs) -> str:
     response = model.generate_content(input_prompt,
                                       generation_config = genai.GenerationConfig(
@@ -406,51 +352,30 @@ def complete_improve_humaneval(model, dataset, workdir):
             f.write(solution)
         
         time.sleep(2)  # Rate limiting</code></pre>
-
-<h3>Evaluation Process</h3>
-<p>The EvalPlus framework handles the complex process of running generated code against test suites safely and systematically. It includes:</p>
-<ul>
-<li><strong>Sandboxed execution:</strong> Generated code runs in isolated environments</li>
-<li><strong>Comprehensive test coverage:</strong> Both basic and extended test cases</li>
-<li><strong>Detailed reporting:</strong> Pass/fail rates with specific failure analysis</li>
-<li><strong>Reproducible results:</strong> Consistent evaluation across different runs</li>
-</ul>
 </section>
 
 <section>
-<h2>What This Taught Me About AI Engineering</h2>
-<p>Building this system reinforced several key principles about working with AI in production:</p>
+<h2>Key Insights</h2>
 
-<p><strong>Systematic beats intuitive:</strong> The improvement came from systematic prompt engineering, not creative hunches. Having a clear evaluation framework made it possible to test hypotheses objectively.</p>
+<p>This work reinforced several principles for AI code generation:</p>
 
-<p><strong>Quality matters more than quantity:</strong> The 1.2% improvement represents real progress because it's consistent and measurable. In production AI systems, reliability is more valuable than impressive but inconsistent performance.</p>
+<p><strong>Systematic beats intuitive:</strong> Measurable improvements came from analyzing failure patterns and designing targeted prompts, not creative guesswork.</p>
 
-<p><strong>Evaluation is half the work:</strong> Building the evaluation framework was as important as the code generation itself. Without systematic testing, you can't distinguish between real improvements and random variation.</p>
+<p><strong>Prompts as specifications:</strong> Effective prompts explicitly communicate quality expectations and task requirements rather than relying on model intuition.</p>
 
-<p><strong>Edge cases reveal systematic issues:</strong> The palindrome function failure wasn't just about one problem – it revealed broader issues with how the AI handles algorithmic thinking and edge case consideration.</p>
+<p><strong>Edge cases reveal gaps:</strong> The additional test cases in HumanEval+ exposed brittleness that base tests missed, highlighting the importance of comprehensive evaluation.</p>
+
+<p><strong>Small improvements matter:</strong> In mature benchmarks, consistent percentage point gains indicate meaningful progress in model reliability.</p>
 </section>
 
 <section>
-<h2>The Broader Context: Where Code Generation is Heading</h2>
-<p>This project fits into a broader trend in AI engineering. The field is moving from asking "Can the model code?" to "Can the model engineer?" – a much more nuanced question.</p>
+<h2>Technical Context</h2>
 
-<p>While HumanEval tests basic coding ability, real-world software development involves much more complex challenges. Newer benchmarks like BigCodeBench are addressing these limitations by testing more diverse library usage and complex instructions.</p>
+<p>This work addresses the gap between impressive code generation demos and reliable production performance. While HumanEval tests relatively simple programming tasks, the systematic approach to prompt engineering applies to more complex scenarios.</p>
 
-<p>But the principles I applied here – systematic evaluation, methodical improvement, focus on reliability over flashiness – are exactly what's needed as AI code generation moves from demo to production. The techniques that improve performance on HumanEval also improve performance on real-world coding tasks.</p>
-</section>
+<p>The evaluation framework could extend to multi-turn interactions, test-driven development workflows, or integration with development tools—areas where reliable code generation becomes increasingly valuable for practical applications.</p>
 
-<section>
-<h2>Future Directions: Beyond Single-Turn Generation</h2>
-<p>This project focused on single-turn code generation, but the real opportunity is in multi-turn interactions. Future work could explore:</p>
-
-<ul>
-<li><strong>Iterative improvement:</strong> Systems that can debug and refine their own code</li>
-<li><strong>Test-driven development:</strong> AI that writes tests first, then implements code to pass them</li>
-<li><strong>Code review integration:</strong> AI that can understand and respond to human feedback</li>
-<li><strong>Multi-file reasoning:</strong> Moving beyond single functions to understand system architecture</li>
-</ul>
-
-<p>The evaluation framework I built could be extended to test these more complex scenarios, providing the systematic measurement needed to drive real progress in AI-assisted software development.</p>
+<p>The methodology demonstrates how controlled experimentation can drive measurable improvements in AI code generation, moving beyond anecdotal evidence toward systematic optimization of model performance.</p>
 </section>
 
 <div class="mt-12 pt-8 border-t border-slate-200">
@@ -462,7 +387,7 @@ def complete_improve_humaneval(model, dataset, workdir):
 Back to All Projects
 </a>
 <div class="flex items-center gap-4 text-sm text-slate-500">
-<span>Built with: Python, Gemini API, EvalPlus</span>
+<span>Built with: Python, Gemini 1.5 Flash, EvalPlus</span>
 </div>
 </div>
 </div>

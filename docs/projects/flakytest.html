@@ -189,13 +189,13 @@
 <div class="flex flex-wrap items-center gap-4 mb-6">
 <div class="date-badge">Fall 2024</div>
 <div class="flex flex-wrap gap-3">
-<a href="https://github.com/yourusername/flaky-test-detector" target="_blank" class="inline-flex items-center px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
+<a href="https://github.com/UPSD1/Machine-Learning/tree/main/Flaky%20Test%20Detector%20for%20ML%20Libraries" target="_blank" class="inline-flex items-center px-3 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors">
 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
 </svg>
-View Source
+Github
 </a>
-<a href="#" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+<a href="https://colab.research.google.com/drive/1HUdRdUD4GiofQjhwBiRYBjPX1s1V9ikH?usp=sharing" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-2M14 4h6m0 0v6m0-6L10 14"></path>
 </svg>
@@ -245,7 +245,7 @@ Live Demo
 
 <p>Ever had a test that passes on your machine but fails in CI? Welcome to the world of flaky tests – the kind of bug that makes you question your sanity.</p>
 
-<p>**Why ML libraries are vulnerable:**</p>
+<p><strong>Why ML libraries are vulnerable:</strong></p>
 <ul>
 <li>Random number generators with inconsistent seeding</li>
 <li>Floating-point precision edge cases</li>
@@ -253,7 +253,7 @@ Live Demo
 <li>GPU vs CPU computation differences</li>
 </ul>
 
-<p>**The real cost:** When developers start seeing random failures, they begin ignoring test results altogether. That's how you end up shipping broken code.</p>
+<p><strong>The real cost:</strong> When developers start seeing random failures, they begin ignoring test results altogether. That's how you end up shipping broken code.</p>
 </section>
 
 <section>
@@ -346,17 +346,6 @@ Live Demo
 <section>
 <h2>Real-World Testing: What Actually Happened</h2>
 
-<!-- Screenshot Placeholder -->
-<div class="mb-6">
-<div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-<svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h36v16a2 2 0 01-2 2H8a2 2 0 01-2-2V20zM6 12a2 2 0 012-2h32a2 2 0 012 2v8H6V12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-<p class="mt-2 text-sm text-gray-500">[Screenshot: CSV output showing detected assertions]</p>
-<p class="text-xs text-gray-400">Tool output showing filepath, test class, assertion type, and line numbers</p>
-</div>
-</div>
-
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 
 <!-- Success Stories -->
@@ -414,7 +403,7 @@ When I ran the identified tests 100 times each, I got 100% pass rates. No flaky 
 </div>
 </div>
 
-<p>**Why this matters:**</p>
+<p><strong>Why this matters:</strong></p>
 <ul class="space-y-2">
 <li><strong>Gap between theory and practice:</strong> "Potentially flaky" ≠ "actually flaky"</li>
 <li><strong>Environmental factors:</strong> Deterministic seeds, test isolation, controlled environments</li>

@@ -204,8 +204,8 @@
 <li class="font-semibold">Graph RAG for Education</li>
 </ol>
 </nav>
-<h1 class="text-4xl font-bold leading-tight tracking-tight">Graph RAG for Education: Before It Was Cool</h1>
-<p class="mt-2 text-lg text-slate-200">Building AI teaching assistants that understand how concepts actually connect.</p>
+<h1 class="text-4xl font-bold leading-tight tracking-tight">Graph RAG for Education: Addressing Knowledge Representation Gaps</h1>
+<p class="mt-2 text-lg text-slate-200">Developing AI teaching assistants that understand conceptual relationships in educational content.</p>
 </div>
 </header>
 <div class="p-4 lg:p-8 markdown-body text-slate-700">
@@ -224,7 +224,7 @@ View Source
 
 <!-- Key Results Summary -->
 <div class="performance-card">
-<h3 class="text-lg font-semibold text-gray-900 mb-4">🎯 Key Results</h3>
+<h3 class="text-lg font-semibold text-gray-900 mb-4">📊 Experimental Results</h3>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
 <div>
 <div class="metric-number">287</div>
@@ -245,7 +245,7 @@ View Source
 </div>
 
 <section>
-<h2>The Problem: AI is Disrupting Education (And We're Handling It Wrong)</h2>
+<h2>Problem Definition: Educational AI Integration Challenges</h2>
 
 <div class="bg-orange-50 border-l-4 border-orange-400 p-4 mb-6">
 <div class="flex">
@@ -256,32 +256,21 @@ View Source
 </div>
 <div class="ml-3">
 <p class="text-sm text-orange-700">
-<strong>The Education Crisis:</strong> Students can complete entire assignments using AI, but most educators just ban everything instead of building responsible integration.
+<strong>Core Challenge:</strong> Current educational AI systems struggle to represent complex conceptual relationships that are fundamental to effective teaching and learning.
 </p>
 </div>
 </div>
 
-<p>Here's the uncomfortable truth: students can now complete entire assignments using AI tools, and most educators' response has been to panic and ban everything. The result? A "plague upon education" mentality that treats AI as the enemy rather than asking the harder question: how do we actually integrate these tools responsibly?</p>
+<p>The integration of AI in educational settings has largely followed two paths: complete prohibition or unrestricted access to general-purpose tools. This binary approach fails to address the fundamental challenge of creating AI systems that can guide learning without undermining the educational process.</p>
 
-<!-- Screenshot Placeholder -->
-<div class="mb-6">
-<div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-<svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h36v16a2 2 0 01-2 2H8a2 2 0 01-2-2V20zM6 12a2 2 0 012-2h32a2 2 0 012 2v8H6V12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-<p class="mt-2 text-sm text-gray-500">[Screenshot: Traditional educational AI - generic chatbot interface]</p>
-<p class="text-xs text-gray-400">Before: Students getting easy answers without understanding concepts</p>
-</div>
-</div>
+<p>Students increasingly rely on AI tools for coursework completion, creating tension between technological capabilities and pedagogical goals. Rather than implementing blanket restrictions, this project investigates how AI systems can be designed to promote understanding rather than provide direct solutions.</p>
 
-<p>This isn't just a policy problem – it's a technical one. When students inevitably use AI anyway (and they will), we need systems that can guide them toward genuine learning rather than academic shortcuts.</p>
-
-<p>That's particularly true in NLP courses, where the irony is thick: we're teaching students about the very technology they're tempted to misuse. But this also makes NLP classes perfect testing grounds for figuring out what responsible AI integration actually looks like.</p>
+<p>In the context of NLP education, this challenge becomes particularly acute. Students are learning about the very technologies they might misuse, creating both opportunities and risks for AI integration in the classroom.</p>
 </section>
 
 <section>
-<h2>Why Traditional Approaches Miss the Point</h2>
-<p>Most educational AI systems are just glorified search engines with chatbot interfaces. They'll retrieve relevant documents and generate plausible-sounding answers, but they can't understand the deeper relationships between concepts or adapt their responses to different types of learning needs.</p>
+<h2>Technical Limitations of Existing Approaches</h2>
+<p>Traditional retrieval-augmented generation (RAG) systems excel at finding semantically similar content but struggle with the structured knowledge representation required for educational contexts. These systems treat information as isolated chunks rather than understanding the interconnected nature of educational concepts.</p>
 
 <!-- Architecture Comparison Diagram -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -289,8 +278,8 @@ View Source
 <svg class="mx-auto h-8 w-8 text-red-400" stroke="currentColor" fill="none" viewBox="0 0 24 24">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
 </svg>
-<p class="mt-2 text-sm text-red-500">Traditional RAG</p>
-<p class="text-xs text-red-400">Linear search → isolated answers</p>
+<p class="mt-2 text-sm text-red-500">Vector-Only RAG</p>
+<p class="text-xs text-red-400">Semantic similarity → isolated chunks</p>
 </div>
 
 <div class="bg-green-50 border-2 border-dashed border-green-300 rounded-lg p-6 text-center">
@@ -298,41 +287,41 @@ View Source
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
 </svg>
 <p class="mt-2 text-sm text-green-500">Graph RAG</p>
-<p class="text-xs text-green-400">Connected concepts → contextual understanding</p>
+<p class="text-xs text-green-400">Structured relationships → contextual understanding</p>
 </div>
 </div>
 
-<p>The problem runs deeper than just retrieval quality. Traditional RAG systems work fine when you need to find specific facts, but education requires something different: the ability to trace conceptual connections, explain why ideas relate to each other, and provide explanations at the right level of detail for the student's current understanding.</p>
+<p>Educational content contains implicit relationships between concepts that are critical for comprehension. Understanding attention mechanisms, for example, requires knowledge of their connections to alignment problems, earlier sequence models, and transformer architectures. Vector-based retrieval often misses these structural dependencies.</p>
 </section>
 
 <section>
-<h2>Building Something That Actually Teaches</h2>
-<p>I built this system for CS 4740/5740 (Introduction to NLP) at Cornell, working with Claire Cardie. The goal was to create an AI teaching assistant that could integrate with real classroom discussions while maintaining academic integrity and promoting genuine learning.</p>
+<h2>System Design and Implementation</h2>
+<p>This project developed a graph-based knowledge representation system for CS 4740/5740 (Introduction to NLP) at Cornell University, working in collaboration with Claire Cardie. The system addresses three core technical requirements for educational AI.</p>
 
-<h3>🎯 Three Core Challenges</h3>
+<h3>🎯 Core Technical Requirements</h3>
 
 <div class="space-y-4">
 <div class="flex items-start">
 <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">1</div>
 <div class="ml-4">
-<h4 class="font-medium">Understanding Conceptual Relationships</h4>
-<p class="text-sm text-gray-600">Educational content isn't just facts – it's interconnected concepts where understanding one idea depends on grasping its connections to others</p>
+<h4 class="font-medium">Structured Knowledge Representation</h4>
+<p class="text-sm text-gray-600">Capture explicit relationships between NLP concepts, allowing for systematic traversal of conceptual dependencies</p>
 </div>
 </div>
 
 <div class="flex items-start">
 <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">2</div>
 <div class="ml-4">
-<h4 class="font-medium">Adapting to Different Question Types</h4>
-<p class="text-sm text-gray-600">Students ask fundamentally different kinds of questions, from basic theory to complex integration challenges</p>
+<h4 class="font-medium">Adaptive Retrieval Strategies</h4>
+<p class="text-sm text-gray-600">Modify search depth and breadth based on question classification and educational objectives</p>
 </div>
 </div>
 
 <div class="flex items-start">
 <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-semibold">3</div>
 <div class="ml-4">
-<h4 class="font-medium">Maintaining Educational Integrity</h4>
-<p class="text-sm text-gray-600">Guide students toward understanding rather than just providing answers</p>
+<h4 class="font-medium">Pedagogical Alignment</h4>
+<p class="text-sm text-gray-600">Generate responses that promote learning rather than providing direct solutions to assignments</p>
 </div>
 </div>
 </div>
@@ -340,55 +329,42 @@ View Source
 </section>
 
 <section>
-<h2>The Architecture: Graph RAG Before Microsoft Made It Famous</h2>
-<p>This was spring 2024, after Harvard's CS50 paper but before every startup had a "GraphRAG" product. The key insight was that knowledge graphs could capture the structured relationships between NLP concepts in ways that pure vector search couldn't.</p>
+<h2>Architecture: Knowledge Graph Construction and Retrieval</h2>
+<p>The system implementation preceded widespread adoption of Graph RAG techniques, developed concurrently with early research in this area during Spring 2024. The architecture combines automated knowledge extraction with hybrid retrieval strategies.</p>
 
 <!-- System Architecture Diagram -->
 <div class="bg-blue-50 border-2 border-dashed border-blue-300 rounded-lg p-8 mb-6 text-center">
-<svg class="mx-auto h-12 w-12 text-blue-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-<path d="M21 24C21 35.046 12.046 44 1 44M21 24C21 12.954 12.046 4 1 4M21 24L47 24M21 24C21 35.046 29.954 44 41 44M21 24C21 12.954 29.954 4 41 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-<p class="mt-2 text-sm text-blue-500">[System Architecture: Knowledge Graph + Vector Search + Graph Traversal]</p>
-<p class="text-xs text-blue-400">GPT-4 extraction → Neo4j storage → Hybrid retrieval → Adaptive responses</p>
+<div class="h-64 rounded-lg bg-cover bg-center" style="background-image: url('../images/hybrid_RAG.png');">
+</div>
 </div>
 
-<h3>Technical Implementation</h3>
-<p><strong>Knowledge Graph Construction:</strong> I used GPT-3.5/GPT-4 to automatically extract entities and relationships from course lecture documents, generating Cypher queries to populate a Neo4j database. This wasn't just about storing information – it was about capturing how concepts relate to each other in the context of NLP education.</p>
+<h3>Implementation Details</h3>
+<p><strong>Knowledge Graph Construction:</strong> Automated entity and relationship extraction from course lecture documents using GPT-3.5/GPT-4, generating Cypher queries for Neo4j database population. The extraction process focuses on capturing both explicit concept definitions and implicit relationships between NLP techniques, theories, and applications.</p>
 
-<p><strong>Hybrid Retrieval Strategy:</strong></p>
+<p><strong>Hybrid Retrieval Implementation:</strong></p>
 <ul>
-<li>Vector search for semantic similarity</li>
-<li>Keyword search for exact matches</li>
-<li>Graph traversal for conceptual relationships</li>
+<li>Vector embeddings for semantic similarity matching</li>
+<li>Keyword-based search for exact terminology retrieval</li>
+<li>Graph traversal algorithms for relationship exploration</li>
+<li>Question classification to determine optimal retrieval strategy</li>
 </ul>
 
-<p><strong>Adaptive Response Generation:</strong> Depending on the question type, the system adjusts its graph traversal depth and breadth. Theory questions need deeper conceptual connections; clarification questions benefit from exploring adjacent concepts.</p>
+<p><strong>Adaptive Response Generation:</strong> The system modifies graph traversal parameters based on question taxonomy. Theoretical questions trigger deeper conceptual exploration, while clarification requests focus on adjacent concept relationships.</p>
 </section>
 
 <section>
-<h2>Real-World Testing: 287 Questions, 8 Categories, Honest Results</h2>
+<h2>Experimental Methodology and Results</h2>
 
-<!-- Screenshot Placeholder -->
-<div class="mb-6">
-<div class="bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
-<svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h36v16a2 2 0 01-2 2H8a2 2 0 01-2-2V20zM6 12a2 2 0 012-2h32a2 2 0 012 2v8H6V12z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-<p class="mt-2 text-sm text-gray-500">[Screenshot: CS 4740 EdStem integration showing real student questions]</p>
-<p class="text-xs text-gray-400">Real classroom deployment with 287 question-answer pairs evaluated</p>
-</div>
-</div>
+<p>The evaluation framework addresses limitations in traditional NLP metrics when applied to educational contexts. Rather than relying solely on ROUGE or BLEU scores, the assessment focuses on pedagogical effectiveness and conceptual accuracy.</p>
 
-<p>I evaluated the system on 287 question-answer pairs from actual CS 4740 discussions, developing a comprehensive framework that goes way beyond traditional metrics.</p>
-
-<h3>📊 Question Categorization & Performance</h3>
+<h3>📊 Evaluation Framework</h3>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
 <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-<h4 class="font-medium text-green-800 mb-3">✅ Top Performers</h4>
+<h4 class="font-medium text-green-800 mb-3">✅ Strong Performance Areas</h4>
 <div class="space-y-2">
 <div class="flex justify-between items-center">
-<span class="text-sm text-green-700">Clarification</span>
+<span class="text-sm text-green-700">Clarification Queries</span>
 <span class="font-bold text-green-800">81%</span>
 </div>
 <div class="flex justify-between items-center">
@@ -407,36 +383,36 @@ View Source
 </div>
 
 <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-<h4 class="font-medium text-yellow-800 mb-3">⚠️ Learning Opportunities</h4>
+<h4 class="font-medium text-yellow-800 mb-3">⚠️ Identified Limitations</h4>
 <div class="space-y-2">
 <div class="flex justify-between items-center">
-<span class="text-sm text-yellow-700">Compound</span>
+<span class="text-sm text-yellow-700">Compound Questions</span>
 <span class="font-bold text-yellow-800">68%</span>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-sm text-yellow-700">Image-based</span>
+<span class="text-sm text-yellow-700">Image-based Content</span>
 <span class="font-bold text-yellow-800">55%</span>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-sm text-yellow-700">Circumstantial</span>
+<span class="text-sm text-yellow-700">Circumstantial Context</span>
 <span class="font-bold text-yellow-800">40%</span>
 </div>
 <div class="flex justify-between items-center">
-<span class="text-sm text-yellow-700">Unrelated</span>
+<span class="text-sm text-yellow-700">Off-topic Queries</span>
 <span class="font-bold text-yellow-800">18%</span>
 </div>
 </div>
 </div>
 </div>
 
-<h3>What the Numbers Actually Mean</h3>
-<p>The system excelled at theory-based and conceptual integration questions, which makes sense – these are exactly the scenarios where graph-based knowledge representation shines. It could trace connections between transformer architectures and earlier sequence models, or explain how attention mechanisms relate to alignment problems.</p>
+<h3>Performance Analysis</h3>
+<p>The system demonstrated particular strength in scenarios requiring conceptual relationship understanding. For theory-based questions about transformer architectures and attention mechanisms, the graph structure enabled comprehensive exploration of related concepts and their dependencies.</p>
 
-<p>The lower performance on circumstantial questions revealed a key limitation: the system struggled with the contextual richness of actual classroom discourse. When students asked "you mentioned a problem with attention in Thursday's lecture," the system could explain attention mechanisms perfectly but missed the specific conversational context.</p>
+<p>Performance limitations emerged primarily in questions requiring rich contextual understanding beyond the structured knowledge representation. Circumstantial queries referencing specific lecture moments or discussion context proved challenging for the graph-based approach.</p>
 
-<h3>🆚 Comparison with Traditional RAG</h3>
+<h3>🆚 Comparative Analysis with Vector-Only RAG</h3>
 <div class="performance-card">
-<h4 class="font-medium text-gray-800 mb-4">Performance Improvements vs Vector-Only RAG</h4>
+<h4 class="font-medium text-gray-800 mb-4">Performance Improvements Over Vector-Only Baseline</h4>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
 <div>
 <div class="text-xl font-bold text-green-600">+18%</div>
@@ -453,67 +429,46 @@ View Source
 </div>
 </div>
 
-<p>The improvements were most dramatic precisely where you'd expect – questions that benefit from understanding structured relationships between concepts.</p>
+<p>The performance improvements align with theoretical expectations about graph-based knowledge representation. Questions benefiting from structured relationship understanding showed the most significant gains, while improvements were minimal for tasks where vector similarity sufficed.</p>
 </section>
 
 <section>
-<h2>Beyond the Demo: What Educational AI Actually Requires</h2>
-<p>Building this taught me that educational AI faces challenges that don't exist in other domains. It's not enough to provide accurate information – you need to provide information that promotes learning.</p>
+<h2>Technical Insights and Limitations</h2>
+<p>This implementation revealed several key insights about applying graph-based knowledge representation to educational contexts. The most significant finding concerns the relationship between question type and optimal retrieval strategy.</p>
 
-<!-- Student Feedback Placeholder -->
 <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
 <div class="flex">
 <div class="flex-shrink-0">
-<svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-</svg>
-</div>
-<div class="ml-3">
-<p class="text-sm text-blue-700">
-<em>"Finally, an AI that doesn't just give me the answer but helps me understand how the concepts connect. Game-changer for studying NLP."</em>
-</p>
-<p class="text-xs text-blue-600 mt-1">— CS 4740 Student, Spring 2024</p>
 </div>
 </div>
 
-<p><strong>Key Insights:</strong></p>
+<p><strong>Key Technical Findings:</strong></p>
 <ul>
-<li><strong>Evaluation is everything:</strong> Traditional metrics like ROUGE completely miss what matters in education</li>
-<li><strong>Context beats accuracy:</strong> 85% accuracy with explanation beats 95% black-box responses</li>
-<li><strong>Question types matter:</strong> Different learning objectives require different AI approaches</li>
-<li><strong>Pedagogical value ≠ Information accuracy:</strong> You need domain experts to validate educational impact</li>
+<li><strong>Evaluation methodology matters:</strong> Educational AI requires domain-specific metrics beyond traditional NLP benchmarks</li>
+<li><strong>Question classification is critical:</strong> Different learning objectives require different retrieval strategies</li>
+<li><strong>Structured representation has limits:</strong> Graph abstraction can lose important contextual nuances</li>
+<li><strong>Hybrid approaches show promise:</strong> Combining graph and vector search addresses complementary weaknesses</li>
 </ul>
 
-<p>I developed automated classifiers for factuality, completeness, coherence, and relevance, but the real insights came from expert assessment. Teaching assistants and domain experts evaluated responses on pedagogical value, not just accuracy.</p>
+<p>The evaluation framework developed for this project required collaboration with domain experts to assess pedagogical value rather than solely information accuracy. This highlighted the importance of task-appropriate evaluation metrics in educational AI applications.</p>
 </section>
 
 <section>
-<h2>The Bigger Picture: Responsible AI in Education</h2>
-<p>This project was really about a larger question: how do we deploy AI in education responsibly? The technical challenges were interesting, but the ethical and pedagogical challenges were harder.</p>
+<h2>Implications for Educational AI Design</h2>
+<p>This work demonstrates that effective educational AI requires careful consideration of both technical architecture and pedagogical objectives. The challenges encountered in this project extend beyond NLP education to broader questions about AI system design for human learning.</p>
 
-<!-- EDGuard Concept Diagram -->
-<div class="bg-purple-50 border-2 border-dashed border-purple-300 rounded-lg p-8 mb-6 text-center">
-<svg class="mx-auto h-12 w-12 text-purple-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-<path d="M12 8V6a4 4 0 114 8 4 4 0 01-8 0V8zM8 16v24a2 2 0 002 2h28a2 2 0 002-2V16a2 2 0 00-2-2H10a2 2 0 00-2 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-</svg>
-<p class="mt-2 text-sm text-purple-500">[Concept: EDGuard Smart Filter System]</p>
-<p class="text-xs text-purple-400">AI moderation layer: Question analysis → Response filtering → Learning guidance</p>
-</div>
+<p>The proposed EDGuard framework represents a systematic approach to moderating AI-student interactions. This system would analyze both questions and responses to ensure appropriate educational engagement, promoting learning through guided discovery rather than direct answer provision.</p>
 
-<p>That's why I proposed EDGuard – a smart filter system that would moderate interactions between students and the AI. Instead of just providing answers, EDGuard would analyze both questions and responses to ensure appropriate educational engagement.</p>
-
-<p>The goal wasn't to replace human instruction but to augment it. Give students access to sophisticated help when TAs aren't available, but in ways that still require them to think, synthesize, and understand.</p>
+<p>The technical insights from graph-based knowledge representation have broader applications in developing AI systems that can reason about relationship structures and their effects on human understanding and capability development.</p>
 </section>
 
 <section>
-<h2>Looking Forward: From Education to Broader AI Alignment</h2>
-<p>This work directly connects to what I'm doing now in my research at Cornell. The challenges of building AI systems that actually help rather than just providing easy answers are the same challenges we face in AI alignment more broadly.</p>
+<h2>Connections to Current Research</h2>
+<p>This project addresses fundamental questions in AI alignment and human-AI interaction that extend beyond educational applications. The challenge of building systems that enhance rather than replace human capability is central to current discussions about beneficial AI development.</p>
 
-<p>How do you build systems that can reason about the <em>effects</em> of their responses, not just their accuracy? How do you create AI that promotes human capability rather than replacing it? These questions matter whether you're building educational AI or any system that needs to work beneficially with humans.</p>
+<p>The evaluation methodologies developed here particularly the focus on measuring systems across different task types and contexts inform current approaches to assessing reasoning capabilities in language models. The importance of task appropriate metrics and domain expert evaluation has become increasingly relevant as AI systems are deployed in specialized domains.</p>
 
-<p>The evaluation frameworks I developed here – particularly the idea that you need to measure systems across different types of tasks and contexts – directly inform my current work on evaluating reasoning capabilities in language models.</p>
-
-<p>Most importantly, this project convinced me that the most interesting AI research happens at the intersection of technical capability and human values. Building AI that actually helps education requires understanding both the technology and what education is trying to accomplish.</p>
+<p>Most importantly, this work demonstrates that the most impactful AI research occurs at the intersection of technical innovation and human values. Understanding both the technology and the specific domain requirements is essential for developing AI systems that provide genuine benefit rather than superficial convenience.</p>
 </section>
 
 <div class="mt-12 pt-8 border-t border-slate-200">
@@ -525,7 +480,7 @@ View Source
 Back to All Projects
 </a>
 <div class="flex items-center gap-4 text-sm text-slate-500">
-<span>Built with: Python, GPT-3.5, Neo4j, EdStem API</span>
+<span>Technologies: Python, GPT-3.5/4, Neo4j, EdStem API</span>
 </div>
 </div>
 </div>
