@@ -291,6 +291,7 @@
 <nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
 <div class="nav-links flex items-center gap-6">
 <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="./projects.html">Projects</a>
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="./insights.html">Insights</a>
 </div>
 <!-- Mobile menu button -->
 <div class="mobile-menu">
@@ -312,7 +313,7 @@
 <h1 class="hero-title text-slate-900 text-2xl lg:text-3xl font-bold leading-tight tracking-tight">David Akinboro</h1>
 <section class="hero-text text-slate-700 text-base lg:text-lg space-y-4">
       <p>
-        <em><strong>I build solutions for problems I know firsthand, and for challenges I learn by listening</strong></em>
+        <em><strong>I build AI systems for problems I know firsthand, and for challenges I learn by listening</strong></em>
       </p>
       <p>
         Right now, I'm wrapping up my MS in Computer Science at <strong>Cornell University</strong>, where I work with <a href="https://www.cs.cornell.edu/home/cardie/"><strong>Claire Cardie</strong></a> on making language models actually reason through problems instead of just pattern-matching their way to answers. Before diving into research, I led software projects in full-stack engineering and drove client integrations in a sales engineering role.
@@ -384,32 +385,43 @@ Get in Touch
             <div class="research-card">
                 <h3>
                     <span class="icon">🔍</span>
-                    <a href="https://lexlens.app/" class="hover:text-[#1672ce] transition-colors">Glass Box AI: Making Black Boxes Transparent</a>
+                    <a href="./insights.html" class="hover:text-[#1672ce] transition-colors">Building Transparent AI Systems for Legal Reasoning</a>
                 </h3>
                 <p>
-                    Most legal AI systems provide their answers without traceable explainability, which is fine for consumer apps, but ungrounded for professionals who need to stake their reputation on the reasoning behind it.
+                    Most legal AI systems operate as "black boxes" - inadequate for professionals who must stake their reputation on AI-generated reasoning.
                 </p>
                 <p>
-                    As a spin off from the <strong>legalReasoner project</strong>, we decided to commit ourselves to research what we call "<em>glass box</em>" legal AI systems where every conclusion can be traced back to specific evidence. Using attention analysis and interpretability techniques, you can see exactly which facts and legal principles influenced each decision. It's like having an AI research assistant that can highlight its sources and explain its logic.
+                  Our Legal Reasoning Interpretability Framework pioneers "glass box" legal AI where every conclusion traces back to specific evidence through three core innovations:   
+                    <ul>
+                      <li><strong>Fact Extraction</strong>: Identifying which factual elements drove the reasoning</li>
+                      <li><strong>Causal Relationship Analysis</strong>: Understanding how facts connect to legal conclusions</li>
+                      <li><strong>Attention Pattern Analysis</strong>: Revealing which information the AI weighted most heavily</li>
+                    </ul>
                 </p>
                 <p>
-                    The technical challenge isn't just accuracy it's building trust. Legal professionals need to understand not just what the AI concluded, but how it got there and when they should question it.
+                    The challenge goes beyond accuracy - it's building trust through transparency. Legal professionals need to understand not just what the AI concluded, but how it arrived there and when to question its judgment
                 </p>
             </div>
 
             <div class="research-card">
                 <h3>
                     <span class="icon">🛡️</span>
-                    <a href="https://lexlens.app/" class="hover:text-[#1672ce] transition-colors">Multi-Stage Safety: AI That Knows Its Limits</a>
+                    <a href="./insights.html" class="hover:text-[#1672ce] transition-colors">Interpretable Legal Reasoning with Search-Augmented Reinforcement Learning: A Multi-Task Framework (Working Paper)</a>
                 </h3>
                 <p>
-                    Here’s the real problem with deploying AI in high-stakes domains: most systems hallucinate. They'll confidently give you the wrong answer about a judicial reasoning or legal precedent.
+                  legal AI systems hallucinate confidently, providing incorrect answers about judicial reasoning or precedents with no detection mechanism. Our research addresses this through three key innovations:
                 </p>
                 <p>
-                    We are developing a multi-stage approach with built-in safety checks and human oversight points. Instead of one big AI making all the decisions, you get a system that breaks complex reasoning into steps, flags uncertainty, and hands off to humans when it hits its limits.
+                  <strong>Tool Access During Training</strong>: AI systems learn optimal research strategies during training itself, developing sophisticated information-seeking behaviors that mirror professional legal research patterns.
                 </p>
                 <p>
-                    The goal isn't just increasing accuracy but having an AI system that professionals can confidently rely on because it's honest about what it knows and what it doesn't.
+                  <strong>Multi-Task Legal Evaluation</strong>: Specialized evaluation systems assess legal reasoning across multiple competencies simultaneously - from constitutional analysis to precedent application - ensuring comprehensive rather than narrow legal competence.
+                </p>
+                <p>
+                  <strong>Jurisdictional Compliance Training</strong>: Automatic detection and maintenance of compliance across all US jurisdictions, preventing inappropriate legal generalizations while ensuring contextually appropriate advice.
+                </p>
+                <p>
+                  Our goal: Developing an AI systems that legal professionals can trust because they're transparent about their reasoning, honest about limitations, and equipped with safety mechanisms that flag uncertainty and escalate to human oversight when appropriate.
                 </p>
             </div>
 

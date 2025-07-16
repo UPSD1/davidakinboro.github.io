@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Research Insights - David Akinboro</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+      .hover-glow {
+        transition: box-shadow 0.3s ease-in-out;
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 15px 5px rgba(22, 114, 206, 0.3);}
+      .active-nav-link {
+        color: #1672ce;position: relative;
+      }
+      .active-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #1672ce;}
+
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+    .main-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* Content sections styling */
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section h2 {
+    color: #1e293b;
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.content-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content-section li {
+    margin-bottom: 0.75rem;
+}
+
+.content-section a {
+    color: #1e293b;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.content-section a:hover {
+    color: #1672ce;
+}
+
+.intro-text {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+    </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="header flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-4 lg:px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
+<a class="flex items-center gap-3 text-slate-800 hover:text-[#1672ce] transition-colors" href="./index.html">
+<div class="size-7 text-[#1672ce]">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-slate-800 text-lg lg:text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
+</a>
+<nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+<div class="nav-links flex items-center gap-6">
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="./projects.html">Projects</a>
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="./insights.html">Insights</a>
+</div>
+<!-- Mobile menu button -->
+<div class="mobile-menu">
+<button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
+<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("./images/BowersCIS.JPG");'></div>
+</nav>
+</header>
+
+<main class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-6 lg:py-10">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+
+
+
+<section class="content-section">
+<h2>My research</h2>
+<p class="intro-text">
+Before we delve into my research, please allow me to walk you through a short explanation on reasoning language models, the problems they face under my first short post, and how I'm tackling them under the second. I'm thankful to have been part of a fully-funded 2-year MS research program at Cornell University where my advisor has been instrumental to my research quest and every professor's class I took has shaped my understanding of this fascinating field.
+</p>
+</section>
+
+<section class="content-section">
+<h2>Short posts</h2>
+<ul>
+<li><a href="./insights/urlm.html">Understanding Reasoning in Language Models: An Insider's Perspective</a></li>
+<li><a href="#">My intersection of neuro-symbolic and causal inference as an approach</a></li>
+<!-- <li><a href="./insights/evaluation-challenges.html">Beyond Accuracy: Why Current AI Evaluation Misses the Point</a></li>
+<li><a href="./insights/educational-testing.html">Testing AI Reasoning in Real Classrooms</a></li> --> 
+</ul>
+</section>
+
+<section class="content-section">
+<h2>Research</h2>
+<ul>
+<li><a href="#">Interpretable Legal Reasoning with Search-Augmented Reinforcement Learning: A Multi-Task Framework (Working Paper)</a></li>
+<li><a href="./projects/graph.html">Graph-based Retrieval-Augmented Generation for Educational AI Systems</a></li>
+<li><a href="#">Building Transparent AI Systems for Legal Reasoning</a></li>
+</ul>
+</section>
+
+</div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300">
+<div class="flex justify-center">
+<div class="flex max-w-[960px] flex-1 flex-col">
+<div class="flex flex-col gap-6 px-5 py-10 text-center @container items-center">
+<div class="flex flex-wrap justify-center gap-5">
+<a class="text-slate-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/davidakinboro/" target="_blank" aria-label="LinkedIn Profile">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
+</svg>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="https://github.com/UPSD1" target="_blank" aria-label="GitHub Profile">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
+</svg>
+</a>
+</div>
+<p class="text-slate-400 text-sm font-normal leading-normal">© 2025 David Akinboro. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start' 
+            });
+          }
+        });
+      });
+    </script>
+
+</body></html>
