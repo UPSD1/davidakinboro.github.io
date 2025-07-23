@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>My Intersection of Neuro-Symbolic and Causal Inference - David Akinboro</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+.hover-glow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 15px 5px rgba(22, 114, 206, 0.3);
+}
+.active-nav-link {
+  color: #1672ce;
+  position: relative;
+}
+.active-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1672ce;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .content-area {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Content styling */
+.content-area {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.content-area h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.content-area h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.content-area h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.content-area p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.content-area ul {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.content-area li {
+  margin-bottom: 0.5rem;
+}
+
+.content-area strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.content-area em {
+  font-style: italic;
+}
+
+.sidebar {
+  width: 16rem;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 6rem;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: block;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.sidebar a:hover {
+  color: #1672ce;
+}
+
+.date-info {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #1672ce;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #1361b3;
+}
+
+.back-link svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+</style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="header flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-4 lg:px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
+<a class="flex items-center gap-3 text-slate-800 hover:text-[#1672ce] transition-colors" href="/">
+<div class="size-7 text-[#1672ce]">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-slate-800 text-lg lg:text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
+</a>
+<nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+<div class="nav-links flex items-center gap-6">
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="../projects.html">Projects</a>
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="../insights.html">Insights</a>
+</div>
+<!-- Mobile menu button -->
+<div class="mobile-menu">
+<button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
+<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("../images/BowersCIS.JPG");'></div>
+</nav>
+</header>
+
+<main class="main-container flex flex-1 px-4 lg:px-20 xl:px-40 py-6 lg:py-10">
+<div class="flex max-w-7xl w-full mx-auto">
+<!-- Sidebar -->
+<aside class="sidebar">
+<h3>Contents</h3>
+<ul>
+<li><a href="#building-on-path-forward">Building on the Path Forward</a></li>
+<li><a href="#understanding-foundations">Understanding the Foundations</a></li>
+<li><a href="#neuro-symbolic-ai">Neuro-Symbolic AI: Bridging Two Worlds</a></li>
+<li><a href="#causal-inference">Causal Inference: From "What" to "Why"</a></li>
+<li><a href="#domains-crying-solutions">Domains Crying Out for Solutions</a></li>
+<li><a href="#journey-legal-ai">My Journey into Legal AI</a></li>
+<li><a href="#evolution-research">Evolution: From Prototype to Research</a></li>
+<li><a href="#approach-intersection">My Approach: Where They Intersect</a></li>
+<li><a href="#why-matters-legal">Why This Matters in Legal Reasoning</a></li>
+<li><a href="#looking-forward">Looking Forward</a></li>
+</ul>
+</aside>
+
+<!-- Main Content -->
+<article class="content-area">
+<a href="../insights.html" class="back-link">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+</svg>
+Back to Insights
+</a>
+
+<h1>My Intersection of Neuro-Symbolic and Causal Inference as an Approach</h1>
+
+<div class="date-info">January 2025</div>
+
+<div id="building-on-path-forward">
+<h2>Building on the Path Forward</h2>
+<p>In my previous post on reasoning language models, I outlined how current limitations from hallucination rates reaching 33% for o3 models to the persistent "black box" problem are driving exciting research directions. Among the four key areas I highlighted (Neuro-Symbolic AI, Causal Inference, Lifelong Learning, and Improved Explainability), I want to dive deep into how I'm combining the first two to tackle one of AI's most persistent challenges: creating systems that can both reason effectively AND explain their thinking.</p>
+
+<p>The good news is that these limitations are pushing us toward more sophisticated approaches. As we stand in what researchers call the <a href="https://arxiv.org/abs/2501.05435">"third AI summer"</a>, characterized by significant advancements in integrating symbolic and neural approaches, we're witnessing a convergence of methodologies that could fundamentally change how AI systems reason and explain themselves.</p>
+</div>
+
+<div id="understanding-foundations">
+<h2>Understanding the Foundations</h2>
+
+<div id="neuro-symbolic-ai">
+<h3>Neuro-Symbolic AI: Bridging Two Worlds</h3>
+<p><strong>What it is:</strong> <a href="https://arxiv.org/html/2501.05435v1">Neuro-Symbolic AI represents "a composite AI framework that seeks to merge the domains of Symbolic AI and Neural Networks to create a superior hybrid AI model possessing reasoning capabilities"</a>. Think of it like having both an artist (neural networks) who can recognize complex patterns and a mathematician (symbolic AI) who can follow logical rules working together.</p>
+
+<p>The intuition behind this approach draws directly from cognitive science. <a href="https://fortune.com/2024/12/09/neurosymbolic-ai-deep-learning-symbolic-reasoning-reliability/">Many researchers compare this to psychologist Daniel Kahneman's System 1 and System 2 thinking: System 1 is fast, intuitive, and pattern-based (neural networks excel here), while System 2 is slow, deliberate, and rule-based (where symbolic AI shines)</a>.</p>
+
+<p><strong>The current landscape:</strong> <a href="https://arxiv.org/abs/2501.05435">A comprehensive 2024 systematic review of 1,428 papers found that 63% of neuro-symbolic research focuses on learning and inference, 35% on logic and reasoning, but only 28% addresses explainability and trustworthiness</a>exactly the gap that high-stakes applications like legal reasoning need to bridge.</p>
+
+<p><strong>Real-world success:</strong> We're already seeing remarkable results. <a href="https://fortune.com/2024/12/09/neurosymbolic-ai-deep-learning-symbolic-reasoning-reliability/">Google's AlphaGeometry system demonstrates how neural generators can guide symbolic solvers to achieve silver-medalist performance on International Mathematical Olympiad problems</a>. This blueprint combining domain-specific neural pattern recognition with symbolic logical reasoning points toward what's possible in other complex domains.</p>
+</div>
+
+<div id="causal-inference">
+<h3>Causal Inference: From "What" to "Why"</h3>
+<p><strong>The fundamental shift:</strong> <a href="https://medium.com/@alexglee/causal-ai-current-state-of-the-art-future-directions-c17ad57ff879">Causal AI represents a paradigm shift by moving beyond traditional pattern recognition to infer and leverage cause-and-effect relationships</a>. Instead of just learning that "rain" and "wet streets" appear together in data, causal inference systems understand that rain CAUSES wet streets enabling them to reason about interventions and counterfactuals.</p>
+
+<p>This distinction matters profoundly in complex reasoning tasks. Traditional machine learning identifies correlations: "in legal cases with these patterns, courts tend to rule this way." Causal inference goes deeper: "these specific facts led to this ruling because they satisfy these legal elements, which would hold even in slightly different circumstances."</p>
+
+<p><strong>The challenge:</strong> <a href="https://www.microsoft.com/en-us/research/group/causal-inference/">Unlike traditional ML validation where we can test models on held-out data, causal models face the fundamental problem that counterfactual quantities are never observed</a>. We can't directly verify "what would have happened if this fact were different" in real-world legal cases.</p>
+
+<p><strong>Current momentum:</strong> <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-soc-030420-015345">The integration of machine learning with causal inference enables researchers to better address potential biases in estimating causal effects and uncover heterogeneous causal effects</a>, making causal reasoning more practical for complex, high-dimensional problems like legal text analysis.</p>
+</div>
+</div>
+
+<div id="domains-crying-solutions">
+<h2>Domains Crying Out for Solutions</h2>
+<p>High-stakes fields medicine (diagnosis and treatment), legal (judicial reasoning), finance (risk assessment), and policy (intervention effects) share a common challenge: they require not just accurate predictions, but explanations that professionals can trust and validate.</p>
+
+<p>The explainability imperative is particularly acute in these domains. <a href="https://arxiv.org/abs/2411.04383">Despite the promise of neuro-symbolic AI to enhance explainability through symbolic transparency, current results are "less evident than imagined,"</a> with most approaches still producing systems that are difficult to interpret in practice.</p>
+
+<p>This creates a critical gap: we have AI systems that can perform impressively on pattern recognition tasks, but professionals in high-stakes domains remain hesitant to trust systems they can't understand or verify.</p>
+</div>
+
+<div id="journey-legal-ai">
+<h2>My Journey into Legal AI</h2>
+<p>During my NBA classes, I was fortunate to collaborate with law students and discovered their struggle, further validated by reaching out to other law school students and evident on law school forums. The struggle was understanding how judges link case facts to rulings.</p>
+
+<p>My goal was to build an AI assistant that can analyze legal cases, find relevant precedents, explain its thinking process clearly, and help with legal writing specifically focused on US law (all 50 states plus federal). Instead of being a "black box system" that gives answers without explanation, I needed it to show exactly which facts led to which conclusions.</p>
+
+<p>What I learnt amongst all of them was an understanding of which facts of a case the court relied on most heavily and how those facts connected step-by-step to the legal outcome. Legal reasoning isn't just about knowing the law; it's about systematically connecting evidence to legal principles through transparent logical chains.</p>
+
+<p>As an individual class project, I decided to build an MVP first that mimics how legal decisions are made by identifying relevant facts, mapping them to statutory elements, and reasoning through precedents. As a result, I learnt the IRAC rule vs Fact Application and developed a Python/Streamlit prototype that, given a CourtListener citation, extracts precedents, visualizes them as a graph, and presents the reasoning in IRAC format <strong><a href="https://github.com/daka13/LegalReasonerX">LegalReasonerX</a></strong>.</p>
+
+<p>This prototype taught me that legal reasoning has a fundamentally different structure from general language understanding. It requires systematic fact extraction, explicit causal reasoning about how facts connect to legal conclusions, and transparent presentation of that reasoning chain.</p>
+</div>
+
+<div id="evolution-research">
+<h2>Evolution: From Prototype to Research</h2>
+<p>That prototype, although built on feedback, evolved into a research project with my advisor as an interpretability framework designed to map out causal links by delivering systematic fact extraction, causal relationship mapping, and evidence ranking.</p>
+
+<p>Post inference from a multi-task legal agent, we decided to commit ourselves to research what we call "glass box" legal AI systems where every conclusion can be traced back to specific evidence. Using attention analysis and interpretability techniques, you can see exactly which facts and legal principles influenced each decision. It's like having an AI research assistant that can highlight its sources and explain its logic.</p>
+
+<p>This evolution reflected a key insight: <a href="https://law.stanford.edu/2024/12/20/breakthroughs-in-llm-reasoning-show-a-path-forward-for-neuro-symbolic-legal-ai/">recent breakthroughs at Stanford CodeX show that reasoning-enabled LLMs like OpenAI's o1 demonstrate "massive leaps in capability" on legal reasoning tasks compared to traditional models</a>, opening up new directions for neuro-symbolic approaches to legal problems.</p>
+</div>
+
+<div id="approach-intersection">
+<h2>My Approach: Where They Intersect</h2>
+<p><strong>The problem I'm solving:</strong> Legal AI systems that can both learn complex patterns from vast amounts of case law AND explain their reasoning through transparent causal chains that legal professionals can verify and trust.</p>
+
+<p><strong>The technical innovation:</strong></p>
+
+<ul>
+<li><strong>Neural component:</strong> Transformer-based attention analysis for pattern recognition in legal texts, identifying which parts of legal documents the model focuses on during reasoning</li>
+<li><strong>Symbolic component:</strong> Causal relationship mapping between legal facts and conclusions, systematically extracting cause-effect chains that mirror how legal professionals reason</li>
+<li><strong>Integration:</strong> Combined scoring methodology that weighs both attention patterns (60%) and causal strength (40%) to create interpretable legal reasoning scores</li>
+</ul>
+
+<p>The methodology works by first extracting key legal facts from court opinions, then analyzing both how the neural model attends to these facts (through transformer attention weights) and how they causally connect to legal conclusions (through symbolic causal analysis). This dual approach addresses the core limitation identified in current research: <a href="https://arxiv.org/abs/2411.04383">while neuro-symbolic AI promises enhanced explainability, achieving truly interpretable systems remains challenging</a>.</p>
+
+<p><strong>Search-augmented training:</strong> Unlike traditional approaches that only provide tool access during inference, our framework provides access to legal databases during training episodes. This enables the system to learn sophisticated research strategies, not just pattern recognition, fundamentally changing how AI agents develop legal reasoning capabilities.</p>
+</div>
+
+<div id="why-matters-legal">
+<h2>Why This Matters in Legal Reasoning</h2>
+<p><strong>Professional acceptance:</strong> Legal professionals need to understand the "why" behind decisions, not just the "what." <a href="https://www.edps.europa.eu/data-protection/technology-monitoring/techsonar/neuro-symbolic-artificial-intelligence_en">Traditional neural networks are "unable to provide explicit logics and algorithms," while integrating symbolic dimensions "offers new opportunities in terms of reasoning and interpretability"</a> that legal practice demands.</p>
+
+<p><strong>Regulatory compliance:</strong> Legal AI must be explainable for professional and ethical standards. The American Bar Association and state bar associations require lawyers to understand the technology they use. Black box AI systems create liability risks that most legal professionals cannot accept.</p>
+
+<p><strong>Trust and validation:</strong> Lawyers need to verify AI reasoning against their own expertise. <a href="https://www.edps.europa.eu/data-protection/technology-monitoring/techsonar/neuro-symbolic-artificial-intelligence_en">By enabling systems to generate explicit reasoning chains and trace decision-making processes</a>, this approach provides the transparency necessary for professional adoption.</p>
+
+<p><strong>The bigger picture:</strong> <a href="https://pilotgenerativeai.com/2024/12/21/2025-the-year-of-neuro-symbolic-ai/">As 2025 is being called "the year of neuro-symbolic AI"</a> due to growing recognition that pure neural approaches have fundamental limitations, this integrated approach positions legal AI at the forefront of trustworthy reasoning systems.</p>
+
+<p>The convergence is particularly timely given that <a href="https://arxiv.org/abs/2501.05435">despite rapid advances in learning and inference capabilities, significant gaps remain in explainability, trustworthiness, and meta-cognition</a> exactly the areas where legal applications have the highest requirements.</p>
+</div>
+
+<div id="looking-forward">
+<h2>Looking Forward</h2>
+<p>This intersection of neuro-symbolic AI and causal inference represents more than just a technical advancement it's a pathway toward AI systems that can engage in the kind of systematic, transparent reasoning that professional practice demands.</p>
+
+<p>The approach could transform other high-stakes domains facing similar challenges: medical diagnosis requiring both pattern recognition from symptoms and causal understanding of disease mechanisms, financial risk assessment needing both market pattern analysis and causal models of economic relationships, and policy analysis requiring both empirical pattern detection and causal reasoning about intervention effects.</p>
+
+<p>As we continue developing these "glass box" AI systems, the goal isn't just better performance, it's AI that professionals can genuinely trust, verify, and collaborate with. The intersection of neuro-symbolic AI and causal inference offers a principled path toward that vision, combining the pattern recognition power of modern neural networks with the transparency and logical rigor that complex reasoning demands.</p>
+
+<p>The limitations I identified in my previous post hallucination, opacity, and unreliable reasoning aren't just technical problems to solve. They're symptoms of a fundamental mismatch between how current AI systems process information and how professional reasoning actually works. By bridging neural pattern recognition with symbolic causal reasoning, we're working toward AI systems that don't just mimic human expertise, but support and enhance it through transparent, verifiable reasoning processes.</p>
+</div>
+
+</article>
+</div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300">
+<div class="flex justify-center">
+<div class="flex max-w-[960px] flex-1 flex-col">
+<div class="flex flex-col gap-6 px-5 py-10 text-center @container items-center">
+<div class="flex flex-wrap justify-center gap-5">
+<a class="text-slate-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/davidakinboro/" target="_blank" aria-label="LinkedIn Profile">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
+</svg>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="https://github.com/UPSD1" target="_blank" aria-label="GitHub Profile">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
+</svg>
+</a>
+</div>
+<p class="text-slate-400 text-sm font-normal leading-normal">© 2025 David Akinboro. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start' 
+      });
+    }
+  });
+});
+
+// Highlight current section in sidebar
+function highlightCurrentSection() {
+  const sections = document.querySelectorAll('[id]');
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  
+  let currentSection = '';
+  
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 150 && rect.bottom >= 150) {
+      currentSection = section.id;
+    }
+  });
+  
+  sidebarLinks.forEach(link => {
+    link.style.color = '#64748b';
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.style.color = '#1672ce';
+    }
+  });
+}
+
+window.addEventListener('scroll', highlightCurrentSection);
+window.addEventListener('load', highlightCurrentSection);
+</script>
+
+</body></html>
