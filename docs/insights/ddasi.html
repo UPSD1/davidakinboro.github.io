@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Data Discovery & Search Infrastructure - David Akinboro</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+.hover-glow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 15px 5px rgba(22, 114, 206, 0.3);
+}
+.active-nav-link {
+  color: #1672ce;
+  position: relative;
+}
+.active-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #1672ce;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .content-area {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* Content styling */
+.content-area {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.content-area h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.content-area h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.content-area h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.content-area p {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+.content-area ul {
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.content-area li {
+  margin-bottom: 0.5rem;
+}
+
+.content-area strong {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.content-area em {
+  font-style: italic;
+}
+
+.content-area pre {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.content-area code {
+  background-color: #f1f5f9;
+  color: #334155;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.content-area pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.content-area table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.content-area th,
+.content-area td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.content-area th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.content-area tr:last-child td {
+  border-bottom: none;
+}
+
+.visual-diagram {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px solid #cbd5e1;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  text-align: center;
+  font-family: monospace;
+  color: #475569;
+}
+
+.flow-step {
+  display: inline-block;
+  background-color: #1672ce;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem;
+  font-weight: 500;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: #64748b;
+  margin: 0 0.5rem;
+}
+
+.sidebar {
+  width: 16rem;
+  padding: 2rem 1rem;
+  position: sticky;
+  top: 6rem;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  display: block;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.sidebar a:hover {
+  color: #1672ce;
+}
+
+.date-info {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #1672ce;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #1361b3;
+}
+
+.back-link svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+</style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="header flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-4 lg:px-10 py-4 bg-white sticky top-0 z-50 shadow-sm">
+<a class="flex items-center gap-3 text-slate-800 hover:text-[#1672ce] transition-colors" href="/">
+<div class="size-7 text-[#1672ce]">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h1 class="text-slate-800 text-lg lg:text-xl font-bold leading-tight tracking-tight">David Akinboro</h1>
+</a>
+<nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
+<div class="nav-links flex items-center gap-6">
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors" href="../projects.html">Projects</a>
+<a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="../insights.html">Insights</a>
+</div>
+<!-- Mobile menu button -->
+<div class="mobile-menu">
+<button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
+<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+</svg>
+</button>
+</div>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("../images/BowersCIS.JPG");'></div>
+</nav>
+</header>
+
+<main class="main-container flex flex-1 px-4 lg:px-20 xl:px-40 py-6 lg:py-10">
+<div class="flex max-w-7xl w-full mx-auto">
+<!-- Sidebar -->
+<aside class="sidebar">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">From Keywords to Smart Examples</a></li>
+<li><a href="#two-layer-foundation">The Two-Layer Foundation</a></li>
+<li><a href="#keyword-search-revolution">The Keyword Search Revolution</a></li>
+<li><a href="#inverted-index">Enter the Inverted Index</a></li>
+<li><a href="#ranking-dilemma">The Ranking Dilemma</a></li>
+<li><a href="#coverage-ranking">Rank by Coverage</a></li>
+<li><a href="#diversify-coverage">Diversify by Coverage</a></li>
+<li><a href="#query-by-example">Query-by-Example: The FlashFill Revolution</a></li>
+<li><a href="#flashfill-demo">The FlashFill Demo Concept</a></li>
+<li><a href="#technical-challenge">The Technical Challenge</a></li>
+<li><a href="#dataset-combination">Dataset Combination</a></li>
+<li><a href="#join-operations">Join Operations</a></li>
+<li><a href="#union-operations">Union Operations</a></li>
+<li><a href="#bloom-filters">Optimizing with Bloom Filters</a></li>
+<li><a href="#federated-marketplaces">Federated Data Marketplaces</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ul>
+</aside>
+
+<!-- Main Content -->
+<article class="content-area">
+<a href="../insights.html" class="back-link">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+</svg>
+Back to Insights
+</a>
+
+<h1>Data Discovery & Search Infrastructure: Part 1 </h1>
+<h2>From Keywords to Smart Examples</h2>
+
+<div class="date-info">March 2025</div>
+
+<div id="introduction">
+<p><em>How do we find the right data in a world drowning in datasets?</em></p>
+
+<p>Imagine you're looking for information about schools in your city. You could Google "Chicago schools," but what if you want something very specific - like schools similar to "Ogden International High School" with "International Baccalaureate programs" and "Level 1 ratings"? This is where <strong>Data Discovery & Search Infrastructure</strong> becomes your superpower.</p>
+</div>
+
+<div id="two-layer-foundation">
+<h2>The Two-Layer Foundation: Index + Interface</h2>
+
+<p>This is from a lecture series I took in spring 25 with Professor Sainyam titled Data to Decisions. Every data search system has two essential components:</p>
+
+<div class="visual-diagram">
+<div class="flow-step">Search Interface</div>
+<div style="margin: 1rem 0; color: #64748b;">← What users see and interact with</div>
+<div style="border-top: 2px solid #cbd5e1; margin: 1rem 0; opacity: 0.5;"></div>
+<div class="flow-step">Data Index</div>
+<div style="margin: 1rem 0; color: #64748b;">← Where datasets are stored and organized</div>
+</div>
+
+<p>Think of it like a library: the <strong>Data Index</strong> is like the organized shelves of books, while the <strong>Search Interface</strong> is like the librarian who helps you find exactly what you need.</p>
+
+<p>But here's the challenge - we're not just dealing with a few hundred books, we're dealing with millions of datasets scattered across the internet!</p>
+</div>
+
+<div id="keyword-search-revolution">
+<h2>The Keyword Search Revolution: Enter the Inverted Index</h2>
+
+<div id="inverted-index">
+<h3>The Problem</h3>
+<p>Let's say you have these datasets:</p>
+<ul>
+<li>D₁ = {cornell, university}</li>
+<li>D₂ = {ithaca}</li>
+<li>D₃ = {cornell, ithaca}</li>
+<li>D₄ = {Ithaca}</li>
+<li>D₅ = {university}</li>
+</ul>
+
+<p>If someone searches for "cornell," the naive approach would check each dataset individually. With millions of datasets, this becomes impossibly slow - like reading every single book in the library to find mentions of "cornell."</p>
+
+<h3>The Solution: Inverted Index</h3>
+<p>Instead, we flip the problem on its head and create an <strong>inverted index</strong>:</p>
+
+<pre><code>{
+  cornell: [D₁, D₃], 
+  ithaca: [D₂, D₃, D₄],
+  university: [D₁, D₅]
+}</code></pre>
+
+<p>Now when someone searches for "cornell," we instantly know it appears in datasets D₁ and D₃. <strong>Time complexity: O(1)</strong> - fast!</p>
+
+<p><strong>Pseudocode for Inverted Index Construction:</strong></p>
+<pre><code>InvertedIndex = {}
+for each dataset D in AllDatasets:
+    for each word w in D:
+        if w not in InvertedIndex:
+            InvertedIndex[w] = []
+        InvertedIndex[w].append(D)</code></pre>
+</div>
+</div>
+
+<div id="ranking-dilemma">
+<h2>The Ranking Dilemma: Quality vs. Quantity</h2>
+
+<p>But wait - what if your search returns 1000 datasets? Let's look at two approaches:</p>
+
+<div id="coverage-ranking">
+<h3>Approach 1: Rank by Coverage</h3>
+<p>Simply list datasets by how much they cover your search topic. Like getting search results ranked by relevance score.</p>
+
+<p><strong>Problem:</strong> Information overload! You get everything but can't process it all.</p>
+</div>
+
+<div id="diversify-coverage">
+<h3>Approach 2: Diversify by Coverage</h3>
+<p>This is where the mathematical elegance comes in. We want to maximize coverage while minimizing redundancy.</p>
+
+<p><strong>The Max-Cover Problem:</strong></p>
+<ul>
+<li><strong>Input:</strong> Datasets D₁, D₂, ..., Dₙ</li>
+<li><strong>Goal:</strong> Choose k datasets that maximize Cov(S) = |⋃ᵢ∈S Dᵢ|</li>
+<li><strong>Translation:</strong> Pick the k datasets that together cover the most unique topics</li>
+</ul>
+
+<p><strong>Simple Example:</strong><br>
+If you search for "Obama" and want datasets covering different aspects:</p>
+<ul>
+<li>D₁ covers topics: {politics, speeches, healthcare}</li>
+<li>D₂ covers topics: {politics, foreign policy}</li>
+<li>D₃ covers topics: {healthcare, economics}</li>
+</ul>
+
+<p>Choosing D₁ and D₂ gives coverage = {politics, speeches, healthcare, foreign policy} = 4 topics<br>
+Choosing D₁ and D₃ gives coverage = {politics, speeches, healthcare, economics} = 4 topics</p>
+
+<p>Both are equally good mathematically, but provide different perspectives!</p>
+</div>
+</div>
+
+<div id="query-by-example">
+<h2>Query-by-Example: The FlashFill Revolution</h2>
+
+<p>Here's where it gets really exciting. What if instead of typing keywords, you could just show examples of what you want?</p>
+
+<div id="flashfill-demo">
+<h3>The FlashFill Demo Concept</h3>
+
+<p><strong>Traditional approach:</strong> "Find me datasets about Chicago schools with ratings"</p>
+
+<p><strong>Query-by-Example approach:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>School Type</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ogden International High School</td>
+<td>Level 1</td>
+</tr>
+<tr>
+<td>Hyde Park High School</td>
+<td>Level 2</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>System Output:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>long_name</th>
+<th>program_group</th>
+<th>overall_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ogden International High School</td>
+<td>International Baccalaureate</td>
+<td>Level 1</td>
+</tr>
+<tr>
+<td>Hyde Park Academy High School</td>
+<td>General Education</td>
+<td>Level 2</td>
+</tr>
+<tr>
+<td>Chicago Academy High School</td>
+<td>Honors</td>
+<td>Level 1</td>
+</tr>
+<tr>
+<td>Chicago High School for the Arts</td>
+<td>Fine & Performing Arts</td>
+<td>Level 1</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>When is this powerful?</strong></p>
+<ul>
+<li>You have a specific information need</li>
+<li>The desired output format can be expressed through examples</li>
+<li>You know what you want but can't easily describe it in keywords</li>
+</ul>
+</div>
+
+<div id="technical-challenge">
+<h3>The Technical Challenge</h3>
+
+<p>The system needs to:</p>
+<ol>
+<li><strong>Understand the pattern</strong> from your examples</li>
+<li><strong>Search the inverted index</strong> to find datasets containing similar information</li>
+<li><strong>Combine multiple datasets</strong> if needed (we'll get to this!)</li>
+</ol>
+
+<p><strong>Pseudocode for Query-by-Example:</strong></p>
+<pre><code>function QueryByExample(examples):
+    pattern = ExtractPattern(examples)
+    candidateDatasets = SearchInvertedIndex(pattern.keywords)
+    
+    results = []
+    for dataset in candidateDatasets:
+        if MatchesPattern(dataset, pattern):
+            results.append(dataset)
+    
+    return RankByRelevance(results)</code></pre>
+</div>
+</div>
+
+<div id="dataset-combination">
+<h2>Dataset Combination: When One Dataset Isn't Enough</h2>
+
+<p>Here's the caveat: "Relevant information is rarely present in a single table."</p>
+
+<p>Consider this scenario - you want school ratings, but the data is split:</p>
+
+<p><strong>School Details Table:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Code</th>
+<th>Program</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ogden International High School</td>
+<td>OIH123</td>
+<td>International Baccalaureate</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Hyde Park Academy High School</td>
+<td>HPA12</td>
+<td>General Education</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>School Performance Table:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Code</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>OIH123</td>
+<td>Level 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GHA124</td>
+<td>Level 2</td>
+</tr>
+</tbody>
+</table>
+
+<div id="join-operations">
+<h3>Join Operations</h3>
+<p>We need to <strong>join</strong> these tables on the Code field:</p>
+
+<p><strong>Pseudocode for Hash Join:</strong></p>
+<pre><code>function HashJoin(Table1, Table2, joinKey):
+    hashTable = {}
+    
+    // Build hash table from first table
+    for row in Table1:
+        key = row[joinKey]
+        hashTable[key] = row
+    
+    // Probe with second table
+    results = []
+    for row in Table2:
+        key = row[joinKey] 
+        if key in hashTable:
+            combinedRow = Combine(hashTable[key], row)
+            results.append(combinedRow)
+    
+    return results</code></pre>
+</div>
+
+<div id="union-operations">
+<h3>Union Operations</h3>
+<p>Sometimes you need to <strong>combine rows</strong> from different sources that have similar but not identical structures. This requires matching column headers and merging complementary information.</p>
+</div>
+</div>
+
+<div id="bloom-filters">
+<h2>Optimizing with Bloom Filters</h2>
+
+<p>Let's introduce ourselves to a clever optimization technique: <strong>Bloom Filters</strong> for faster joins.</p>
+
+<h3>The Problem</h3>
+<p>When joining large tables, we waste time processing rows that won't match. Can we quickly check if a key exists without storing the entire dataset in memory?</p>
+
+<h3>The Bloom Filter Solution</h3>
+
+<p>A Bloom Filter is a space-efficient probabilistic data structure that tells us:</p>
+<ul>
+<li><strong>Definitely NOT in the set</strong> (100% accurate)</li>
+<li><strong>Probably in the set</strong> (small chance of false positives)</li>
+</ul>
+
+<p><strong>Construction:</strong></p>
+<ol>
+<li>Initialize bit array of length m, all zeros</li>
+<li>Choose k hash functions h₁, h₂, ..., hₖ</li>
+<li>For each element r in dataset R:
+   <ul><li>Set bits h₁(r), h₂(r), ..., hₖ(r) to 1</li></ul>
+</li>
+</ol>
+
+<p><strong>Lookup:</strong></p>
+<ul>
+<li>Return YES if ALL bits h₁(s), h₂(s), ..., hₖ(s) are 1</li>
+<li>Return NO otherwise</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+<pre><code>Bit Array: [0,0,0,1,0,0,1,0,1,0]
+Positions:  0 1 2 3 4 5 6 7 8 9
+
+To check if "Anna" exists:
+h₁(Anna) = 6, h₂(Anna) = 8
+Both positions 6 and 8 are 1 → "Probably exists"</code></pre>
+
+<p><strong>False Positive Rate:</strong> (1 - e^(-k|R|/m))^k</p>
+
+<p>Where:</p>
+<ul>
+<li>k = number of hash functions</li>
+<li>|R| = number of elements in set</li>
+<li>m = length of bit array</li>
+</ul>
+</div>
+
+<div id="federated-marketplaces">
+<h2>Federated Data Marketplaces: The Future</h2>
+
+<p>Let's envisions a world where data discovery happens across <strong>federated marketplaces</strong> - imagine multiple organizations sharing dataset metadata without exposing the actual data.</p>
+
+<h3>The Arrow Information Paradox</h3>
+<ul>
+<li><strong>Buyer:</strong> "I want to know what the data contains so I can decide how much to pay"</li>
+<li><strong>Seller:</strong> "I won't share my data unless I get guaranteed payment"</li>
+</ul>
+
+<h3>The Solution: Metadata Profiles</h3>
+<p>Instead of sharing raw data, organizations share <strong>dataset profiles</strong>:</p>
+
+<pre><code>Dataset Profile:
+├── Name = "Census Data 2023"
+├── Rows = 3014  
+├── Columns = {id, name, age, income, ...}
+├── Description = "Population census data..."
+├── Synopses = "50% under age 60, 30% income >30K"
+└── Privacy Level = "Anonymized"</code></pre>
+
+<p>This enables search without revealing sensitive information!</p>
+</div>
+
+<div id="key-takeaways">
+<h2>Key Takeaways</h2>
+
+<ol>
+<li><strong>Inverted indexes</strong> makes keyword search fast - O(1) lookup time</li>
+<li><strong>Coverage-based ranking</strong> prevents information overload through smart selection</li>
+<li><strong>Query-by-example</strong> lets users show what they want instead of describing it</li>
+<li><strong>Dataset combination</strong> through joins and unions handles real-world data fragmentation</li>
+<li><strong>Bloom filters</strong> optimize operations with probabilistic efficiency</li>
+<li><strong>Federated marketplaces</strong> enable privacy-preserving data discovery</li>
+</ol>
+
+<p>The next time you search for data, remember: behind that simple search box lies a sophisticated infrastructure making sense of our data-rich world. As Professor Sainyam often says, the key isn't just finding data, but finding the <em>right</em> data efficiently and intelligently.</p>
+
+</div>
+
+</article>
+</div>
+</main>
+
+<footer class="bg-slate-800 text-slate-300">
+<div class="flex justify-center">
+<div class="flex max-w-[960px] flex-1 flex-col">
+<div class="flex flex-col gap-6 px-5 py-10 text-center @container items-center">
+<div class="flex flex-wrap justify-center gap-5">
+<a class="text-slate-400 hover:text-white transition-colors" href="https://www.linkedin.com/in/davidakinboro/" target="_blank" aria-label="LinkedIn Profile">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
+</svg>
+</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="https://github.com/UPSD1" target="_blank" aria-label="GitHub Profile">
+<svg fill="currentColor" height="28px" viewBox="0 0 256 256" width="28px" xmlns="http://www.w3.org/2000/svg">
+<path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
+</svg>
+</a>
+</div>
+<p class="text-slate-400 text-sm font-normal leading-normal">© 2025 David Akinboro. All rights reserved.</p>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start' 
+      });
+    }
+  });
+});
+
+// Highlight current section in sidebar
+function highlightCurrentSection() {
+  const sections = document.querySelectorAll('[id]');
+  const sidebarLinks = document.querySelectorAll('.sidebar a');
+  
+  let currentSection = '';
+  
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top <= 150 && rect.bottom >= 150) {
+      currentSection = section.id;
+    }
+  });
+  
+  sidebarLinks.forEach(link => {
+    link.style.color = '#64748b';
+    if (link.getAttribute('href') === `#${currentSection}`) {
+      link.style.color = '#1672ce';
+    }
+  });
+}
+
+window.addEventListener('scroll', highlightCurrentSection);
+window.addEventListener('load', highlightCurrentSection);
+</script>
+
+</body></html>
