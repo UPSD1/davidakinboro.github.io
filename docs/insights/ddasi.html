@@ -341,13 +341,13 @@ Back to Insights
 <div id="introduction">
 <p><em>How do we find the right data in a world drowning in datasets?</em></p>
 
-<p>Imagine you're looking for information about schools in your city. You could Google "Chicago schools," but what if you want something very specific - like schools similar to "Ogden International High School" with "International Baccalaureate programs" and "Level 1 ratings"? This is where <strong>Data Discovery & Search Infrastructure</strong> becomes your superpower.</p>
+<p>Imagine you're looking for information about schools in your city. You could Google "Chicago schools," but what if you want something very specific - like schools similar to "Ogden International High School" with "International Baccalaureate programs" and "Level 1 ratings"? This is where <strong>Data Discovery & Search Infrastructure</strong> makes these targeted searches possible.</p>
 </div>
 
 <div id="two-layer-foundation">
 <h2>The Two-Layer Foundation: Index + Interface</h2>
 
-<p>This is from a lecture series I took in spring 25 with Professor Sainyam titled Data to Decisions. Every data search system has two essential components:</p>
+<p>In Spring 2025, Professor Sainyam’s “Data to Decisions” course introduced two core components of any data search system.</p>
 
 <div class="visual-diagram">
 <div class="flow-step">Search Interface</div>
@@ -359,7 +359,7 @@ Back to Insights
 
 <p>Think of it like a library: the <strong>Data Index</strong> is like the organized shelves of books, while the <strong>Search Interface</strong> is like the librarian who helps you find exactly what you need.</p>
 
-<p>But here's the challenge - we're not just dealing with a few hundred books, we're dealing with millions of datasets scattered across the internet!</p>
+<p>But here's the challenge - we're not just dealing with a few hundred books, we're dealing with millions of datasets scattered across the internet! Hence real world implementations demand highly scalable architectures.</p>
 </div>
 
 <div id="keyword-search-revolution">
@@ -419,7 +419,7 @@ for each dataset D in AllDatasets:
 <ul>
 <li><strong>Input:</strong> Datasets D₁, D₂, ..., Dₙ</li>
 <li><strong>Goal:</strong> Choose k datasets that maximize Cov(S) = |⋃ᵢ∈S Dᵢ|</li>
-<li><strong>Translation:</strong> Pick the k datasets that together cover the most unique topics</li>
+<li><strong>Translation:</strong> Pick k datasets that collectively cover the most unique topics</li>
 </ul>
 
 <p><strong>Simple Example:</strong><br>
@@ -440,7 +440,7 @@ Choosing D₁ and D₃ gives coverage = {politics, speeches, healthcare, economi
 <div id="query-by-example">
 <h2>Query-by-Example: The FlashFill Revolution</h2>
 
-<p>Here's where it gets really exciting. What if instead of typing keywords, you could just show examples of what you want?</p>
+<p>What if instead of typing keywords, you could just show examples of what you want? <strong>Query-by-Example</strong> reframes search: provide sample records, and the system infers the underlying query pattern from those examples.</p>
 
 <div id="flashfill-demo">
 <h3>The FlashFill Demo Concept</h3>
@@ -674,7 +674,7 @@ Both positions 6 and 8 are 1 → "Probably exists"</code></pre>
 <div id="federated-marketplaces">
 <h2>Federated Data Marketplaces: The Future</h2>
 
-<p>Let's envisions a world where data discovery happens across <strong>federated marketplaces</strong> - imagine multiple organizations sharing dataset metadata without exposing the actual data.</p>
+<p>Let's envisions a world where data discovery happens across <strong>federated marketplaces</strong> - imagine multiple organizations sharing dataset metadata profiles rather than raw data facilitating cross-domain search while preserving confidentiality.</p>
 
 <h3>The Arrow Information Paradox</h3>
 <ul>

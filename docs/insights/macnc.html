@@ -232,7 +232,7 @@
 <li><a href="#journey-legal-ai">My Journey into Legal AI</a></li>
 <li><a href="#evolution-research">Evolution: From Prototype to Research</a></li>
 <li><a href="#approach-intersection">My Approach: Where They Intersect</a></li>
-<li><a href="#why-matters-legal">Why This Matters in Legal Reasoning</a></li>
+<li><a href="#why-matters-legal">Why I believe this matters in Legal Reasoning</a></li>
 <li><a href="#looking-forward">Looking Forward</a></li>
 </ul>
 </aside>
@@ -252,9 +252,9 @@ Back to Insights
 
 <div id="building-on-path-forward">
 <h2>Building on the Path Forward</h2>
-<p>In my previous post on reasoning language models, I outlined how current limitations from hallucination rates reaching 33% for o3 models to the persistent "black box" problem are driving exciting research directions. Among the four key areas I highlighted (Neuro-Symbolic AI, Causal Inference, Lifelong Learning, and Improved Explainability), I want to dive deep into how I'm combining the first two to tackle one of AI's most persistent challenges: creating systems that can both reason effectively AND explain their thinking.</p>
+<p>In my previous post, I highlighted two key challenges hallucination rates (33% on o3 models) and the persistent “black box” issue and how they’re steering new research on interpretability and robust reasoning. Among the four key areas I highlighted (Neuro-Symbolic AI, Causal Inference, Lifelong Learning, and Improved Explainability), I want to dive deep into how I'm combining the first two to tackle one of AI's most persistent challenges: creating systems that can both reason effectively and explain their thinking.</p>
 
-<p>The good news is that these limitations are pushing us toward more sophisticated approaches. As we stand in what researchers call the <a href="https://arxiv.org/abs/2501.05435">"third AI summer"</a>, characterized by significant advancements in integrating symbolic and neural approaches, we're witnessing a convergence of methodologies that could fundamentally change how AI systems reason and explain themselves.</p>
+<p>In the so-called <a href="https://arxiv.org/abs/2501.05435">"third AI summer"</a><em>“third AI summer,”</em> symbolic and neural methods are converging in ways that may redefine how AI systems both reason and explain their conclusions.</p>
 </div>
 
 <div id="understanding-foundations">
@@ -262,7 +262,7 @@ Back to Insights
 
 <div id="neuro-symbolic-ai">
 <h3>Neuro-Symbolic AI: Bridging Two Worlds</h3>
-<p><strong>What it is:</strong> <a href="https://arxiv.org/html/2501.05435v1">Neuro-Symbolic AI represents "a composite AI framework that seeks to merge the domains of Symbolic AI and Neural Networks to create a superior hybrid AI model possessing reasoning capabilities"</a>. Think of it like having both an artist (neural networks) who can recognize complex patterns and a mathematician (symbolic AI) who can follow logical rules working together.</p>
+<p><strong>Neuro-Symbolic AI</strong> <a href="https://arxiv.org/html/2501.05435v1"> fuses symbolic rule-based reasoning with neural pattern recognition. Imagine a system that pairs the pattern-finding strengths of deep networks with the logical precision of symbolic logic, enabling both inference and interpretation.</p>
 
 <p>The intuition behind this approach draws directly from cognitive science. <a href="https://fortune.com/2024/12/09/neurosymbolic-ai-deep-learning-symbolic-reasoning-reliability/">Many researchers compare this to psychologist Daniel Kahneman's System 1 and System 2 thinking: System 1 is fast, intuitive, and pattern-based (neural networks excel here), while System 2 is slow, deliberate, and rule-based (where symbolic AI shines)</a>.</p>
 
@@ -273,7 +273,7 @@ Back to Insights
 
 <div id="causal-inference">
 <h3>Causal Inference: From "What" to "Why"</h3>
-<p><strong>The fundamental shift:</strong> <a href="https://medium.com/@alexglee/causal-ai-current-state-of-the-art-future-directions-c17ad57ff879">Causal AI represents a paradigm shift by moving beyond traditional pattern recognition to infer and leverage cause-and-effect relationships</a>. Instead of just learning that "rain" and "wet streets" appear together in data, causal inference systems understand that rain CAUSES wet streets enabling them to reason about interventions and counterfactuals.</p>
+<p><strong>Causal Inference</strong> <a href="https://medium.com/@alexglee/causal-ai-current-state-of-the-art-future-directions-c17ad57ff879">goes further than correlation: it models cause-and-effect, so systems can predict what happens if you intervene (e.g., “If I redirect rainwater, streets stay dry”), supporting counterfactual reasoning.</p>
 
 <p>This distinction matters profoundly in complex reasoning tasks. Traditional machine learning identifies correlations: "in legal cases with these patterns, courts tend to rule this way." Causal inference goes deeper: "these specific facts led to this ruling because they satisfy these legal elements, which would hold even in slightly different circumstances."</p>
 
@@ -307,7 +307,13 @@ Back to Insights
 
 <div id="evolution-research">
 <h2>Evolution: From Prototype to Research</h2>
-<p>That prototype, although built on feedback, evolved into a research project with my advisor as an interpretability framework designed to map out causal links by delivering systematic fact extraction, causal relationship mapping, and evidence ranking.</p>
+<p>Building on that MVP, my advisor and I developed an interpretability framework that</p> 
+ <ul>   
+    <li>(1) extracts key facts</li> 
+    <li>(2) maps them into causal chains, and</li>
+    <li>(3) ranks evidence</li> 
+</ul>
+<p>transforming a prototype into a full research project.</p>
 
 <p>Post inference from a multi-task legal agent, we decided to commit ourselves to research what we call "glass box" legal AI systems where every conclusion can be traced back to specific evidence. Using attention analysis and interpretability techniques, you can see exactly which facts and legal principles influenced each decision. It's like having an AI research assistant that can highlight its sources and explain its logic.</p>
 

@@ -295,11 +295,11 @@ Back to Insights
 
 <div id="introduction">
 <h2>Why Search is Everywhere in AI</h2>
-<p>Every time you ask your GPS to find the fastest route home, challenge yourself to a game of chess on your phone, or watch a computer play Go, you're witnessing the power of search algorithms. These are the fundamental building blocks that power much of artificial intelligence.</p>
+<p>From GPS routing to chess engines and Go AI, search algorithms underpin the core mechanisms of modern artificial intelligence.</p>
 
-<p>From a class I served as a TA, Professor Hirsh often emphasized: <strong>"AI as search"</strong> as one of the core ideas that underlies how computers solve problems. Unlike humans who might use intuition or pattern recognition, computers typically solve problems in methodical, systematic ways by exploring possibilities until they find solutions.</p>
+<p> <strong>"AI as search"</strong>is a foundational principle in computerized problem solving.</p>
 
-<p>So let's dive into how this actually works, using math no more advanced than what you learned in high school.</p>
+<p>The following sections explain these concepts using only high school level mathematics.</p>
 </div>
 
 <div id="state-space-search">
@@ -414,7 +414,7 @@ BFS would explore: 1 → 2, 3 → 4, 5, 6</p>
 <h2>Smart Search with Heuristics - A* Algorithm</h2>
 
 <h3>The Problem with Blind Search</h3>
-<p>Both DFS and BFS are "blind" - they don't use any knowledge about where the goal might be. It's like looking for your keys by checking every room in your house without any clues about where you left them.</p>
+<p>Both DFS and BFS are "blind" search strategies - they explore without any knowledge about where the goal might be. Akin to inspecting every room in a house when you have no idea where your keys are.</p>
 
 <h3>Enter Heuristics: Adding Intelligence</h3>
 <p>A <strong>heuristic function</strong> h(s) gives us an estimate of how far we are from the goal. It's our "educated guess" about which direction to go.</p>
@@ -430,7 +430,7 @@ BFS would explore: 1 → 2, 3 → 4, 5, 6</p>
 <h3>The A* Algorithm: Best of Both Worlds</h3>
 <p>A* combines what we know (how far we've come) with what we estimate (how far we have to go):</p>
 
-<p><strong>The Magic Formula:</strong></p>
+<p><strong>A* Evaluation Function:</strong></p>
 <pre>
 f(s) = g(s) + h(s)
 
@@ -789,7 +789,7 @@ return most_simulated_move(root)
 
 <p>The next time you use GPS navigation, play a computer game, or read about AI breakthroughs like AlphaGo, remember: you're witnessing the power of search algorithms that transform problems into systematic exploration of possibilities.</p>
 
-<p>As Professor Hirsh reminds us: "AI as search" isn't just one approach among many - it's a fundamental way of thinking about how intelligent systems can navigate the space of possible solutions to find the best answers. And the beautiful thing is, it all builds on mathematical concepts you already understand.</p>
+<p>While serving as a teaching assistant for Professor Hirsh, he would say: "AI as search" isn't just one approach among many - it's a fundamental way of thinking about how intelligent systems can navigate the space of possible solutions to find the best answers. And the beautiful thing is, it all builds on mathematical concepts we already understand.</p>
 
 <p>Intelligence doesn't always require intuition or inspiration. Sometimes it just requires being systematic, strategic, and thorough in exploring possibilities. And that's something computers can do well with compute.</p>
 

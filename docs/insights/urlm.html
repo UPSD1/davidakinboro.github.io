@@ -256,7 +256,7 @@ Back to Insights
 
 <div id="what-are-reasoning-models">
 <h2>What Are Reasoning Language Models?</h2>
-<p>Reasoning in language models is all about getting them to think through problems step-by-step, similar to what we do as humans. That's essentially what reasoning language models aim to achieve. Unlike traditional AI that might simply recall information or generate text based on patterns, reasoning models can perform complex reasoning tasks by breaking down problems into individual steps and working through a "chain of thought" process to come up with more accurate answers.</p>
+<p>Reasoning in language models is all about getting them to think through problems step-by-step, similar to what we do as humans. That's essentially what reasoning language models aim to achieve. Unlike earlier models that rely on statistical pattern matching or simple retrieval, these systems can perform complex reasoning tasks by breaking down problems into individual steps and working through a "chain of thought" process to come up with more accurate answers.</p>
 
 <p>In September 2024, OpenAI released o1-preview, an LLM with enhanced reasoning capabilities, followed by o3 and o4-mini models that use reinforcement learning techniques to solve multi-step reasoning tasks. Similarly, DeepSeek launched their R1 model in January 2025, which enables simultaneous use of search and reasoning capabilities.</p>
 
@@ -268,7 +268,7 @@ Back to Insights
 
 <div id="chain-of-thought">
 <h3>1. Chain-of-Thought (CoT): Showing Their Work</h3>
-<p> An easy way to explain is when math teacher's insisted that we show our steps! That's exactly what Chain-of-Thought prompting does. It facilitates problem-solving by guiding the model through a step-by-step reasoning process using a coherent series of logical steps.</p>
+<p> As math teachers insist on showing every step, Chain-of-Thought prompting guides the model through a coherent sequence of logical stages, improving transparency and accuracy.</p>
 
 <p><strong>Simple Example:</strong> If asked "If John has 15 apples and gives 7 to Sarah, how many does he have left?", a CoT-enabled model would reason:</p>
 <ul>
@@ -283,7 +283,7 @@ Back to Insights
 
 <div id="tree-of-thought">
 <h3>2. Tree-of-Thought (ToT): Exploring Every Path</h3>
-<p>While Chain-of-Thought follows a single reasoning path, Tree of Thoughts maintains a tree of thoughts, where thoughts represent coherent language sequences that serve as intermediate steps toward solving a problem. Think of it like a chess grandmaster considering multiple moves simultaneously.</p>
+<p>Whereas Chain-of-Thought follows one line of reasoning, Tree-of-Thoughts explores branching paths of intermediate steps. Akin to a chess grandmaster considering multiple moves simultaneously.</p>
 
 <p>ToT expands the traditional "left-to-right" token generation reasoning process into a "tree structure exploration," where each node represents a thought unit. This supports multi-path attempts, backtracking, forward reasoning, and self-evaluation within the reasoning process.</p>
 
@@ -327,7 +327,7 @@ Back to Insights
 
 <div id="adaptive-learning">
 <h3>Adaptive Learning: Reinforcement Learning</h3>
-<p>For reasoning language models, the prompt describes a reasoning task, and the reward would be high if the response solves the task, and low if the response fails to solve the task. Through millions of practice runs, the model:</p>
+<p>In reinforcement learning, the model earns positive rewards for correct reasoning and penalties for errors. Through millions of practice runs, the model:</p>
 <ul>
 <li>Tries different approaches</li>
 <li>Receives rewards for good moves</li>
@@ -345,7 +345,7 @@ Back to Insights
 
 <div id="hallucination-problem">
 <h3>1. The Hallucination Problem</h3>
-<p>Perhaps the most concerning limitation is that OpenAI's latest reasoning systems show hallucination rates reaching 33% for their o3 model and 48% for o4-mini when answering questions about public figures on the PersonQA benchmark. This is particularly troubling because reasoning models hallucinate more often than traditional "non-reasoning" models.</p>
+<p>Benchmarks record hallucination rates of 33% for o3 and 48% for o4-mini on PersonQA, higher than those of non-reasoning models highlighting the need for stronger factual grounding.</p>
 
 <p>Reasoning requires an element of creativity, and errors that go undetected as part of that process could compound while a model works through a problem.</p>
 </div>
@@ -384,7 +384,7 @@ Back to Insights
 
 <!-- <p>Recent papers like "Towards Large Reasoning Models: A Survey of Reinforced Reasoning with Large Language Models" and "Reasoning Language Models: A Blueprint" are pushing the boundaries of what's possible.</p> --> 
 
-<p>I hope I explained these foundational concepts clearly as they will help you understand the technical details and implications of my research findings as we explore them together in my upcoming posts.</p>
+<p>I'm certain these foundational concepts will help you follow the technical details and implications of my research in upcoming posts.</p>
 </div>
 
 </article>
