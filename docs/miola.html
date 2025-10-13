@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miola Health Platform - Visual Architecture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .pillar {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .pillar-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #0078d4;
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .pillar-subtitle {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+        .component {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            transition: all 0.2s ease-in-out;
+        }
+        .component:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            border-color: #0078d4;
+        }
+        .component-title {
+            font-weight: 600;
+            color: #334155;
+        }
+        .component-desc {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        .azure-service {
+            background-color: #e6f2ff;
+            border: 1px solid #0078d4;
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: #1e293b;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 10;
+            bottom: 110%;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #1e293b transparent transparent transparent;
+        }
+        .has-tooltip:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        #arrow-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="p-4 sm:p-8">
+
+    <div class="max-w-7xl mx-auto mb-8">
+        <h1 class="text-3xl font-bold text-slate-800 text-center">Miola Health Platform - Visual Architecture</h1>
+        <p class="text-center text-slate-500 mt-2">An interactive breakdown of the v2.0 Azure-Native architecture.</p>
+    </div>
+
+    <div id="architecture-grid" class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 relative">
+        
+        <!-- Pillar 1 -->
+        <div class="pillar">
+            <h2 class="pillar-title">PILLAR 1: EDGE APPLICATIONS</h2>
+            <p class="pillar-subtitle">The User Interface</p>
+            <div id="clinician" class="component has-tooltip">
+                <div class="component-title">Clinician: Dr. Bisi</div>
+                <p class="component-desc">Interacts with the PWA on Mobile/Desktop.</p>
+                <span class="tooltip">Why: The primary user persona. All tools must be optimized for their workflow.</span>
+            </div>
+            <div id="pwa" class="component has-tooltip">
+                <div class="component-title">Miola AI-Native EHR (React PWA)</div>
+                <p class="component-desc">The core application for clinicians, built for speed and offline use.</p>
+                <span class="tooltip">Why PWA: Avoids app store friction. Single codebase for all devices. Offline-first is critical for low-connectivity environments.</span>
+            </div>
+            <div id="patient" class="component has-tooltip">
+                <div class="component-title">Patient: Amina</div>
+                <p class="component-desc">Interacts via WhatsApp.</p>
+                <span class="tooltip">Why: Meets users where they are, maximizing accessibility and adoption.</span>
+            </div>
+            <div id="whatsapp" class="component has-tooltip">
+                <div class="component-title">Miola Patient System</div>
+                <p class="component-desc">AI Triage & Appointment Scheduling via WhatsApp.</p>
+                 <span class="tooltip">Why: Automates routine intake and scheduling, freeing up clinic staff and providing instant access for patients.</span>
+            </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar">
+            <h2 class="pillar-title">PILLAR 2: CORE PLATFORM</h2>
+            <p class="pillar-subtitle">The Brain & Data Hub</p>
+            <div id="aks" class="component azure-service has-tooltip">
+                <div class="component-title">AI Microservices on AKS</div>
+                <p class="component-desc">Hosts all our proprietary AI logic as scalable containers.</p>
+                <span class="tooltip">Why AKS: Provides robust, scalable, and manageable orchestration for all our containerized backend services.</span>
+            </div>
+            <div id="openmrs" class="component azure-service has-tooltip">
+                <div class="component-title">Headless OpenMRS on AKS</div>
+                <p class="component-desc">The stable, secure System of Record (SOR) for all clinical data.</p>
+                 <span class="tooltip">Why OpenMRS: Leverages a mature, standardized clinical data model, saving years of development effort on commodity EHR features.</span>
+            </div>
+            <div id="eventhubs" class="component azure-service has-tooltip">
+                <div class="component-title">Azure Event Hubs</div>
+                <p class="component-desc">The event-driven backbone of the platform.</p>
+                <span class="tooltip">Why Event-Driven: Decouples services for resilience and scalability. OpenMRS just fires an event; it doesn't need to know who is listening.</span>
+            </div>
+             <div id="aoai" class="component azure-service has-tooltip">
+                <div class="component-title">Azure OpenAI Service</div>
+                <p class="component-desc">Provides secure, enterprise-grade access to powerful LLMs.</p>
+                 <span class="tooltip">Why Managed AI: Ensures data privacy, compliance (HIPAA), and scalability for all our intelligent features without managing infrastructure.</span>
+            </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar">
+            <h2 class="pillar-title">PILLAR 3: CENTRAL DATA PLATFORM</h2>
+            <p class="pillar-subtitle">The Monetization Engine</p>
+            <div id="ingestion" class="component azure-service has-tooltip">
+                <div class="component-title">Secure Ingestion</div>
+                <p class="component-desc">API Management ➡ Event Hubs</p>
+                 <span class="tooltip">Why: Provides a secure, scalable, and throttled entry point for the high-volume FHIR data stream from the Core Platform.</span>
+            </div>
+            <div id="deid" class="component has-tooltip">
+                <div class="component-title">De-identification Engine</div>
+                <p class="component-desc">Azure Functions / Databricks job that scrubs all PHI.</p>
+                <span class="tooltip">Why: A critical compliance step. This ensures our data asset is fully anonymized and safe for analytics and commercialization.</span>
+            </div>
+            <div id="lakehouse" class="component azure-service has-tooltip">
+                <div class="component-title">Analytics & Storage Lakehouse</div>
+                <p class="component-desc">Azure Blob Storage (Raw) + Azure Databricks (Processed).</p>
+                <span class="tooltip">Why Lakehouse: Combines cost-effective storage (Blob) with powerful, large-scale data processing (Databricks) for analytics.</span>
+            </div>
+            <div id="access" class="component has-tooltip">
+                <div class="component-title">Customer Access Layer</div>
+                <p class="component-desc">Portal, Metered APIs, and Sandboxes for partners.</p>
+                <span class="tooltip">Why: The products we sell. Provides multiple, secure ways for customers to interact with and derive value from our unique data asset.</span>
+            </div>
+        </div>
+    </div>
+    
+    <svg id="arrow-svg"></svg>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('architecture-grid');
+            const svg = document.getElementById('arrow-svg');
+
+            const connections = [
+                { from: 'pwa', to: 'openmrs', type: 'api' },
+                { from: 'whatsapp', to: 'openmrs', type: 'api' },
+                { from: 'openmrs', to: 'aks', type: 'api' },
+                { from: 'aks', to: 'aoai', type: 'api' },
+                { from: 'openmrs', to: 'eventhubs', type: 'event' },
+                { from: 'eventhubs', to: 'aks', type: 'event' },
+                { from: 'openmrs', to: 'ingestion', type: 'stream' },
+                { from: 'ingestion', to: 'deid', type: 'stream' },
+                { from: 'deid', to: 'lakehouse', type: 'stream' },
+                { from: 'lakehouse', to: 'access', type: 'stream' }
+            ];
+
+            function drawArrows() {
+                svg.innerHTML = ''; // Clear previous arrows
+                const gridRect = grid.getBoundingClientRect();
+
+                connections.forEach(conn => {
+                    const fromEl = document.getElementById(conn.from);
+                    const toEl = document.getElementById(conn.to);
+
+                    if (!fromEl || !toEl) return;
+
+                    const fromRect = fromEl.getBoundingClientRect();
+                    const toRect = toEl.getBoundingClientRect();
+                    
+                    const startX = fromRect.right - gridRect.left;
+                    const startY = fromRect.top + fromRect.height / 2 - gridRect.top;
+                    const endX = toRect.left - gridRect.left;
+                    const endY = toRect.top + toRect.height / 2 - gridRect.top;
+
+                    let pathData, midX, midY;
+                     if (Math.abs(startX - endX) < 10) { // Vertical alignment
+                        pathData = `M ${startX} ${startY} L ${endX} ${endY}`;
+                    } else { // Horizontal connection
+                         midX = startX + (endX - startX) / 2;
+                         pathData = `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
+                    }
+
+
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', pathData);
+                    path.setAttribute('fill', 'none');
+                    path.setAttribute('stroke-width', '2.5');
+                    
+                    const markerId = `arrowhead-${conn.type}`;
+                    let strokeColor = '#475569'; // Default API call
+                    if(conn.type === 'event') {
+                        strokeColor = '#d9534f';
+                        path.setAttribute('stroke-dasharray', '6 4');
+                    } else if (conn.type === 'stream') {
+                        strokeColor = '#059669';
+                    }
+                    path.setAttribute('stroke', strokeColor);
+
+                    if (!document.getElementById(markerId)) {
+                        const marker = document.createElementNS('http://www.w3.org/2000/svg', 'marker');
+                        marker.setAttribute('id', markerId);
+                        marker.setAttribute('viewBox', '0 -5 10 10');
+                        marker.setAttribute('refX', 8);
+                        marker.setAttribute('refY', 0);
+                        marker.setAttribute('markerWidth', 6);
+                        marker.setAttribute('markerHeight', 6);
+                        marker.setAttribute('orient', 'auto');
+                        const markerPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        markerPath.setAttribute('d', 'M0,-5L10,0L0,5');
+                        markerPath.setAttribute('fill', strokeColor);
+                        marker.appendChild(markerPath);
+                        svg.appendChild(marker);
+                    }
+                    path.setAttribute('marker-end', `url(#${markerId})`);
+                    svg.appendChild(path);
+                });
+            }
+
+            drawArrows();
+            window.addEventListener('resize', drawArrows);
+        });
+    </script>
+
+</body>
+</html>

@@ -128,38 +128,129 @@
 <main class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-6 lg:py-10">
 <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
 
-<section class="content-section">
-<h2>About Me</h2>
-<ul>
-<li><a href="#">A Short Intro into the hats I've worn</a></li>
-</ul>
-</section>
-  
-<section class="content-section">
-<h2>My research</h2>
-<p class="intro-text">
-To get started, I recommend reading my post on the fundamental problems in language model reasoning, followed by a deeper dive into my work on a new approach to tackle them. I'm thankful to have been part of a fully-funded 2-year MS research program at Cornell University where my advisor has been instrumental to my research quest and every professor's class I took has shaped my understanding of this fascinating field.
-</p>
-</section>
+<!-- Page Header -->
+<div class="mb-12">
+    <h1 class="text-4xl font-bold text-slate-900 mb-4">Research Insights</h1>
+    <p class="text-lg text-slate-700">
+        Technical writing on AI reasoning, interpretability, and building trustworthy systems.
+    </p>
+</div>
 
-<section class="content-section">
-<h2>Short posts</h2>
-<ul>
-<li><a href="./insights/urlm.html">Understanding Reasoning in Language Models</a></li>
-<li><a href="./insights/macnc.html">My intersection of neuro-symbolic and causal inference as an approach</a></li>
-<li><a href="./insights/aias.html">AI as Search: The Foundation of Intelligent Problem-Solving</a></li>
-<li><a href="./insights/ddasi.html">Data Discovery & Search Infrastructure: Part 1</a></li>
-</ul>
-</section>
+<!-- Featured Article -->
+<div class="mb-12">
+    <h2 class="text-2xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-slate-200">Featured</h2>
+    <article class="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#1672ce] hover-glow">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Research Foundation</span>
+        </div>
+        <h3 class="text-2xl font-semibold text-slate-900 mb-3">
+            <a href="./insights/macnc.html" class="hover:text-[#1672ce] transition-colors">
+                Neuro-Symbolic AI and Causal Inference: My Approach to Legal Reasoning
+            </a>
+        </h3>
+        <p class="text-slate-600 mb-4 leading-relaxed">
+            How I'm combining neural pattern recognition with symbolic causal reasoning to build "glass box" legal AI systems. This article explains the technical foundation of my MS thesis work at Cornell—bridging interpretability with systematic reasoning through attention analysis and causal mapping.
+        </p>
+        <div class="flex items-center justify-between">
+            <a href="./insights/macnc.html" class="text-[#1672ce] hover:underline font-medium inline-flex items-center gap-1">
+                Read full article 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <span class="text-sm text-slate-500">15 min read</span>
+        </div>
+    </article>
+</div>
 
-<section class="content-section">
-<h2>Research</h2>
-<ul>
-<li><a href="#">Interpretable Legal Reasoning with Search-Augmented Reinforcement Learning: A Multi-Task Framework (Working Paper)</a></li>
-<li><a href="./projects/graph.html">Graph-based Retrieval-Augmented Generation for Educational AI Systems</a></li>
-<li><a href="#">Building Transparent AI Systems for Legal Reasoning</a></li>
-</ul>
-</section>
+<!-- All Articles -->
+<h2 class="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-slate-200">All Articles</h2>
+<div class="space-y-6 mb-12">
+    
+    <!-- Article 1: Reasoning LLMs -->
+    <article class="bg-white rounded-lg shadow-md p-6 hover-glow">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-0.5 rounded">Fundamentals</span>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-2">
+            <a href="./insights/urlm.html" class="hover:text-[#1672ce] transition-colors">
+                Understanding Reasoning in Language Models
+            </a>
+        </h3>
+        <p class="text-slate-600 mb-3 leading-relaxed">
+            An introduction to how reasoning models work—from Chain-of-Thought to Tree-of-Thought approaches. Covers the fundamentals of o1, o3, and DeepSeek R1, along with current limitations including hallucination rates (33% for o3) that my research aims to address.
+        </p>
+        <div class="flex items-center justify-between">
+            <a href="./insights/urlm.html" class="text-[#1672ce] hover:underline text-sm inline-flex items-center gap-1">
+                Read more 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <span class="text-sm text-slate-500">12 min read</span>
+        </div>
+    </article>
+
+    <!-- Article 2: AI as Search -->
+    <article class="bg-white rounded-lg shadow-md p-6 hover-glow">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-0.5 rounded">Teaching</span>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-2">
+            <a href="./insights/aias.html" class="hover:text-[#1672ce] transition-colors">
+                AI as Search: The Foundation of Intelligent Problem-Solving
+            </a>
+        </h3>
+        <p class="text-slate-600 mb-3 leading-relaxed">
+            From GPS navigation to game-playing computers—understanding how search algorithms underpin modern AI systems. Covers A*, minimax, alpha-beta pruning, and MCTS. Educational content from my teaching work at Cornell.
+        </p>
+        <div class="flex items-center justify-between">
+            <a href="./insights/aias.html" class="text-[#1672ce] hover:underline text-sm inline-flex items-center gap-1">
+                Read more 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <span class="text-sm text-slate-500">20 min read</span>
+        </div>
+    </article>
+
+    <!-- Article 3: Data Discovery -->
+    <article class="bg-white rounded-lg shadow-md p-6 hover-glow">
+        <div class="flex items-center gap-2 mb-2">
+            <span class="inline-block bg-slate-100 text-slate-700 text-xs font-semibold px-2.5 py-0.5 rounded">Infrastructure</span>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-2">
+            <a href="./insights/ddasi.html" class="hover:text-[#1672ce] transition-colors">
+                Data Discovery & Search Infrastructure
+            </a>
+        </h3>
+        <p class="text-slate-600 mb-3 leading-relaxed">
+            How do we find the right data in a world drowning in datasets? Exploring inverted indexes, query-by-example, Bloom filters, and federated data marketplaces. From coursework on data systems at Cornell.
+        </p>
+        <div class="flex items-center justify-between">
+            <a href="./insights/ddasi.html" class="text-[#1672ce] hover:underline text-sm inline-flex items-center gap-1">
+                Read more 
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <span class="text-sm text-slate-500">18 min read</span>
+        </div>
+    </article>
+
+</div>
+
+<!-- Bottom CTA -->
+<div class="bg-slate-100 rounded-lg p-8 text-center">
+    <h3 class="text-xl font-semibold text-slate-900 mb-3">Want to discuss these ideas?</h3>
+    <p class="text-slate-600 mb-4">
+        I'm always happy to chat about AI reasoning, interpretability, and building trustworthy systems.
+    </p>
+    <a href="./index.html#contact" class="inline-flex items-center justify-center rounded-lg bg-[#1672ce] px-6 py-3 text-base font-medium text-white shadow-md hover:bg-[#1361b3] transition-colors">
+        Get in Touch
+    </a>
+</div>
 
 </div>
 </main>
