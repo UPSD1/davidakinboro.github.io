@@ -294,6 +294,10 @@
 }
 </style>
 
+<link rel="stylesheet" href="./css/theme-system.css">
+<link rel="stylesheet" href="./css/button-fixes.css">
+<link rel="stylesheet" href="./css/search-ui-collapsible.css">  
+
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -330,6 +334,7 @@
 <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="./projects.html">Projects</a>
 <a class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link" href="./insights.html">Insights</a>
 </div>
+
 <!-- Mobile menu button -->
 <div class="mobile-menu">
 <button type="button" class="text-slate-700 hover:text-[#1672ce] transition-colors" aria-label="Menu">
@@ -340,7 +345,88 @@
 </div>
 <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm" style='background-image: url("./images/BowersCIS.JPG");'></div>
 </nav>
+
+  <!-- Right-side tools container -->
+  <div class="flex items-center gap-4 ml-auto">
+    <!-- Theme switcher (auto-injected by JS) -->
+     <div class="search-container" style="position: fixed; top: 80px; right: 24px; z-index: 1000;">
+  <!-- Search Toggle Button (Icon - Always Visible) -->
+  <button class="search-toggle" aria-label="Open search" title="Search (Press /)">
+    <svg class="search-toggle-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+  </button>
+  
+  <!-- Search Wrapper (Expands on Click) -->
+  <div class="search-wrapper">
+    <!-- Search Icon -->
+    <svg class="search-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+    
+    <!-- Search Input Field -->
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="Search projects, research, insights..."
+      autocomplete="off"
+      spellcheck="false"
+    />
+    
+    <!-- Loading Spinner -->
+    <div class="search-loading"></div>
+    
+    <!-- Clear Button (X) -->
+    <button class="search-clear" aria-label="Clear search">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    
+    <!-- Close Button -->
+    <button class="search-close" aria-label="Close search">
+      <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+  
+  <!-- Search Results (Appears Below When Expanded) -->
+  <div class="search-results">
+    <!-- Results Header -->
+    <div class="search-results-header">
+      <div class="search-results-count"></div>
+      <div class="search-results-time"></div>
+    </div>
+    
+    <!-- Results List -->
+    <div class="search-results-list">
+      <!-- Results will be inserted here dynamically -->
+    </div>
+    
+    <!-- Empty State (No Results) -->
+    <div class="search-empty">
+      <svg class="search-empty-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <div class="search-empty-title">No results found</div>
+      <div class="search-empty-message">
+        Try different keywords or check your spelling
+      </div>
+    </div>
+    
+    <!-- Loading State -->
+    <div class="search-loading-state">
+      <div class="search-loading-spinner"></div>
+      <div class="search-loading-message">Initializing search engine...</div>
+    </div>
+  </div>
+</div>
+  </div>
+
 </header>
+</div>
+
 <main class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-6 lg:py-10">
 <div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-8 lg:gap-12">
 <section class="hero-section flex p-4 @container items-center justify-center">
@@ -705,5 +791,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         }
       });
     </script>
+    <script src="./js/theme-switcher.js"></script>
+    <script type="module" src="./js/search-ui-controller-collapsible.js"></script>
 
 </body></html>
