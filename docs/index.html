@@ -587,30 +587,35 @@
             <div class="flex w-full flex-col gap-6 items-center text-center">
               <div
                 class="hero-image bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-36 w-36 shadow-lg border-4 border-white"
-                style="background-image: url('./images/BowersCIS.JPG')"
-              ></div>
+                style="background-image: url('./images/BowersCIS.JPG')">
+              </div>
               <div class="flex flex-col items-center gap-1">
                 <section class="text-slate-700 text-base space-y-3 max-w-3xl">
                   <p>
-                    I research reasoning, interpretability, and safety in AI
-                    systems.
+                    I am David, an AI researcher and Product Builder.
                   </p>
                   <p>
-                    I recently completed my MS at Cornell advised by
+                    My current work involves research around an idea with an entelechy mission to push the boundaries of today's technology as we guide the future of humanity. 
+                  </p>
+                  <p>  
+                    Previous work and research I have done involved pre-training and post-training language models under ethical and safe practices.
+                  </p>
+                  <p>
+                    At Cornell I was advised by
                     <a
                       href="https://www.cs.cornell.edu/home/cardie/"
                       class="text-[#1672ce] hover:underline"
                       ><strong>Claire Cardie</strong></a
-                    >, where I developed search-augmented reinforcement learning
-                    frameworks for legal AI. I defended my thesis on September
-                    5th, 2025. Previously, I worked on AI safety evaluation and
-                    red-teaming at Invisible Technologies.
-                  </p>
-                  <p>
-                    I'm interested in problems at the intersection of causal
-                    reasoning, model interpretability, ontology construction for
-                    LLMs, and building systems that make AI safety tools
-                    accessible beyond well-resourced institutions.
+                    > and 
+                    <a
+                      href="https://emaadmanzoor.com/"
+                      class="text-[#1672ce] hover:underline"
+                      ><strong>Emaad Manzoor</strong></a
+                    > where I developed search-augmented reinforcement learning frameworks for legal AI. That research is now deployed as 
+                    <a 
+                      href="https://lexlens.app"
+                      class="text-[#1672ce] hover:underline"
+                      ><strong>LexLens</strong></a>
                   </p>
                 </section>
 
@@ -662,92 +667,359 @@
               </a>
             </div>
           </section>
-          <section id="projects">
-            <h2
-              class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-6"
-            >
-              Selected Projects
+          
+          <section id="work" class="py-12">
+            <h2 class="text-slate-900 text-3xl font-bold leading-tight tracking-tight px-4 pb-3 pt-5 border-b border-slate-200 mb-6">
+                What I've Built
             </h2>
-            <div
-              class="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6 p-4"
-            >
-              <div
-                class="flex flex-col gap-3 pb-3 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-                  style="background-image: url('./images/law.png')"
-                ></div>
-                <div class="p-4">
-                  <h3
-                    class="text-slate-800 text-lg font-semibold leading-normal line-clamp-2"
-                  >
-                    <a href="./projects/legal.html"
-                      >LegalReasoner: A Framework for Legal Document Analysis
-                      and Reasoning</a
-                    >
-                  </h3>
-                  <p
-                    class="text-slate-600 text-sm font-normal leading-normal mt-1"
-                  >
-                    Developing AI systems that model explicit relationships
-                    between legal concepts, cases, and statutory provisions.
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex flex-col gap-3 pb-3 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-                  style="background-image: url('./images/GRG Updated.png')"
-                ></div>
-                <div class="p-4">
-                  <h3
-                    class="text-slate-800 text-lg font-semibold leading-normal line-clamp-2"
-                  >
-                    <a href="./projects/graph.html"
-                      >GraphRAG for Education: Addressing Knowledge
-                      Representation Gaps</a
-                    >
-                  </h3>
-                  <p
-                    class="text-slate-600 text-sm font-normal leading-normal mt-1"
-                  >
-                    Inspired by Harvard's work with CS50.ai, this AI teaching
-                    assistant maps conceptual relationships within educational
-                    content.
-                  </p>
-                </div>
-              </div>
-              <div
-                class="flex flex-col gap-3 pb-3 bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300"
-              >
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover"
-                  style="background-image: url('./images/doctest.png')"
-                ></div>
-                <div class="p-4">
-                  <h3
-                    class="text-slate-800 text-lg font-semibold leading-normal line-clamp-2"
-                  >
-                    <a href="./projects/doctest.html"
-                      >Automated Unit Test Generation: Making Reliable Code Less
-                      Painful</a
-                    >
-                  </h3>
-                  <p
-                    class="text-slate-600 text-sm font-normal leading-normal mt-1"
-                  >
-                    Built a systematic pipeline that generates Python unit tests
-                    from docstrings, then uses mutation testing to verify the
-                    tests actually catch bugs.
-                  </p>
-                </div>
-              </div>
+            <p class="text-slate-600 text-lg px-4 mb-8 max-w-3xl">
+                Here's what I've built from research to deployment.
+            </p>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 px-4">
+    
+    <!-- LexLens - THE FLAGSHIP -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
+      <div class="grid md:grid-cols-5 gap-0">
+        <!-- Image Column -->
+        <div class="md:col-span-2 bg-slate-100">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px]" style="background-image: url('./images/LexAi.png')">
+          </div>
+          <!-- Placeholder for screenshot - replace with actual LexLens interface screenshot -->
+        </div>
+        
+        <!-- Content Column -->
+        <div class="md:col-span-3 p-6 lg:p-8">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-2xl font-bold text-slate-900">LexLens</h3>
+            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">SHIPPED</span>
+          </div>
+          
+          <p class="text-slate-600 text-base mb-4">
+            Legal reasoning platform with constitutional AI safeguards. Built from my Cornell thesis research, now serving law students and legal practitioners.
+          </p>
+          
+          <!-- Metrics Grid -->
+          <div class="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-50 rounded-lg">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-[#1672ce]">95%</div>
+              <div class="text-xs text-slate-600 mt-1">IRAC Structure Detection</div>
             </div>
-          </section>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-[#1672ce]">100%</div>
+              <div class="text-xs text-slate-600 mt-1">Source Verification</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-[#1672ce]">73%</div>
+              <div class="text-xs text-slate-600 mt-1">↓ Discriminatory Reasoning</div>
+            </div>
+          </div>
+          
+          <!-- Key Features -->
+          <ul class="space-y-2 mb-6 text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Zero-hallucination architecture with transparent source attribution</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Multi-jurisdictional compliance across 50+ US legal systems</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Interpretable attention visualization for reasoning chains</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Constitutional AI framework with bias detection</span>
+            </li>
+          </ul>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Qwen 30B</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">VERL</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PyTorch</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Redis</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PostgreSQL</span>
+            </div>
+          </div>
+          
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-3">
+            <a href="https://lexlens.app/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
+              View Technical Details
+            </a>
+            <a href="https://github.com/UPSD1/LegalReasoner" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
+              View Code
+            </a>
+            <!-- Add demo link when available
+            <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
+              Live Demo
+            </a>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Meetviro -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
+      <div class="grid md:grid-cols-5 gap-0">
+        <!-- Image Column -->
+        <div class="md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Viro.png')">
+            <!-- Placeholder - replace with actual Meetviro screenshot/mockup -->
+          </div>
+        </div>
+        
+        <!-- Content Column -->
+        <div class="md:col-span-3 p-6 lg:p-8">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-2xl font-bold text-slate-900">Meetviro</h3>
+            <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">SHIPPING JAN 2026</span>
+          </div>
+          
+          <p class="text-slate-600 text-base mb-4">
+            Autonomous meeting agent with real-time calendar conflict detection and transparent human-agent handoff protocols. Leading technical development for BFA Media.
+          </p>
+          
+          <!-- Key Metric -->
+          <div class="mb-6 p-4 bg-slate-50 rounded-lg inline-block">
+            <div class="flex items-center gap-3">
+              <div class="text-4xl font-bold text-[#1672ce]">1000+</div>
+              <div class="text-sm text-slate-600">Users on waitlist</div>
+            </div>
+          </div>
+          
+          <!-- Key Features -->
+          <ul class="space-y-2 mb-6 text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Real-time calendar conflict detection and resolution</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Multi-provider sync (Google Calendar, Outlook, Calendly)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Observable SLAs with transparent reliability metrics</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Transparent human-agent handoff protocols</span>
+            </li>
+          </ul>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PostgreSQL</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Redis Pub/Sub</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">REST APIs</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Rate Limiting</span>
+            </div>
+          </div>
+          
+          <!-- Client Badge -->
+          <div class="mb-6">
+            <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Client</p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-lg">
+              <span class="text-sm font-semibold text-slate-900">BFA Media</span>
+            </div>
+          </div>
+          
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-3">
+            <a href="https://meetviro.com/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
+              Join Waitlist
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ingenium -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
+      <div class="grid md:grid-cols-5 gap-0">
+        <!-- Image Column -->
+        <div class="md:col-span-2 bg-gradient-to-br from-emerald-50 to-teal-50">
+          <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Ingenium.png')">
+            <!-- Placeholder - replace with actual Ingenium screenshot/mockup -->
+          </div>
+        </div>
+        
+        <!-- Content Column -->
+        <div class="md:col-span-3 p-6 lg:p-8">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="text-2xl font-bold text-slate-900">Ingenium</h3>
+            <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">DELIVERY JAN 2026</span>
+          </div>
+          
+          <p class="text-slate-600 text-base mb-4">
+            AI-powered e-learning platform for African markets. Hybrid recommendation engine with conversational AI tutor and personalized learning modality adaptation.
+          </p>
+          
+          <!-- Key Features -->
+          <ul class="space-y-2 mb-6 text-sm text-slate-700">
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Hybrid recommendation engine for course discovery</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Conversational AI tutor with context retention across sessions</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Proactive student engagement system to prevent dropoff</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-[#1672ce] mt-1">✓</span>
+              <span>Personalized learning modality adaptation (visual, auditory, kinesthetic)</span>
+            </li>
+          </ul>
+          
+          <!-- Goal -->
+          <div class="mb-6 p-4 bg-emerald-50 rounded-lg">
+            <p class="text-sm text-slate-700">
+              <span class="font-semibold">Goal:</span> Improve course completion rates across African markets where traditional e-learning platforms struggle with engagement.
+            </p>
+          </div>
+          
+          <!-- Tech Stack -->
+          <div class="mb-6">
+            <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">LangChain</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">FastAPI</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Kafka</span>
+              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Embeddings</span>
+            </div>
+          </div>
+          
+          <!-- Client Badge -->
+          <div class="mb-6">
+            <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Client</p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-lg">
+              <span class="text-sm font-semibold text-slate-900"><a href="https://theingeniumacademy.com/" >Ingenium Academy </a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-12 bg-white" id="current-work">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-slate-900 text-3xl font-bold leading-tight tracking-tight pb-3 mb-6">
+      Current Work
+    </h2>
+    
+    <div class="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-8 border border-slate-200 shadow-sm">
+      <!-- Company Header -->
+      <div class="flex items-start justify-between mb-6">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-2">Meridius AI Research</h3>
+          <p class="text-slate-600 font-medium">Founder & Lead Research Engineer</p>
+        </div>
+        <a href="#" class="px-4 py-2 bg-white border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
+          Learn More →
+        </a>
+      </div>
+      
+      <p class="text-slate-700 text-lg mb-8 leading-relaxed">
+        Building production AI systems for African markets with a focus on data sovereignty and localized solutions.
+      </p>
+      
+      <!-- Problem Statement -->
+      <div class="mb-6">
+        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">The Problem</h4>
+        <p class="text-slate-700 leading-relaxed">
+          Most AI is built with Western data and applied globally. This creates fundamental gaps for African users and businesses—from language models that don't understand local context to systems that fail on regional data patterns.
+        </p>
+      </div>
+      
+      <!-- Our Approach -->
+      <div class="mb-6">
+        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Our Approach</h4>
+        <p class="text-slate-700 leading-relaxed">
+          Local data solving local problems. We take research from concept to deployed products with real users and paying clients. Research → Build → Ship → Iterate.
+        </p>
+      </div>
+      
+      <!-- Team -->
+      <div class="mb-6">
+        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-2">Team</h4>
+        <p class="text-slate-700">
+          6 people: ML engineer, data engineer, + 4 engineers via dev shop partnership
+        </p>
+      </div>
+      
+      <!-- Focus Areas -->
+      <div class="mb-6">
+        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">Focus Areas</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2">
+            <span class="text-[#1672ce] mt-1">→</span>
+            <span class="text-slate-700">Legal AI with constitutional safety frameworks</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#1672ce] mt-1">→</span>
+            <span class="text-slate-700">Autonomous agent systems</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#1672ce] mt-1">→</span>
+            <span class="text-slate-700">Educational AI for underserved markets</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#1672ce] mt-1">→</span>
+            <span class="text-slate-700">Real-time systems with observable reliability</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Products -->
+      <div class="mb-6">
+        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">Products</h4>
+        <div class="flex flex-wrap gap-3">
+          <div class="px-4 py-2 bg-white rounded-lg border border-slate-200">
+            <span class="font-semibold text-slate-900">LexLens</span>
+            <span class="text-slate-500 text-sm ml-2">Shipped</span>
+          </div>
+          <div class="px-4 py-2 bg-white rounded-lg border border-slate-200">
+            <span class="font-semibold text-slate-900">Meetviro</span>
+            <span class="text-slate-500 text-sm ml-2">Jan 2026</span>
+          </div>
+          <div class="px-4 py-2 bg-white rounded-lg border border-slate-200">
+            <span class="font-semibold text-slate-900">Ingenium</span>
+            <span class="text-slate-500 text-sm ml-2">Jan 2026</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tech Stack -->
+      <div>
+        <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-3">Tech Stack</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">PyTorch</span>
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">VERL</span>
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">PostgreSQL</span>
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">Redis</span>
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">Docker</span>
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">AWS/GCP</span>
+          <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-full border border-slate-200">Distributed Training</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
           <!-- Enhanced Current Research Section -->
           <section class="py-12 bg-slate-50">
             <div class="max-w-4xl mx-auto px-4">
