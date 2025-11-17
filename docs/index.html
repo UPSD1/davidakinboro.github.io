@@ -47,12 +47,15 @@
     <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
+      /* Hover effect for product cards */
       .hover-glow {
         transition: box-shadow 0.3s ease-in-out;
       }
       .hover-glow:hover {
         box-shadow: 0 0 15px 5px rgba(22, 114, 206, 0.3);
       }
+
+      /* Active navigation link indicator */
       .active-nav-link {
         color: #1672ce;
         position: relative;
@@ -65,114 +68,6 @@
         width: 100%;
         height: 2px;
         background-color: #1672ce;
-      }
-
-      .item-card {
-        display: flex;
-        background-color: white;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-          0 2px 4px -2px rgb(0 0 0 / 0.1);
-        overflow: hidden;
-        transition: all 0.3s ease;
-      }
-
-      .item-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-          0 4px 6px -4px rgb(0 0 0 / 0.1);
-      }
-
-      .item-accent-bar {
-        flex-shrink: 0;
-        width: 6px;
-        background: linear-gradient(135deg, #1672ce 0%, #4f46e5 100%);
-      }
-
-      .item-content {
-        padding: 1.5rem;
-      }
-
-      .item-title {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: #1e293b;
-        margin-bottom: 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .item-description {
-        font-size: 0.95rem;
-        color: #475569;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-      }
-
-      .item-description:last-child {
-        margin-bottom: 0;
-      }
-
-      /* Enhanced Research Cards */
-      .research-card {
-        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-        border: 1px solid #e2e8f0;
-        border-radius: 1rem;
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .research-card:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #1672ce 0%, #4f46e5 100%);
-      }
-
-      .research-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 25px -5px rgb(0 0 0 / 0.1),
-          0 8px 10px -6px rgb(0 0 0 / 0.1);
-      }
-
-      .research-card h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #1e293b;
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      .research-card h3 .icon {
-        font-size: 1.5rem;
-        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 3rem;
-        height: 3rem;
-      }
-
-      .research-card p {
-        color: #475569;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        font-size: 0.95rem;
-      }
-
-      .research-card p:last-child {
-        margin-bottom: 0;
       }
 
       /* Teaching Section */
@@ -212,81 +107,7 @@
         margin-top: 2px;
       }
 
-      /* Mobile Responsive Improvements */
-      @media (max-width: 768px) {
-        .main-container {
-          padding-left: 1rem !important;
-          padding-right: 1rem !important;
-        }
-
-        .hero-section {
-          padding: 1rem;
-        }
-
-        .hero-image {
-          min-height: 8rem;
-          width: 8rem;
-        }
-
-        .hero-title {
-          font-size: 2rem;
-        }
-
-        .hero-text {
-          font-size: 1rem;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-          padding: 1rem;
-        }
-
-        .research-card {
-          padding: 1.25rem;
-        }
-
-        .research-card h3 {
-          flex-direction: column;
-          text-align: center;
-          gap: 0.5rem;
-        }
-
-        .teaching-item {
-          flex-direction: column;
-          text-align: center;
-          gap: 0.75rem;
-        }
-
-        .teaching-icon {
-          margin-right: 0;
-        }
-
-        .contact-section {
-          padding: 1.5rem;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .header {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .mobile-menu {
-          display: block;
-        }
-      }
-
-      .mobile-menu {
-        display: none;
-      }
-
-      /* Social Links Styling */
+      /* Social Links */
       .social-links {
         display: flex;
         align-items: center;
@@ -319,6 +140,52 @@
       .social-link svg {
         width: 1rem;
         height: 1rem;
+      }
+
+      /* Mobile Responsive Improvements */
+      @media (max-width: 768px) {
+        .main-container {
+          padding-left: 1rem !important;
+          padding-right: 1rem !important;
+        }
+
+        .hero-section {
+          padding: 1rem;
+        }
+
+        .hero-image {
+          min-height: 8rem;
+          width: 8rem;
+        }
+
+        .teaching-item {
+          flex-direction: column;
+          text-align: center;
+          gap: 0.75rem;
+        }
+
+        .teaching-icon {
+          margin-right: 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+      }
+
+      .mobile-menu {
+        display: none;
       }
     </style>
 
@@ -403,7 +270,7 @@
               <a
                 class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
                 href="./insights.html"
-                >Insights</a
+                >Research</a
               >
             </div>
 
@@ -438,8 +305,7 @@
           <!-- Right-side tools container -->
           <div style="display: flex; align-items: center; gap: 16px; margin-left: auto;">
             <!-- Theme switcher (auto-injected by JS) -->
-            <div
-              class="search-container">
+            <div class="search-container">
               <!-- Search Toggle Button (Icon - Always Visible) -->
               <button
                 class="search-toggle"
@@ -575,15 +441,11 @@
         </header>
       </div>
 
-      <main
-        class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-6 lg:py-10"
-      >
-        <div
-          class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-8 lg:gap-12"
-        >
-          <section
-            class="hero-section flex p-4 @container items-center justify-center"
-          >
+      <main class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-10">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-12">
+          
+          <!-- Hero Section -->
+          <section class="hero-section flex p-4 @container items-center justify-center">
             <div class="flex w-full flex-col gap-6 items-center text-center">
               <div
                 class="hero-image bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-36 w-36 shadow-lg border-4 border-white"
@@ -597,19 +459,10 @@
                   <p>
                     My philosophy is simple: we must <strong>look back to move forward</strong>. I use this <strong><i>Sankofa</i></strong> principle to build technology that is both advanced and grounded, acting as a seamless partner for human growth.
                   </p>
-                  <p>
-                    This is the 'Entelechy' (realization of potential) mission that drives my lab, 
-                    <a href="https://meridius.netlify.app/" 
-                    class="text-[#1672ce] hover:underline">
-                    <strong>Meridius</strong>
-                  </a>
-                  </p>
                 </section>
 
                 <!-- Social Links -->
-                <div
-                  class="social-links flex flex-col sm:flex-row items-center gap-3 mt-4"
-                >
+                <div class="social-links flex flex-col sm:flex-row items-center gap-3 mt-4">
                   <a
                     href="https://github.com/UPSD1"
                     target="_blank"
@@ -655,7 +508,8 @@
             </div>
           </section>
           
-          <section id="work" class="py-12">
+          <!-- Products Section -->
+          <section id="work">
             <h2 class="text-slate-900 text-3xl font-bold leading-tight tracking-tight px-4 pb-3 pt-5 border-b border-slate-200 mb-6">
                 Purposeful Innovation in Practice
             </h2>
@@ -663,363 +517,325 @@
                 My research doesn't just live in a lab. Here's how I'm applying these principles to build real-world products.
             </p>
   
-  <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 px-4">
     
-    <!-- LexLens - THE FLAGSHIP -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
-      <div class="grid md:grid-cols-5 gap-0">
-        <!-- Image Column -->
-        <div class="md:col-span-2 bg-slate-100">
-          <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px]" style="background-image: url('./images/LexAi.png')">
-          </div>
-          <!-- Placeholder for screenshot - replace with actual LexLens interface screenshot -->
-        </div>
+              <!-- LexLens -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
+                <div class="grid md:grid-cols-5 gap-0">
+                  <!-- Image Column -->
+                  <div class="md:col-span-2 bg-slate-100">
+                    <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px]" style="background-image: url('./images/LexAi.png')"></div>
+                  </div>
         
-        <!-- Content Column -->
-        <div class="md:col-span-3 p-6 lg:p-8">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-2xl font-bold text-slate-900">LexLens</h3>
-            <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">SHIPPED</span>
-          </div>
+                  <!-- Content Column -->
+                  <div class="md:col-span-3 p-6 lg:p-8">
+                    <div class="flex items-start justify-between mb-3">
+                      <h3 class="text-2xl font-bold text-slate-900">LexLens</h3>
+                      <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">SHIPPED</span>
+                    </div>
           
-          <p class="text-slate-600 text-base mb-4">
-            I built LexLens from my Cornell thesis, it's a legal AI that can verify every single source, 
-            stopping "hallucinations" before they happen. It helps law students and practitioners build better, 
-            faster, and more accurate arguments.
-          </p>
+                    <p class="text-slate-600 text-base mb-4">
+                      I built LexLens from my Cornell thesis, it's a legal AI that can verify every single source, 
+                      stopping "hallucinations" before they happen. It helps law students and practitioners build better, 
+                      faster, and more accurate arguments.
+                    </p>
           
-          <!-- Metrics Grid -->
-          <div class="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-50 rounded-lg">
-            <div class="text-center">
-              <div class="text-3xl font-bold text-[#1672ce]">95%</div>
-              <div class="text-xs text-slate-600 mt-1">IRAC Structure Detection</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-[#1672ce]">100%</div>
-              <div class="text-xs text-slate-600 mt-1">Source Verification</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-[#1672ce]">73%</div>
-              <div class="text-xs text-slate-600 mt-1">↓ Discriminatory Reasoning</div>
-            </div>
-          </div>
+                    <!-- Metrics Grid -->
+                    <div class="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-50 rounded-lg">
+                      <div class="text-center">
+                        <div class="text-3xl font-bold text-[#1672ce]">95%</div>
+                        <div class="text-xs text-slate-600 mt-1">IRAC Structure Detection</div>
+                      </div>
+                      <div class="text-center">
+                        <div class="text-3xl font-bold text-[#1672ce]">100%</div>
+                        <div class="text-xs text-slate-600 mt-1">Source Verification</div>
+                      </div>
+                      <div class="text-center">
+                        <div class="text-3xl font-bold text-[#1672ce]">73%</div>
+                        <div class="text-xs text-slate-600 mt-1">↓ Discriminatory Reasoning</div>
+                      </div>
+                    </div>
           
-          <!-- Key Features -->
-          <ul class="space-y-2 mb-6 text-sm text-slate-700">
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Zero-hallucination architecture with transparent source attribution</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Multi-jurisdictional compliance across 50+ US legal systems</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Interpretable attention visualization for reasoning chains</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Constitutional AI framework with bias detection</span>
-            </li>
-          </ul>
+                    <!-- Key Features -->
+                    <ul class="space-y-2 mb-6 text-sm text-slate-700">
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Zero-hallucination architecture with transparent source attribution</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Multi-jurisdictional compliance across 50+ US legal systems</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Interpretable attention visualization for reasoning chains</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Constitutional AI framework with bias detection</span>
+                      </li>
+                    </ul>
           
-          <!-- Tech Stack -->
-          <div class="mb-6">
-            <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Tech Stack</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Qwen 30B</span>
-              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">VERL</span>
-              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PyTorch</span>
-              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Redis</span>
-              <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PostgreSQL</span>
-            </div>
-          </div>
+                    <!-- Tech Stack -->
+                    <div class="mb-6">
+                      <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Tech Stack</p>
+                      <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Qwen 30B</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">VERL</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PyTorch</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Redis</span>
+                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PostgreSQL</span>
+                      </div>
+                    </div>
           
-          <!-- CTAs -->
-          <div class="flex flex-wrap gap-3">
-            <a href="https://lexlens.app/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
-              View Technical Details
-            </a>
-            <a href="https://github.com/UPSD1/LegalReasoner" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
-              View Code
-            </a>
-            <!-- Add demo link when available
-            <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
-              Live Demo
-            </a>
-            -->
-          </div>
-        </div>
-      </div>
-    </div>
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap gap-3">
+                      <a href="https://lexlens.app/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
+                        View Technical Details
+                      </a>
+                      <a href="https://github.com/UPSD1/LegalReasoner" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
+                        View Code
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <!-- Meetviro -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
-      <div class="grid md:grid-cols-5 gap-0">
-        <!-- Image Column -->
-        <div class="md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50">
-          <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Viro.png')">
-            <!-- Placeholder - replace with actual Meetviro screenshot/mockup -->
-          </div>
-        </div>
+              <!-- Meetviro -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
+                <div class="grid md:grid-cols-5 gap-0">
+                  <!-- Image Column -->
+                  <div class="md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50">
+                    <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Viro.png')"></div>
+                  </div>
         
-        <!-- Content Column -->
-        <div class="md:col-span-3 p-6 lg:p-8">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-2xl font-bold text-slate-900">Meetviro</h3>
-            <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">SHIPPING JAN 2026</span>
-          </div>
+                  <!-- Content Column -->
+                  <div class="md:col-span-3 p-6 lg:p-8">
+                    <div class="flex items-start justify-between mb-3">
+                      <h3 class="text-2xl font-bold text-slate-900">Meetviro</h3>
+                      <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">SHIPPING JAN 2026</span>
+                    </div>
           
-          <p class="text-slate-600 text-base mb-4">
-            As the lead Researcher, I'm helping build an autonomous agent that can attend meetings <strong><em>for</em></strong> you. 
-            My research focuses on "social intelligence" teaching <strong>Viro</strong> to understand human context, 
-            know when to speak, act as a seamless trustworthy partner and escalate to a human if things get tricky.
-          </p>
+                    <p class="text-slate-600 text-base mb-4">
+                      As the lead Researcher, I'm helping build an autonomous agent that can attend meetings <strong><em>for</em></strong> you. 
+                      My research focuses on "social intelligence" teaching <strong>Viro</strong> to understand human context, 
+                      know when to speak, act as a seamless trustworthy partner and escalate to a human if things get tricky.
+                    </p>
           
-          <!-- Key Metric -->
-          <div class="mb-6 p-4 bg-slate-50 rounded-lg inline-block">
-            <div class="flex items-center gap-3">
-              <div class="text-4xl font-bold text-[#1672ce]">1000+</div>
-              <div class="text-sm text-slate-600">Users on waitlist</div>
-            </div>
-          </div>
+                    <!-- Key Metric -->
+                    <div class="mb-6 p-4 bg-slate-50 rounded-lg inline-block">
+                      <div class="flex items-center gap-3">
+                        <div class="text-4xl font-bold text-[#1672ce]">1000+</div>
+                        <div class="text-sm text-slate-600">Users on waitlist</div>
+                      </div>
+                    </div>
           
-          <!-- Key Features -->
-          <ul class="space-y-2 mb-6 text-sm text-slate-700">
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Real-time calendar conflict detection and resolution</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Multi-provider sync (Google Calendar, Outlook, Calendly)</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Observable SLAs with transparent reliability metrics</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Transparent human-agent handoff protocols</span>
-            </li>
-          </ul>
+                    <!-- Key Features -->
+                    <ul class="space-y-2 mb-6 text-sm text-slate-700">
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Real-time calendar conflict detection and resolution</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Multi-provider sync (Google Calendar, Outlook, Calendly)</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Observable SLAs with transparent reliability metrics</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Transparent human-agent handoff protocols</span>
+                      </li>
+                    </ul>
           
-          <!-- CTAs -->
-          <div class="flex flex-wrap gap-3">
-            <a href="https://meetviro.com/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
-              Join Waitlist
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap gap-3">
+                      <a href="https://meetviro.com/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
+                        Join Waitlist
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    <!-- Ingenium -->
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
-      <div class="grid md:grid-cols-5 gap-0">
-        <!-- Image Column -->
-        <div class="md:col-span-2 bg-gradient-to-br from-emerald-50 to-teal-50">
-          <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Ingenium.png')">
-            <!-- Placeholder - replace with actual Ingenium screenshot/mockup -->
-          </div>
-        </div>
+              <!-- Ingenium -->
+              <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
+                <div class="grid md:grid-cols-5 gap-0">
+                  <!-- Image Column -->
+                  <div class="md:col-span-2 bg-gradient-to-br from-emerald-50 to-teal-50">
+                    <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Ingenium.png')"></div>
+                  </div>
         
-        <!-- Content Column -->
-        <div class="md:col-span-3 p-6 lg:p-8">
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-2xl font-bold text-slate-900">Ingenium</h3>
-            <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">DELIVERY JAN 2026</span>
-          </div>
+                  <!-- Content Column -->
+                  <div class="md:col-span-3 p-6 lg:p-8">
+                    <div class="flex items-start justify-between mb-3">
+                      <h3 class="text-2xl font-bold text-slate-900">Ingenium</h3>
+                      <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">DELIVERY JAN 2026</span>
+                    </div>
           
-          <p class="text-slate-600 text-base mb-4">
-            People drop out of online courses when they get stuck. I'm architecting the AI for Ingenium Academy that spots when a student is struggling and proactively reaches out with encouragement and context-aware help.
-          </p>
+                    <p class="text-slate-600 text-base mb-4">
+                      People drop out of online courses when they get stuck. I'm architecting the AI for Ingenium Academy that spots when a student is struggling and proactively reaches out with encouragement and context-aware help.
+                    </p>
           
-          <!-- Key Features -->
-          <ul class="space-y-2 mb-6 text-sm text-slate-700">
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Hybrid recommendation engine for course discovery</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Conversational AI tutor with context retention across sessions</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Proactive student engagement system to prevent dropoff</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#1672ce] mt-1">✓</span>
-              <span>Personalized learning modality adaptation (visual, auditory, kinesthetic)</span>
-            </li>
-          </ul>
+                    <!-- Key Features -->
+                    <ul class="space-y-2 mb-6 text-sm text-slate-700">
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Hybrid recommendation engine for course discovery</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Conversational AI tutor with context retention across sessions</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Proactive student engagement system to prevent dropoff</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-[#1672ce] mt-1">✓</span>
+                        <span>Personalized learning modality adaptation (visual, auditory, kinesthetic)</span>
+                      </li>
+                    </ul>
           
-          <!-- Goal -->
-          <div class="mb-6 p-4 bg-emerald-50 rounded-lg">
-            <p class="text-sm text-slate-700">
-              <span class="font-semibold">Goal:</span> It's human-centric design, built to help learners realize their potential.
-            </p>
-          </div>
+                    <!-- Goal -->
+                    <div class="mb-6 p-4 bg-emerald-50 rounded-lg">
+                      <p class="text-sm text-slate-700">
+                        <span class="font-semibold">Goal:</span> It's human-centric design, built to help learners realize their potential.
+                      </p>
+                    </div>
           
-          <!-- Client Badge -->
-          <div class="mb-6">
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-lg">
-              <span class="text-sm font-semibold text-slate-900"><a href="https://theingeniumacademy.com/" >Ingenium Academy </a></span>
+                    <!-- Client Badge -->
+                    <div class="mb-6">
+                      <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-lg">
+                        <span class="text-sm font-semibold text-slate-900"><a href="https://theingeniumacademy.com/">Ingenium Academy</a></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </section>
 
-  </div>
-</section>
+          <!-- Current Research Intro -->
+          <section class="bg-slate-50 px-4 py-8 rounded-xl">
+            <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-3 mb-4 border-b border-slate-200">
+              Current Research
+            </h2>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <p class="text-slate-700 leading-relaxed">
+                My research began with teaching AI how to <strong>reason</strong>. My thesis below built a  
+                frameworks for verifiable legal reasoning, which I then deployed as the product <a href="https://lexlens.app/" class="text-[#1672ce] hover:underline">LexLens</a>.  
+              </p>
+              <p class="text-slate-700 leading-relaxed mt-3">
+                I am now extending this work to the next step: teaching AI how to <strong>act</strong>
+                My current research focuses on the safety and social frameworks for autonomous agents, allowing them to move from simple 
+                tools to responsible, "symbiotic partners" in unpredictable human environments.
+              </p>
+            </div>
+          </section>
 
-          <section class="py-12 bg-slate-50">
-            <div class="max-w-4xl mx-auto px-4">
-              <h2
-                class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-6"
-              >
-                Current Research
-              </h2>
-              <div class="bg-white rounded-lg p-6 shadow-md">
-                <p class="text-slate-700 leading-relaxed">
-                  My research began with teaching AI how to <strong>reason</strong>. My thesis below built a  
-                  frameworks for verifiable legal reasoning, which I then deployed as the product <a href="https://lexlens.app/" >LexLens</a>.  
-                </p>
-                <p class="text-slate-700 leading-relaxed mt-3">
-                  I am now extending this work to the next step: teaching AI how to <strong>act</strong>
-                  My current research focuses on the safety and social frameworks for autonomous agents, allowing them to move from simple 
-                  tools to responsible, "symbiotic partners" in unpredictable human environments.
-                </p>
+          <!-- Research Details -->
+          <section class="bg-slate-50 px-4 py-8 rounded-xl">
+            <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-3 mb-4 border-b border-slate-200">
+              Research
+            </h2>
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <h3 class="text-xl font-semibold text-slate-900 mb-2">
+                Search-Augmented Reinforcement Learning for Legal Reasoning
+              </h3>
+              <p class="text-sm text-slate-600 mb-3">
+                MS Thesis, Cornell 2025 | Advisor: Claire Cardie |
+                <em>Defended September 5, 2025</em>
+              </p>
+              <ul class="space-y-2 text-slate-700 mb-3">
+                <li>
+                  • First framework integrating legal database access during
+                  RL training episodes (not just inference)
+                </li>
+                <li>
+                  • Multi-task evaluation with jurisdictional compliance
+                  across all US legal systems
+                </li>
+                <li>
+                  • 10.5pp improvement on LegalBench through tool-assisted
+                  training with GRPO
+                </li>
+              </ul>
+              <div class="flex gap-4 text-sm">
+                <a href="#" class="text-[#1672ce] hover:underline">Working Paper (coming soon)</a>
+                <a href="https://github.com/UPSD1/LegalReasoner" class="text-[#1672ce] hover:underline">Code</a>
               </div>
             </div>
           </section>
 
-          <!-- Enhanced Current Research Section -->
-          <section class="py-12 bg-slate-50">
-            <div class="max-w-4xl mx-auto px-4">
-              <h2
-                class="text-slate-900 text-2xl font-bold leading-tight tracking-tight px-4 pb-5 pt-5 border-b border-slate-200 mb-6"
-              >
-                Research
-              </h2>
-              <div class="space-y-6">
-                <!-- Research Item 1 -->
-                <div class="bg-white rounded-lg p-6 shadow-md">
-                  <h3 class="text-xl font-semibold text-slate-900 mb-2">
-                    Search-Augmented Reinforcement Learning for Legal Reasoning
-                  </h3>
-                  <p class="text-sm text-slate-600 mb-3">
-                    MS Thesis, Cornell 2025 | Advisor: Claire Cardie |
-                    <em>Defended September 5, 2025</em>
+          <!-- Teaching Experience -->
+          <section class="py-8">
+            <h2 class="text-2xl font-bold text-center text-slate-900 mb-8">
+              Teaching Experience
+            </h2>
+
+            <div class="teaching-list-container">
+              <div class="teaching-item">
+                <span class="teaching-icon">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=dNL9dAiJTwmm&format=png&color=000000"
+                    alt="set union logo"
+                    class="h-8 w-8"
+                  />
+                </span>
+                <div class="teaching-details">
+                  <h3 class="course-title">CS 2800: Discrete Structures</h3>
+                  <p class="course-semester">
+                    Graduate Teaching Assistant, Fall 2023 & Fall 2024
                   </p>
-                  <ul class="space-y-2 text-slate-700 mb-3">
-                    <li>
-                      • First framework integrating legal database access during
-                      RL training episodes (not just inference)
-                    </li>
-                    <li>
-                      • Multi-task evaluation with jurisdictional compliance
-                      across all US legal systems
-                    </li>
-                    <li>
-                      • 10.5pp improvement on LegalBench through tool-assisted
-                      training with GRPO
-                    </li>
-                  </ul>
-                  <div class="flex gap-4 text-sm">
-                    <a href="#" class="text-[#1672ce] hover:underline"
-                      >Working Paper (coming soon)</a
-                    >
-                    <a
-                      href="https://github.com/UPSD1/LegalReasoner"
-                      class="text-[#1672ce] hover:underline"
-                      >Code</a
-                    >
-                  </div>
                 </div>
-
               </div>
-            </div>
-          </section>
 
-
-          <section class="py-8 lg:py-12">
-            <div class="max-w-4xl mx-auto px-4">
-              <h2
-                class="text-2xl lg:text-3xl font-bold text-center text-slate-900 mb-8"
-              >
-                Teaching Experience
-              </h2>
-
-              <div class="teaching-list-container">
-                <div class="teaching-item">
-                  <span class="teaching-icon">
-                    <img
-                      src="https://img.icons8.com/?size=100&id=dNL9dAiJTwmm&format=png&color=000000"
-                      alt="set union logo"
-                      class="h-8 w-8"
-                    />
-                  </span>
-                  <div class="teaching-details">
-                    <h3 class="course-title">CS 2800: Discrete Structures</h3>
-                    <p class="course-semester">
-                      Graduate Teaching Assistant, Fall 2023 & Fall 2024
-                    </p>
-                  </div>
+              <div class="teaching-item">
+                <span class="teaching-icon">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
+                    alt="Python language logo"
+                    class="h-8 w-8"
+                  />
+                </span>
+                <div class="teaching-details">
+                  <h3 class="course-title">
+                    CS 1110: Introduction to Python
+                  </h3>
+                  <p class="course-semester">
+                    Graduate Teaching Assistant, Spring 2024
+                  </p>
                 </div>
-
-                <div class="teaching-item">
-                  <span class="teaching-icon">
-                    <img
-                      src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
-                      alt="Python language logo"
-                      class="h-8 w-8"
-                    />
-                  </span>
-                  <div class="teaching-details">
-                    <h3 class="course-title">
-                      CS 1110: Introduction to Python
-                    </h3>
-                    <p class="course-semester">
-                      Graduate Teaching Assistant, Spring 2024
-                    </p>
-                  </div>
-                </div>
-                <div class="teaching-item">
-                  <span class="teaching-icon">🧠</span>
-                  <div class="teaching-details">
-                    <h3 class="course-title">
-                      CS 1700: Elements of Artificial Intelligence
-                    </h3>
-                    <p class="course-semester">
-                      Graduate Teaching Assistant, Spring 2025
-                    </p>
-                  </div>
+              </div>
+              
+              <div class="teaching-item">
+                <span class="teaching-icon">🧠</span>
+                <div class="teaching-details">
+                  <h3 class="course-title">
+                    CS 1700: Elements of Artificial Intelligence
+                  </h3>
+                  <p class="course-semester">
+                    Graduate Teaching Assistant, Spring 2025
+                  </p>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- Contact me-->
-          <section
-            class="contact-section bg-white p-6 sm:p-8 rounded-xl shadow-lg"
-            id="contact"
-          >
-            <h2
-              class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-5 border-b border-slate-200 mb-6"
-            >
+          <!-- Contact Section -->
+          <section class="bg-white p-8 rounded-xl shadow-lg" id="contact">
+            <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-5 border-b border-slate-200 mb-6">
               Let's Connect
             </h2>
 
             <div class="max-w-lg mx-auto">
-              <p
-                class="text-slate-600 text-base leading-relaxed mb-6 text-center"
-              >
-                If you’d like to discuss research ideas or explore AI safety and
-                reasoning, I’d love to hear from you.
+              <p class="text-slate-600 text-base leading-relaxed mb-6 text-center">
+                If you'd like to discuss research ideas or explore AI safety and
+                reasoning, I'd love to hear from you.
               </p>
 
               <form
@@ -1086,62 +902,14 @@
             </div>
           </section>
 
-          <script>
-            // Form submission handling
-            document
-              .getElementById("contact-form")
-              .addEventListener("submit", function (e) {
-                e.preventDefault();
-
-                const form = e.target;
-                const submitBtn = document.getElementById("submit-btn");
-                const status = document.getElementById("form-status");
-
-                // Show loading state
-                submitBtn.disabled = true;
-                submitBtn.innerHTML =
-                  '<span class="truncate">Sending...</span>';
-
-                // Submit form data
-                fetch(form.action, {
-                  method: "POST",
-                  body: new FormData(form),
-                  headers: {
-                    Accept: "application/json",
-                  },
-                })
-                  .then(function (response) {
-                    if (response.ok) {
-                      status.innerHTML =
-                        "Thanks for reaching out! I'll get back to you soon.";
-                      status.className = "text-sm text-center text-green-600";
-                      status.classList.remove("hidden");
-                      form.reset();
-                    } else {
-                      throw new Error("Network response was not ok");
-                    }
-                  })
-                  .catch(function (error) {
-                    status.innerHTML =
-                      "Oops! Something went wrong. Please try emailing me directly.";
-                    status.className = "text-sm text-center text-red-600";
-                    status.classList.remove("hidden");
-                  })
-                  .finally(function () {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML =
-                      '<span class="truncate">Send Message</span>';
-                  });
-              });
-          </script>
         </div>
       </main>
+
+      <!-- Footer -->
       <footer class="bg-slate-800 text-slate-300">
         <div class="flex justify-center">
           <div class="flex max-w-[960px] flex-1 flex-col">
-            <div
-              class="flex flex-col gap-6 px-5 py-10 text-center @container items-center"
-            >
+            <div class="flex flex-col gap-6 px-5 py-10 text-center @container items-center">
               <div class="flex flex-wrap justify-center gap-5">
                 <a
                   class="text-slate-400 hover:text-white transition-colors"
@@ -1189,7 +957,55 @@
       </footer>
     </div>
 
+    <!-- Scripts -->
     <script>
+      // Form submission handling
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const submitBtn = document.getElementById("submit-btn");
+          const status = document.getElementById("form-status");
+
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            '<span class="truncate">Sending...</span>';
+
+          // Submit form data
+          fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: {
+              Accept: "application/json",
+            },
+          })
+            .then(function (response) {
+              if (response.ok) {
+                status.innerHTML =
+                  "Thanks for reaching out! I'll get back to you soon.";
+                status.className = "text-sm text-center text-green-600";
+                status.classList.remove("hidden");
+                form.reset();
+              } else {
+                throw new Error("Network response was not ok");
+              }
+            })
+            .catch(function (error) {
+              status.innerHTML =
+                "Oops! Something went wrong. Please try emailing me directly.";
+              status.className = "text-sm text-center text-red-600";
+              status.classList.remove("hidden");
+            })
+            .finally(function () {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML =
+                '<span class="truncate">Send Message</span>';
+            });
+        });
+
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
@@ -1215,6 +1031,7 @@
           }
         });
       });
+      
       // Set "Projects" as active on initial load if no hash
       window.addEventListener("DOMContentLoaded", () => {
         if (!window.location.hash) {
@@ -1235,9 +1052,6 @@
       });
     </script>
     <script src="./js/theme-switcher.js"></script>
-    <script
-      type="module"
-      src="./js/search-ui-controller-collapsible.js"
-    ></script>
+    <script type="module" src="./js/search-ui-controller-collapsible.js"></script>
   </body>
 </html>
