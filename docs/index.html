@@ -1,1066 +1,349 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-    <link
-      as="style"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
-      onload="this.rel='stylesheet'"
-      rel="stylesheet"
-    />
-    <title>David Akinboro - AI Research & NLP</title>
-    <meta
-      name="description"
-      content="MS Computer Science student at Cornell University specializing in NLP and reasoning language models. Research on transparent AI systems for legal reasoning and educational applications."
-    />
-    <meta
-      name="keywords"
-      content="David Akinboro, AI research, NLP, Cornell University, legal AI, reasoning language models, machine learning"
-    />
-    <meta name="author" content="David Akinboro" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Akinboro</title>
+  <meta name="description" content="David Akinboro — Technical founder, AI safety researcher, and research engineer working on artificial intelligence, NLP, and data infrastructure. Founder of Aeve. Co-founder of Miola. Cornell CS.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href="https://davidakinboro.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --bg: #fafafa;
+      --border: #e0e0e0;
+      --link: #1a1a1a;
+      --link-hover: #000;
+    }
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="David Akinboro - AI Research & NLP" />
-    <meta
-      property="og:description"
-      content="MS Computer Science student at Cornell specializing in transparent AI systems and reasoning language models"
-    />
-    <meta property="og:url" content="https://www.davidakinboro.com" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://www.davidakinboro.com/images/BowersCIS.JPG"
-    />
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="David Akinboro - AI Research & NLP" />
-    <meta
-      name="twitter:description"
-      content="Cornell MS student researching transparent AI systems and reasoning language models"
-    />
+    ::selection {
+      background: #1a1a1a;
+      color: #fff;
+    }
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.davidakinboro.com" />
-    
-    <!-- Primary favicon (works everywhere) -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    html {
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    <!-- High-res for modern browsers and bookmarks -->
-    <link rel="icon" sizes="192x192" href="./images/BowersCIS.JPG" />
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-    <!-- Apple devices (shows when saved to home screen) -->
-    <link rel="apple-touch-icon" href="./images/BowersCIS.JPG" />
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
 
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <style>
-      /* Hover effect for product cards */
-      .hover-glow {
-        transition: box-shadow 0.3s ease-in-out;
-      }
-      .hover-glow:hover {
-        box-shadow: 0 0 15px 5px rgba(22, 114, 206, 0.3);
-      }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 64px;
+    }
 
-      /* Active navigation link indicator */
-      .active-nav-link {
-        color: #1672ce;
-        position: relative;
-      }
-      .active-nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #1672ce;
-      }
+    nav .name {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-      /* Teaching Section */
-      .teaching-list-container {
-        background-color: white;
-        border-radius: 0.75rem;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-          0 2px 4px -2px rgb(0 0 0 / 0.1);
-        overflow: hidden;
-      }
+    nav .name:hover {
+      color: var(--link-hover);
+    }
 
-      .teaching-item {
-        display: flex;
-        align-items: center;
-        padding: 1.25rem 1.5rem;
-        border-bottom: 1px solid #e5e7eb;
-      }
+    nav .nav-links {
+      display: flex;
+      gap: 24px;
+    }
 
-      .teaching-item:last-child {
-        border-bottom: none;
-      }
+    nav .nav-links a {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
 
-      .teaching-icon {
-        font-size: 1.875rem;
-        margin-right: 1.5rem;
-      }
+    nav .nav-links a:hover {
+      color: var(--text);
+    }
 
-      .course-title {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: #1e293b;
-      }
+    .bio {
+      margin-bottom: 40px;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--text);
+    }
 
-      .course-semester {
-        font-size: 1rem;
-        color: #64748b;
-        margin-top: 2px;
-      }
+    .bio a {
+      color: var(--text);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      text-decoration-color: var(--border);
+      transition: text-decoration-color 0.2s;
+    }
 
-      /* Social Links */
-      .social-links {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-      }
+    .bio a:hover {
+      text-decoration-color: var(--text);
+    }
 
-      .social-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        background-color: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 0.5rem;
-        color: #475569;
-        text-decoration: none;
-        font-size: 0.875rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-      }
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      margin-bottom: 72px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+    }
 
-      .social-link:hover {
-        background-color: #1672ce;
-        color: white;
-        border-color: #1672ce;
-        transform: translateY(-1px);
-      }
+    .links-row a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-      .social-link svg {
-        width: 1rem;
-        height: 1rem;
-      }
+    .links-row a:hover {
+      color: var(--text);
+    }
 
-      /* Mobile Responsive Improvements */
-      @media (max-width: 768px) {
-        .main-container {
-          padding-left: 1rem !important;
-          padding-right: 1rem !important;
-        }
+    .links-row .sep {
+      color: var(--border);
+      user-select: none;
+    }
 
-        .hero-section {
-          padding: 1rem;
-        }
+    .section {
+      margin-bottom: 64px;
+    }
 
-        .hero-image {
-          min-height: 8rem;
-          width: 8rem;
-        }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+    }
 
-        .teaching-item {
-          flex-direction: column;
-          text-align: center;
-          gap: 0.75rem;
-        }
+    .entry-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
 
-        .teaching-icon {
-          margin-right: 0;
-        }
-      }
+    .entry-table tr {
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
 
-      @media (max-width: 640px) {
-        .header {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
+    .entry-table tr:first-child {
+      border-top: 1px solid rgba(0,0,0,0.04);
+    }
 
-        .nav-links {
-          display: none;
-        }
+    .entry-table td {
+      padding: 16px 0;
+      vertical-align: top;
+    }
 
-        .mobile-menu {
-          display: block;
-        }
-      }
+    .entry-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+      width: 80px;
+      padding-right: 24px;
+    }
 
-      .mobile-menu {
-        display: none;
-      }
-    </style>
+    .entry-name {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
 
-    <link rel="stylesheet" href="./css/theme-system.css" />
-    <link rel="stylesheet" href="./css/button-fixes.css" />
-    <link rel="stylesheet" href="./css/search-ui-collapsible.css" />
+    .entry-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-secondary);
+      margin-top: 3px;
+      line-height: 1.55;
+    }
 
-    <script type="importmap">
-        {
-            "imports": {
-                "@xenova/transformers": "https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js"
-            }
-        }
-    </script>
+    .entry-links {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      margin-top: 6px;
+    }
 
-    <script type="application/ld+json">
+    .entry-links a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .entry-links a:hover {
+      color: var(--text);
+    }
+
+    .entry-links .sep {
+      color: var(--border);
+      margin: 0 6px;
+      user-select: none;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 48px 20px 80px; }
+      nav { margin-bottom: 48px; }
+      .entry-date { display: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "David Akinboro",
+    "url": "https://davidakinboro.com",
+    "jobTitle": "Technical Founder & Research Engineer",
+    "description": "Technical founder, AI safety researcher, and research engineer working on artificial intelligence, NLP, and data infrastructure. Founder of Aeve. Co-founder of Miola. Cornell CS graduate.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Cornell University"
+    },
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Natural Language Processing",
+      "AI Safety",
+      "Reinforcement Learning",
+      "Data Infrastructure",
+      "Legal AI",
+      "Machine Learning",
+      "Large Language Models"
+    ],
+    "sameAs": [
+      "https://x.com/davidakinboro",
+      "https://github.com/UPSD1",
+      "https://linkedin.com/in/davidakinboro"
+    ],
+    "affiliation": [
       {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "David Akinboro",
-        "jobTitle": "MS Computer Science Student",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "Cornell University"
-        },
-        "url": "https://www.davidakinboro.com",
-        "sameAs": [
-          "https://www.linkedin.com/in/davidakinboro/",
-          "https://github.com/UPSD1"
-        ],
-        "knowsAbout": [
-          "Computer Science",
-          "Artificial Intelligence",
-          "Natural Language Processing",
-          "Machine Learning",
-          "Reinforcement Learning",
-          "Large Language Models",
-          "Prompt Engineering",
-          "Legal AI",
-          "Educational AI"
-        ]
+        "@type": "Organization",
+        "name": "Aeve",
+        "url": "https://aeve.net",
+        "description": "A frontier foundry for breakthrough AI systems"
+      },
+      {
+        "@type": "Organization",
+        "name": "Miola",
+        "url": "https://miolahealth.com",
+        "description": "Health data infrastructure for Africa"
       }
-    </script>
-  </head>
-  <body class="bg-slate-50">
-    <div
-      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
-      style="font-family: Inter, 'Noto Sans', sans-serif"
-    >
-      <div class="layout-container flex h-full grow flex-col">
-        <header
-          class="header flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-4 lg:px-10 py-4 bg-white sticky top-0 z-50 shadow-sm"
-        >
-          <div class="flex items-center gap-3 text-slate-800">
-            <div class="size-7 text-[#1672ce]">
-              <svg
-                fill="none"
-                viewBox="0 0 48 48"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-            <h1
-              class="text-slate-800 text-lg lg:text-xl font-bold leading-tight tracking-tight"
-            >
-              David Akinboro
-            </h1>
-          </div>
-          <nav class="flex flex-1 justify-end items-center gap-4 lg:gap-8">
-            <div class="nav-links flex items-center gap-6">
-              <a
-                class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
-                href="./projects.html"
-                >Projects</a
-              >
-              <a
-                class="text-slate-700 text-sm font-medium leading-normal hover:text-[#1672ce] transition-colors active-nav-link"
-                href="./insights.html"
-                >Research</a
-              >
-            </div>
+    ]
+  }
+  </script>
+</head>
+<body>
 
-            <!-- Mobile menu button -->
-            <div class="mobile-menu">
-              <button
-                type="button"
-                class="text-slate-700 hover:text-[#1672ce] transition-colors"
-                aria-label="Menu"
-              >
-                <svg
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div
-              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 lg:size-10 border-2 border-slate-200 shadow-sm"
-              style="background-image: url('./images/BowersCIS.JPG')"
-            ></div>
-          </nav>
+  <div class="page">
 
-          <!-- Right-side tools container -->
-          <div style="display: flex; align-items: center; gap: 16px; margin-left: auto;">
-            <!-- Theme switcher (auto-injected by JS) -->
-            <div class="search-container">
-              <!-- Search Toggle Button (Icon - Always Visible) -->
-              <button
-                class="search-toggle"
-                aria-label="Open search"
-                title="Search (Press /)"
-              >
-                <svg
-                  class="search-toggle-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
-                </svg>
-              </button>
-
-              <!-- Search Wrapper (Expands on Click) -->
-              <div class="search-wrapper">
-                <!-- Search Icon -->
-                <svg
-                  class="search-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  ></path>
-                </svg>
-
-                <!-- Search Input Field -->
-                <input
-                  type="text"
-                  class="search-input"
-                  placeholder="Search projects, research, insights..."
-                  autocomplete="off"
-                  spellcheck="false"
-                />
-
-                <!-- Loading Spinner -->
-                <div class="search-loading"></div>
-
-                <!-- Clear Button (X) -->
-                <button class="search-clear" aria-label="Clear search">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </button>
-
-                <!-- Close Button -->
-                <button class="search-close" aria-label="Close search">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
-                  </svg>
-                </button>
-              </div>
-
-              <!-- Search Results (Appears Below When Expanded) -->
-              <div class="search-results">
-                <!-- Results Header -->
-                <div class="search-results-header">
-                  <div class="search-results-count"></div>
-                  <div class="search-results-time"></div>
-                </div>
-
-                <!-- Results List -->
-                <div class="search-results-list">
-                  <!-- Results will be inserted here dynamically -->
-                </div>
-
-                <!-- Empty State (No Results) -->
-                <div class="search-empty">
-                  <svg
-                    class="search-empty-icon"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                  <div class="search-empty-title">No results found</div>
-                  <div class="search-empty-message">
-                    Try different keywords or check your spelling
-                  </div>
-                </div>
-
-                <!-- Loading State -->
-                <div class="search-loading-state">
-                  <div class="search-loading-spinner"></div>
-                  <div class="search-loading-message">
-                    Initializing search engine...
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
+    <nav>
+      <a href="/" class="name">David Akinboro</a>
+      <div class="nav-links">
+        <a href="/writing">Writing</a>
       </div>
+    </nav>
 
-      <main class="main-container px-4 lg:px-20 xl:px-40 flex flex-1 justify-center py-10">
-        <div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-12">
-          
-          <!-- Hero Section -->
-          <section class="hero-section flex p-4 @container items-center justify-center">
-            <div class="flex w-full flex-col gap-6 items-center text-center">
-              <div
-                class="hero-image bg-center bg-no-repeat aspect-square bg-cover rounded-full min-h-36 w-36 shadow-lg border-4 border-white"
-                style="background-image: url('./images/BowersCIS.JPG')">
-              </div>
-              <div class="flex flex-col items-center gap-1">
-                <section class="text-slate-700 text-base space-y-3 max-w-3xl">
-                  <p>
-                    I am David, an AI researcher and Product Builder. My work is about guiding innovation to its ultimate potential.
-                  </p>
-                  <p>
-                    My philosophy is simple: we must <strong>look back to move forward</strong>. I use this <strong><i>Sankofa</i></strong> principle to build technology that is both advanced and grounded, acting as a seamless partner for human growth.
-                  </p>
-                </section>
+    <p class="bio">
+      I'm David. Technical founder and research engineer. I founded <a href="https://aeve.net" target="_blank">Aeve</a>, a frontier foundry that builds breakthrough AI systems. I co-founded <a href="https://miolahealth.com" target="_blank">Miola</a>, where we're building health data infrastructure across Nigerian hospitals. At Cornell, my thesis introduced search-augmented reinforcement learning for legal reasoning.
+    </p>
 
-                <!-- Social Links -->
-                <div class="social-links flex flex-col sm:flex-row items-center gap-3 mt-4">
-                  <a
-                    href="https://github.com/UPSD1"
-                    target="_blank"
-                    class="social-link"
-                  >
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                        clip-rule="evenodd"
-                      ></path>
-                    </svg>
-                    Explore Projects
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/davidakinboro/"
-                    target="_blank"
-                    class="social-link"
-                  >
-                    <svg
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
-                      ></path>
-                    </svg>
-                    Connect
-                  </a>
-                </div>
-              </div>
-              <a
-                class="inline-flex items-center justify-center rounded-lg bg-[#1672ce] px-6 py-3 text-base font-medium text-white shadow-md hover:bg-[#1361b3] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1672ce] focus:ring-offset-2"
-                href="#contact"
-              >
-                Contact Me
-              </a>
-            </div>
-          </section>
-          
-          <!-- Products Section -->
-          <section id="work">
-            <h2 class="text-slate-900 text-3xl font-bold leading-tight tracking-tight px-4 pb-3 pt-5 border-b border-slate-200 mb-6">
-                Purposeful Innovation in Practice
-            </h2>
-            <p class="text-slate-600 text-lg px-4 mb-8 max-w-3xl">
-                My research doesn't just live in a lab. They are applied to build real-world products below.
-            </p>
-  
-            <div class="grid grid-cols-1 lg:grid-cols-1 gap-8 px-4">
-    
-              <!-- LexLens -->
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
-                <div class="grid md:grid-cols-5 gap-0">
-                  <!-- Image Column -->
-                  <div class="md:col-span-2 bg-slate-100">
-                    <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px]" style="background-image: url('./images/LexAi.png')"></div>
-                  </div>
-        
-                  <!-- Content Column -->
-                  <div class="md:col-span-3 p-6 lg:p-8">
-                    <div class="flex items-start justify-between mb-3">
-                      <h3 class="text-2xl font-bold text-slate-900">LexLens</h3>
-                      <span class="px-3 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded-full">SHIPPED</span>
-                    </div>
-          
-                    <p class="text-slate-600 text-base mb-4">
-                      I built LexLens from my Cornell thesis, it's a legal AI that can verify every single source, 
-                      stopping "hallucinations" before they happen. It helps law students and practitioners build better, 
-                      faster, and more accurate arguments.
-                    </p>
-          
-                    <!-- Metrics Grid -->
-                    <div class="grid grid-cols-3 gap-4 mb-6 p-4 bg-slate-50 rounded-lg">
-                      <div class="text-center">
-                        <div class="text-3xl font-bold text-[#1672ce]">95%</div>
-                        <div class="text-xs text-slate-600 mt-1">IRAC Structure Detection</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="text-3xl font-bold text-[#1672ce]">100%</div>
-                        <div class="text-xs text-slate-600 mt-1">Source Verification</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="text-3xl font-bold text-[#1672ce]">73%</div>
-                        <div class="text-xs text-slate-600 mt-1">↓ Discriminatory Reasoning</div>
-                      </div>
-                    </div>
-          
-                    <!-- Key Features -->
-                    <ul class="space-y-2 mb-6 text-sm text-slate-700">
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Zero-hallucination architecture with transparent source attribution</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Multi-jurisdictional compliance across 50+ US legal systems</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Interpretable attention visualization for reasoning chains</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Constitutional AI framework with bias detection</span>
-                      </li>
-                    </ul>
-          
-                    <!-- Tech Stack -->
-                    <div class="mb-6">
-                      <p class="text-xs text-slate-500 uppercase tracking-wide mb-2">Tech Stack</p>
-                      <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Qwen 30B</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">VERL</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PyTorch</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Redis</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">PostgreSQL</span>
-                      </div>
-                    </div>
-          
-                    <!-- CTAs -->
-                    <div class="flex flex-wrap gap-3">
-                      <a href="https://lexlens.app/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
-                        View Technical Details
-                      </a>
-                      <a href="https://github.com/UPSD1/LegalReasoner" target="_blank" class="inline-flex items-center justify-center px-5 py-2.5 border-2 border-slate-300 text-slate-700 text-sm font-semibold rounded-lg hover:border-[#1672ce] hover:text-[#1672ce] transition-colors">
-                        View Code
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Meetviro -->
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
-                <div class="grid md:grid-cols-5 gap-0">
-                  <!-- Image Column -->
-                  <div class="md:col-span-2 bg-gradient-to-br from-blue-50 to-indigo-50">
-                    <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Viro.png')"></div>
-                  </div>
-        
-                  <!-- Content Column -->
-                  <div class="md:col-span-3 p-6 lg:p-8">
-                    <div class="flex items-start justify-between mb-3">
-                      <h3 class="text-2xl font-bold text-slate-900">Meetviro</h3>
-                      <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">SHIPPING JAN 2026</span>
-                    </div>
-          
-                    <p class="text-slate-600 text-base mb-4">
-                      As the lead Researcher, I'm helping build an autonomous agent that can attend meetings <strong><em>for</em></strong> you. 
-                      My research focuses on "social intelligence" teaching <strong>Viro</strong> to understand human context, 
-                      know when to speak, act as a seamless trustworthy partner and escalate to a human if things get tricky.
-                    </p>
-          
-                    <!-- Key Metric -->
-                    <div class="mb-6 p-4 bg-slate-50 rounded-lg inline-block">
-                      <div class="flex items-center gap-3">
-                        <div class="text-4xl font-bold text-[#1672ce]">1000+</div>
-                        <div class="text-sm text-slate-600">Users on waitlist</div>
-                      </div>
-                    </div>
-          
-                    <!-- Key Features -->
-                    <ul class="space-y-2 mb-6 text-sm text-slate-700">
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Real-time calendar conflict detection and resolution</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Multi-provider sync (Google Calendar, Outlook, Calendly)</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Observable SLAs with transparent reliability metrics</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Transparent human-agent handoff protocols</span>
-                      </li>
-                    </ul>
-          
-                    <!-- CTAs -->
-                    <div class="flex flex-wrap gap-3">
-                      <a href="https://meetviro.com/" class="inline-flex items-center justify-center px-5 py-2.5 bg-[#1672ce] text-white text-sm font-semibold rounded-lg hover:bg-[#1361b3] transition-colors">
-                        Join Waitlist
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ingenium -->
-              <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-glow transform hover:-translate-y-1 transition-all duration-300 border border-slate-200">
-                <div class="grid md:grid-cols-5 gap-0">
-                  <!-- Image Column -->
-                  <div class="md:col-span-2 bg-gradient-to-br from-emerald-50 to-teal-50">
-                    <div class="w-full h-full bg-center bg-no-repeat bg-cover min-h-[300px] flex items-center justify-center" style="background-image: url('./images/Ingenium.png')"></div>
-                  </div>
-        
-                  <!-- Content Column -->
-                  <div class="md:col-span-3 p-6 lg:p-8">
-                    <div class="flex items-start justify-between mb-3">
-                      <h3 class="text-2xl font-bold text-slate-900">Ingenium</h3>
-                      <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">DELIVERY JAN 2026</span>
-                    </div>
-          
-                    <p class="text-slate-600 text-base mb-4">
-                      People drop out of online courses when they get stuck. I'm architecting the AI for Ingenium Academy that spots when a student is struggling and proactively reaches out with encouragement and context-aware help.
-                    </p>
-          
-                    <!-- Key Features -->
-                    <ul class="space-y-2 mb-6 text-sm text-slate-700">
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Hybrid recommendation engine for course discovery</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Conversational AI tutor with context retention across sessions</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Proactive student engagement system to prevent dropoff</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span class="text-[#1672ce] mt-1">✓</span>
-                        <span>Personalized learning modality adaptation (visual, auditory, kinesthetic)</span>
-                      </li>
-                    </ul>
-          
-                    <!-- Goal -->
-                    <div class="mb-6 p-4 bg-emerald-50 rounded-lg">
-                      <p class="text-sm text-slate-700">
-                        <span class="font-semibold">Goal:</span> It's human-centric design, built to help learners realize their potential.
-                      </p>
-                    </div>
-          
-                    <!-- Client Badge -->
-                    <div class="mb-6">
-                      <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-lg">
-                        <span class="text-sm font-semibold text-slate-900"><a href="https://theingeniumacademy.com/">Ingenium Academy</a></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </section>
-
-          <!-- Current Research Intro -->
-          <section class="bg-slate-50 px-4 py-8 rounded-xl">
-            <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-3 mb-4 border-b border-slate-200">
-              Current Research
-            </h2>
-            <div class="bg-white rounded-lg p-6 shadow-md">
-              <p class="text-slate-700 leading-relaxed">
-                My research began with teaching AI how to <strong>reason</strong>. My thesis below built a  
-                frameworks for verifiable legal reasoning, which I then deployed as the product <a href="https://lexlens.app/" class="text-[#1672ce] hover:underline">LexLens</a>.  
-              </p>
-              <p class="text-slate-700 leading-relaxed mt-3">
-                Currently, my research has evolved into teaching AI how to <strong>act</strong>.
-                It focuses on the safety and social frameworks for autonomous agents, allowing them to move from simple 
-                tools to responsible, "symbiotic partners" in unpredictable human environments.
-              </p>
-            </div>
-          </section>
-
-          <!-- Research Details -->
-          <section class="bg-slate-50 px-4 py-8 rounded-xl">
-            <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-3 mb-4 border-b border-slate-200">
-              Research
-            </h2>
-            <div class="bg-white rounded-lg p-6 shadow-md">
-              <h3 class="text-xl font-semibold text-slate-900 mb-2">
-                Search-Augmented Reinforcement Learning for Legal Reasoning
-              </h3>
-              <p class="text-sm text-slate-600 mb-3">
-                MS Thesis, Cornell 2025 | Advisor: Claire Cardie |
-                <em>Defended September 5, 2025</em>
-              </p>
-              <ul class="space-y-2 text-slate-700 mb-3">
-                <li>
-                  • First framework integrating legal database access during
-                  RL training episodes (not just inference)
-                </li>
-                <li>
-                  • Multi-task evaluation with jurisdictional compliance
-                  across all US legal systems
-                </li>
-                <li>
-                  • 10.5pp improvement on LegalBench through tool-assisted
-                  training with GRPO
-                </li>
-              </ul>
-              <div class="flex gap-4 text-sm">
-                <a href="#" class="text-[#1672ce] hover:underline">Working Paper (coming soon)</a>
-                <a href="https://github.com/UPSD1/LegalReasoner" class="text-[#1672ce] hover:underline">Code</a>
-              </div>
-            </div>
-          </section>
-
-          <!-- Teaching Experience -->
-          <section class="py-8">
-            <h2 class="text-2xl font-bold text-center text-slate-900 mb-8">
-              Teaching Experience
-            </h2>
-
-            <div class="teaching-list-container">
-              <div class="teaching-item">
-                <span class="teaching-icon">
-                  <img
-                    src="https://img.icons8.com/?size=100&id=dNL9dAiJTwmm&format=png&color=000000"
-                    alt="set union logo"
-                    class="h-8 w-8"
-                  />
-                </span>
-                <div class="teaching-details">
-                  <h3 class="course-title">CS 2800: Discrete Structures</h3>
-                  <p class="course-semester">
-                    Graduate Teaching Assistant, Fall 2023 & Fall 2024
-                  </p>
-                </div>
-              </div>
-
-              <div class="teaching-item">
-                <span class="teaching-icon">
-                  <img
-                    src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000"
-                    alt="Python language logo"
-                    class="h-8 w-8"
-                  />
-                </span>
-                <div class="teaching-details">
-                  <h3 class="course-title">
-                    CS 1110: Introduction to Python
-                  </h3>
-                  <p class="course-semester">
-                    Graduate Teaching Assistant, Spring 2024
-                  </p>
-                </div>
-              </div>
-              
-              <div class="teaching-item">
-                <span class="teaching-icon">🧠</span>
-                <div class="teaching-details">
-                  <h3 class="course-title">
-                    CS 1700: Elements of Artificial Intelligence
-                  </h3>
-                  <p class="course-semester">
-                    Graduate Teaching Assistant, Spring 2025
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Contact Section -->
-          <section class="bg-white p-8 rounded-xl shadow-lg" id="contact">
-            <h2 class="text-slate-900 text-2xl font-bold leading-tight tracking-tight pb-5 border-b border-slate-200 mb-6">
-              Let's Connect
-            </h2>
-
-            <div class="max-w-lg mx-auto">
-              <p class="text-slate-600 text-base leading-relaxed mb-6 text-center">
-                If you'd like to discuss research ideas or explore AI safety and
-                reasoning, I'd love to hear from you.
-              </p>
-
-              <form
-                action="https://formspree.io/f/mblybdny"
-                method="POST"
-                class="flex flex-col gap-6"
-                id="contact-form"
-              >
-                <div>
-                  <label
-                    class="block text-slate-700 text-sm font-medium leading-normal pb-2"
-                    for="email"
-                    >Email Address</label
-                  >
-                  <input
-                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#1672ce] border border-slate-300 bg-white focus:border-[#1672ce] h-12 placeholder:text-slate-400 px-4 py-3 text-base font-normal leading-normal transition-colors"
-                    id="email"
-                    name="email"
-                    placeholder="your.email@example.com"
-                    type="email"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label
-                    class="block text-slate-700 text-sm font-medium leading-normal pb-2"
-                    for="message"
-                    >Message</label
-                  >
-                  <textarea
-                    class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#1672ce] border border-slate-300 bg-white focus:border-[#1672ce] placeholder:text-slate-400 p-4 text-base font-normal leading-normal transition-colors"
-                    id="message"
-                    name="message"
-                    placeholder="Tell me about your project, research idea, or just say hello..."
-                    rows="4"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="flex justify-start pt-2">
-                  <button
-                    class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-[#1672ce] text-white text-base font-semibold leading-normal tracking-wide shadow-md hover:bg-[#1361b3] transition-colors focus:outline-none focus:ring-2 focus:ring-[#1672ce] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    type="submit"
-                    id="submit-btn"
-                  >
-                    <span class="truncate">Send Message</span>
-                  </button>
-                </div>
-
-                <div id="form-status" class="text-sm text-center hidden"></div>
-              </form>
-
-              <div class="mt-6 text-center">
-                <p class="text-slate-500 text-sm">
-                  Email:
-                  <a
-                    href="mailto:daa238@cornell.edu"
-                    class="text-[#1672ce] hover:underline"
-                    >daa238@cornell.edu</a
-                  >
-                </p>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </main>
-
-      <!-- Footer -->
-      <footer class="bg-slate-800 text-slate-300">
-        <div class="flex justify-center">
-          <div class="flex max-w-[960px] flex-1 flex-col">
-            <div class="flex flex-col gap-6 px-5 py-10 text-center @container items-center">
-              <div class="flex flex-wrap justify-center gap-5">
-                <a
-                  class="text-slate-400 hover:text-white transition-colors"
-                  href="https://www.linkedin.com/in/davidakinboro/"
-                  target="_blank"
-                  aria-label="LinkedIn Profile"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="28px"
-                    viewBox="0 0 256 256"
-                    width="28px"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
-                    ></path>
-                  </svg>
-                </a>
-                <a
-                  class="text-slate-400 hover:text-white transition-colors"
-                  href="https://github.com/UPSD1"
-                  target="_blank"
-                  aria-label="GitHub Profile"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="28px"
-                    viewBox="0 0 256 256"
-                    width="28px"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
-                    ></path>
-                  </svg>
-                </a>
-              </div>
-              <p class="text-slate-400 text-sm font-normal leading-normal">
-                © 2025 David Akinboro. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <div class="links-row">
+      <a href="https://x.com/davidakinboro" target="_blank">Twitter</a>
+      <span class="sep">/</span>
+      <a href="https://github.com/UPSD1" target="_blank">GitHub</a>
+      <span class="sep">/</span>
+      <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+      <span class="sep">/</span>
+      <a href="https://linkedin.com/in/davidakinboro" target="_blank">LinkedIn</a>
+      <span class="sep">/</span>
+      <a href="mailto:daa238@cornell.edu">Email</a>
     </div>
 
-    <!-- Scripts -->
-    <script>
-      // Form submission handling
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+    <div class="section">
+      <div class="section-title">Building</div>
+      <table class="entry-table">
+        <tr>
+          <td class="entry-date">2025–</td>
+          <td>
+            <div class="entry-name">Aeve</div>
+            <div class="entry-desc">A frontier foundry for breakthrough systems. Research, engineering, design, and product brought together to build AI infrastructure that creates real-world impact.</div>
+            <div class="entry-links">
+              <a href="https://aeve.net" target="_blank">aeve.net</a>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="entry-date">2025–</td>
+          <td>
+            <div class="entry-name">Miola</div>
+            <div class="entry-desc">Health data infrastructure for Africa. Building ground-level data tokenization for health information exchange.</div>
+            <div class="entry-links">
+              <a href="https://miolahealth.com" target="_blank">miolahealth.com</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-          const form = e.target;
-          const submitBtn = document.getElementById("submit-btn");
-          const status = document.getElementById("form-status");
+    <div class="section">
+      <div class="section-title">Research</div>
+      <table class="entry-table">
+        <tr>
+          <td class="entry-date">2025</td>
+          <td>
+            <div class="entry-name">Interpretable Search-Augmented Reinforcement Learning for Legal Reasoning</div>
+            <div class="entry-desc">MS Thesis, Cornell University. Advisor: Claire Cardie. A framework integrating legal database access during RL training episodes. 10.5pp improvement on LegalBench through tool-assisted training with GRPO.</div>
+            <div class="entry-links">
+              <a href="#">ArXiv (coming soon)</a>
+              <span class="sep">·</span>
+              <a href="https://github.com/UPSD1/LegalReasoner" target="_blank">Code</a>
+              <span class="sep">·</span>
+              <a href="https://lexlens.app/">Website</a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-          // Show loading state
-          submitBtn.disabled = true;
-          submitBtn.innerHTML =
-            '<span class="truncate">Sending...</span>';
+    <footer>
+      © 2026 David Akinboro
+    </footer>
 
-          // Submit form data
-          fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: {
-              Accept: "application/json",
-            },
-          })
-            .then(function (response) {
-              if (response.ok) {
-                status.innerHTML =
-                  "Thanks for reaching out! I'll get back to you soon.";
-                status.className = "text-sm text-center text-green-600";
-                status.classList.remove("hidden");
-                form.reset();
-              } else {
-                throw new Error("Network response was not ok");
-              }
-            })
-            .catch(function (error) {
-              status.innerHTML =
-                "Oops! Something went wrong. Please try emailing me directly.";
-              status.className = "text-sm text-center text-red-600";
-              status.classList.remove("hidden");
-            })
-            .finally(function () {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML =
-                '<span class="truncate">Send Message</span>';
-            });
-        });
+  </div>
 
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute("href");
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-            // Update active nav link
-            document.querySelectorAll("header nav a").forEach((link) => {
-              link.classList.remove("active-nav-link");
-            });
-            this.classList.add("active-nav-link");
-            // Special case for logo/name click to scroll to top and set "Projects" as active
-            if (this.getAttribute("href") === "#") {
-              document
-                .querySelector('a[href="#projects"]')
-                .classList.add("active-nav-link");
-            }
-          }
-        });
-      });
-      
-      // Set "Projects" as active on initial load if no hash
-      window.addEventListener("DOMContentLoaded", () => {
-        if (!window.location.hash) {
-          const projectsLink = document.querySelector(
-            'header nav a[href="#projects"]'
-          );
-          if (projectsLink) {
-            projectsLink.classList.add("active-nav-link");
-          }
-        } else {
-          const activeLink = document.querySelector(
-            `header nav a[href="${window.location.hash}"]`
-          );
-          if (activeLink) {
-            activeLink.classList.add("active-nav-link");
-          }
-        }
-      });
-    </script>
-    <script src="./js/theme-switcher.js"></script>
-    <script type="module" src="./js/search-ui-controller-collapsible.js"></script>
-  </body>
+</body>
 </html>

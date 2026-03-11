@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.davidakinboro.com/sitemap.xml
+Sitemap: https://davidakinboro.com/sitemap.xml
