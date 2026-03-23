@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orchestrated vs. Learned - David Akinboro</title>
+  <meta name="description" content="Two Paths to AI Research Agents. Comparing orchestrated pipelines and learned strategies for multi-tool AI agents.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href="https://davidakinboro.com/writing/orchestrated-vs-learned">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --bg: #fafafa;
+      --border: #e0e0e0;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: #1a1a1a; color: #fff; }
+    html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    nav { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 64px; }
+    nav .name { font-size: 1.1rem; font-weight: 500; color: var(--text); text-decoration: none; }
+    nav .name:hover { color: #000; }
+    nav .nav-links { display: flex; gap: 24px; }
+    nav .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    nav .nav-links a:hover { color: var(--text); }
+    nav .nav-links a.active { color: var(--text); }
+
+    h1 { font-size: 1.6rem; font-weight: 400; margin-bottom: 8px; line-height: 1.3; }
+    .post-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 48px; }
+
+    article p { font-size: 1rem; font-weight: 400; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+    article a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+    article a:hover { text-decoration-color: var(--text); }
+
+    article h2 { font-size: 1.25rem; font-weight: 500; margin-top: 48px; margin-bottom: 16px; line-height: 1.3; }
+    article h3 { font-size: 1.05rem; font-weight: 500; margin-top: 32px; margin-bottom: 12px; line-height: 1.3; }
+
+    article ul, article ol { margin-bottom: 20px; padding-left: 24px; }
+    article li { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+
+    article hr { border: none; border-top: 1px solid #e0e0e0; margin: 48px 0; }
+
+    article pre { background: #f5f5f5; padding: 16px 20px; border-radius: 4px; overflow-x: auto; margin-bottom: 20px; }
+    article pre code { font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace; font-size: 0.85rem; background: none; padding: 0; border-radius: 0; }
+    article code { font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace; font-size: 0.9em; background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+    article blockquote { border-left: 2px solid #ddd; padding-left: 20px; color: #555; font-style: italic; margin-bottom: 20px; }
+
+    .byline { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-tertiary); font-style: italic; margin-top: 32px; margin-bottom: 4px; }
+    .byline a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .byline a:hover { color: var(--text); }
+
+    .back-link { font-family: 'Inter', sans-serif; font-size: 0.78rem; margin-top: 48px; }
+    .back-link a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .back-link a:hover { color: var(--text); }
+
+    footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--text-tertiary); }
+
+    @media (max-width: 600px) {
+      .page { padding: 48px 20px 80px; }
+      nav { margin-bottom: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <nav>
+      <a href="/" class="name">David Akinboro</a>
+      <div class="nav-links">
+        <a href="/writing" class="active">Writing</a>
+      </div>
+    </nav>
+
+    <h1>Orchestrated vs. Learned: Two Paths to AI Research Agents</h1>
+    <div class="post-date">August 2025</div>
+
+    <article>
+
+      <p>There are two ways to make an AI agent coordinate across tools effectively.</p>
+
+      <p><strong>Path 1: Orchestrate it.</strong> Design a pipeline. Define stages. Decide which tool gets used when. Let a powerful general-purpose model execute the plan.</p>
+
+      <p><strong>Path 2: Let it learn.</strong> Give the agent tools. Give it a reward signal. Let reinforcement learning figure out the strategy.</p>
+
+      <p>Both paths work. Both are producing real results right now. The interesting questions are about where they converge, where they diverge, and what each can do that the other can't.</p>
+
+      <hr>
+
+      <h2>Two Paradigms in the Wild</h2>
+
+      <h3>Orchestrated: Sakana's AI Scientist</h3>
+
+      <p>Sakana's AI Scientist v2 (Yamada et al., 2025) automates the full research lifecycle through a designed pipeline: idea generation, experiment code, tree-search over variations, results analysis, paper writing, peer review.</p>
+
+      <p>The pipeline is sophisticated. The tree search over experiments is genuinely innovative - branching, debugging, refining, selecting the best path and drilling deeper. A dedicated experiment manager agent coordinates the stages.</p>
+
+      <p>But the <em>research strategy</em> - the decision of what to try, in what order, with which tools - is architecturally determined. The system uses Semantic Scholar for literature, code execution for experiments, LaTeX for writing. The pipeline defines <em>when</em> each tool gets called. The model's creativity lives within the stages, not in choosing the stages.</p>
+
+      <p>This is powerful. It produced the first fully AI-generated paper to pass peer review at an ICLR 2025 workshop. The pipeline works.</p>
+
+      <h3>Learned: Search-Augmented RL</h3>
+
+      <p>A different line of work - Search-R1 (Jin et al., 2025), R1-Searcher (Song et al., 2025), and extensions into multi-tool environments - takes the opposite approach. Instead of designing a pipeline, you give the agent access to tools during reinforcement learning training and let it discover its own strategies.</p>
+
+      <p>Search-R1 demonstrated that integrating a search engine directly into the RL training loop produces significant improvements - 41% on Qwen2.5-7B and 20% on Qwen2.5-3B over RAG baselines across seven QA datasets. The key insight from Search-R1 is that the search engine becomes part of the environment, not a feature of the prompt. The model learns a policy for when to search, what to search for, and how to incorporate results into its reasoning.</p>
+
+      <p>In my thesis at Cornell, I extended this paradigm to legal reasoning with 18 specialized tools - legal databases, web search, citation analysis, document summarization. The agent learned through GRPO which tools to use for which types of questions, when to cross-reference, and when to stop searching. Nobody programmed these patterns. They emerged from training. (The details of what the agent learned - including where it succeeded and where it failed - are in a separate post: <a href="/writing/what-tool-access-changes">What Tool Access Actually Changes</a>.)</p>
+
+      <h3>Karpathy's Autoresearch: A Third Point</h3>
+
+      <p>Karpathy's autoresearch is interesting because it doesn't fit either category cleanly. The agent modifies code, trains, measures, and iterates - a loop, not a pipeline. But the loop is simple enough that the "strategy" is mostly generated by the underlying model's reasoning at each step, guided by the human-written <code>program.md</code>.</p>
+
+      <p>There's no RL training loop. There's no designed pipeline. There's a capable model, a clear metric, and a constraint (5-minute budget). The model's general intelligence does the rest.</p>
+
+      <p>This raises the most important question in this entire discussion: <strong>as foundation models get more capable, does the distinction between orchestrated and learned matter?</strong></p>
+
+      <hr>
+
+      <h2>Taking the Karpathy Challenge Seriously</h2>
+
+      <p>It's tempting to dismiss this question by pointing to domain-specific gains from RL. But that's not a serious engagement with what autoresearch demonstrates.</p>
+
+      <p>Autoresearch works because Claude or GPT-4 class models have already been trained with enormous compute, including extensive RLHF and tool-use optimization. These models aren't naive about tool coordination - they've been trained on millions of examples of multi-step reasoning, code modification, and iterative problem-solving. When Karpathy gives such a model a clear metric and a tight feedback loop, it performs well <em>without any additional domain-specific training</em>.</p>
+
+      <p>So the honest version of the question is: given that frontier models keep improving their general tool-use capability through pre-training and RLHF, at what point does the marginal value of domain-specific RL training shrink to zero?</p>
+
+      <p>I don't think we're there yet, and here's the empirical reason. In our legal reasoning experiments, training-time tool integration outperformed inference-time multi-tool access on the same model and the same benchmark. The trained agent used fewer tool calls per query while achieving higher accuracy. It developed task-specific coordination patterns - different sequences for jurisdiction questions versus precedent analysis versus general consultation - that the same model couldn't produce at inference time with the same tools available.</p>
+
+      <p>But I want to be precise about what this shows and what it doesn't. It shows that for a 3B parameter model (Qwen 2.5 3B) operating in a specialized domain with 18 tools and a constrained budget, RL training produced measurably better tool coordination than inference-time reasoning. It does not show that this advantage would persist at larger model scales. Search-R1's own empirical study (Jin et al., 2025) found that larger models show bigger performance gaps between trained and untrained search - suggesting the advantage may grow with scale, not shrink. But neither result has been tested at the frontier model scale where Karpathy's autoresearch operates. That experiment hasn't been run.</p>
+
+      <p>The honest answer: the distinction between orchestrated and learned probably matters most at smaller model scales and in domains with many specialized tools where the optimal coordination pattern is non-obvious. As models get larger and more generally capable, the gap may narrow for simple tool environments. Whether it narrows for complex, multi-tool environments with domain-specific constraints (like jurisdictional compliance in law) is an open empirical question.</p>
+
+      <hr>
+
+      <h2>Where They Converge</h2>
+
+      <p>Both paradigms share a core insight: <strong>tool access expands the capability envelope.</strong></p>
+
+      <p>An agent with access to a legal database can answer questions it literally couldn't answer without one. An agent with Semantic Scholar access can find related work it didn't see in training. An agent with a code executor can test hypotheses instead of guessing.</p>
+
+      <p>Whether the tool strategy is orchestrated or learned, the expansion is real. FunSearch pairs an LLM with an evaluator - that's orchestration - and produces genuinely novel mathematical discoveries. Multi-tool RL agents learn their own coordination - that's learned - and produce efficient, task-adapted research strategies.</p>
+
+      <p>Both work. The capability expansion from tool access is the constant.</p>
+
+      <hr>
+
+      <h2>Where They Diverge</h2>
+
+      <h3>Adaptability</h3>
+
+      <p>Orchestrated pipelines excel when you know the task structure in advance. Scientific research has a known structure: hypothesis, experiment, analysis, communication. Sakana's pipeline encodes this beautifully.</p>
+
+      <p>Learned strategies may excel when the task structure varies significantly. Legal reasoning across four different task types - judicial reasoning, precedent analysis, opinion generation, general consultation - required different coordination patterns for each. The RL training loop discovered this variation; a pipeline designer would have had to anticipate it.</p>
+
+      <h3>The Evaluation Loop Dependency</h3>
+
+      <p>Both paradigms depend on evaluation quality, but in different ways. Orchestrated systems need well-defined stage transitions - "when is the literature review complete enough to start experimenting?" Learned systems need reward signals that capture what matters - a poorly designed reward function produces agents that game the metric rather than solve the problem. Goodhart's Law applies to both, but at different levels of abstraction.</p>
+
+      <hr>
+
+      <h2>Open Questions</h2>
+
+      <h3>1. Can learned tool strategies transfer across domains?</h3>
+
+      <p>If an agent learns efficient research strategies in legal reasoning - when to search broadly vs. narrowly, when to cross-reference, when to stop - do those meta-strategies transfer to medical diagnosis, or financial research, or materials science?</p>
+
+      <p>The analogy: a skilled researcher who switches fields doesn't start from zero. They bring meta-skills about <em>how to do research</em> that transfer. Whether RL-trained agents develop similar transferable research skills is an empirical question nobody has tested rigorously. The closest evidence is R1-Searcher++'s (Song et al., 2025) finding that their framework generalizes from in-domain to out-of-domain datasets, but that's within QA tasks, not across domains.</p>
+
+      <h3>2. What's the right evaluation framework for research agents?</h3>
+
+      <p>METR measures time horizons - how long a task can an agent complete? Sakana measures peer review acceptance. Karpathy measures validation loss improvement. These are all useful, but they measure different things.</p>
+
+      <p>For a system that's supposed to do <em>science</em>, what should we measure? Novel insights per compute dollar? Reproducibility of findings? Quality of the research strategy itself, independent of the outcome?</p>
+
+      <h3>3. When do orchestrated and learned approaches merge?</h3>
+
+      <p>I suspect the future isn't "either/or." The most capable research agents will likely combine orchestrated high-level structure (the scientific method has stages for a reason) with learned low-level strategy (which tool to use, how to formulate queries, when to change direction).</p>
+
+      <p>Sakana's v2 tree search over experiments is already a step in this direction - an orchestrated pipeline with a learned search component. The natural extension is making more of the pipeline learnable while keeping the high-level structure intact. Whether this hybrid approach outperforms either pure paradigm is, again, an empirical question that hasn't been answered.</p>
+
+      <h3>4. How do we evaluate research agents for safety?</h3>
+
+      <p>As we push into Level 4 - AI that innovates - how do we evaluate whether an innovation-capable agent is safe to deploy?</p>
+
+      <p>METR and Transluce are building evaluation infrastructure for agent capabilities. But evaluating a research agent is harder than evaluating a coding agent. A coding agent's output is testable - does the code run? A research agent's output is a <em>claim about the world</em> - and verifying claims requires domain expertise, replication, and time.</p>
+
+      <p>The systems that solved this best - AlphaFold, GNoME, FunSearch - all had <em>tight evaluation loops</em>. The discovery was immediately verifiable. Extending this to domains with slower, more ambiguous evaluation is one of the hardest open problems in the field.</p>
+
+      <hr>
+
+      <p class="byline"><em>This post is part of a series on AI agents and scientific discovery. See also: <a href="/writing/alphafold-to-autoresearch">From AlphaFold to Autoresearch</a> and <a href="/writing/what-tool-access-changes">What Tool Access Actually Changes</a>.</em></p>
+
+      <p class="byline"><em>References: AI Scientist v2 (Yamada et al., arXiv 2504.08066, 2025); Search-R1 (Jin et al., arXiv 2503.09516, 2025); R1-Searcher (Song et al., arXiv 2503.05592, 2025); R1-Searcher++ (Song et al., arXiv 2505.17005, 2025); Agent-R1 (Yu et al., arXiv 2511.14460, 2025); autoresearch (Karpathy, GitHub 2026); METR Time Horizons (Barnes et al., 2025)</em></p>
+
+      <p class="byline"><em>David Akinboro - <a href="https://davidakinboro.com">davidakinboro.com</a></em></p>
+
+    </article>
+
+    <div class="back-link">
+      <a href="/writing">&larr; Back to Writing</a>
+    </div>
+
+    <footer>
+      &copy; 2026 David Akinboro
+    </footer>
+
+  </div>
+
+</body>
+</html>

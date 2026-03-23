@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Tool Access Actually Changes - David Akinboro</title>
+  <meta name="description" content="How tool access changes AI agent behavior - lessons from training a legal reasoning agent with 18 specialized tools.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href="https://davidakinboro.com/writing/what-tool-access-changes">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --bg: #fafafa;
+      --border: #e0e0e0;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: #1a1a1a; color: #fff; }
+    html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    nav { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 64px; }
+    nav .name { font-size: 1.1rem; font-weight: 500; color: var(--text); text-decoration: none; }
+    nav .name:hover { color: #000; }
+    nav .nav-links { display: flex; gap: 24px; }
+    nav .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    nav .nav-links a:hover { color: var(--text); }
+    nav .nav-links a.active { color: var(--text); }
+
+    h1 { font-size: 1.6rem; font-weight: 400; margin-bottom: 8px; line-height: 1.3; }
+    .post-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 48px; }
+
+    article p { font-size: 1rem; font-weight: 400; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+    article a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+    article a:hover { text-decoration-color: var(--text); }
+
+    article h2 { font-size: 1.25rem; font-weight: 500; margin-top: 48px; margin-bottom: 16px; line-height: 1.3; }
+    article h3 { font-size: 1.05rem; font-weight: 500; margin-top: 32px; margin-bottom: 12px; line-height: 1.3; }
+
+    article ul, article ol { margin-bottom: 20px; padding-left: 24px; }
+    article li { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+
+    article hr { border: none; border-top: 1px solid #e0e0e0; margin: 48px 0; }
+
+    article table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-family: 'Inter', sans-serif; font-size: 0.9rem; }
+    article th { text-align: left; font-weight: 500; padding: 10px 12px; border-bottom: 2px solid var(--border); }
+    article td { padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+    article pre { background: #f5f5f5; padding: 16px 20px; border-radius: 4px; overflow-x: auto; margin-bottom: 20px; }
+    article pre code { font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace; font-size: 0.85rem; background: none; padding: 0; border-radius: 0; }
+    article code { font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace; font-size: 0.9em; background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+    article blockquote { border-left: 2px solid #ddd; padding-left: 20px; color: #555; font-style: italic; margin-bottom: 20px; }
+
+    .byline { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-tertiary); font-style: italic; margin-top: 32px; margin-bottom: 4px; }
+    .byline a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .byline a:hover { color: var(--text); }
+
+    .back-link { font-family: 'Inter', sans-serif; font-size: 0.78rem; margin-top: 48px; }
+    .back-link a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .back-link a:hover { color: var(--text); }
+
+    footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--text-tertiary); }
+
+    @media (max-width: 600px) {
+      .page { padding: 48px 20px 80px; }
+      nav { margin-bottom: 48px; }
+      article table { font-size: 0.8rem; }
+      article th, article td { padding: 8px 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <nav>
+      <a href="/" class="name">David Akinboro</a>
+      <div class="nav-links">
+        <a href="/writing" class="active">Writing</a>
+      </div>
+    </nav>
+
+    <h1>What Tool Access Actually Changes</h1>
+    <div class="post-date">August 2025</div>
+
+    <article>
+
+      <p>During training, our legal reasoning agent explored jurisdictionally questionable paths in 18% of all episodes. It tried to apply California law to Texas disputes. It cited federal precedents in state court contexts. It confused circuit boundaries.</p>
+
+      <p>By the end of training, it got jurisdiction right 97% of the time.</p>
+
+      <p>That 18% number is the one I keep thinking about. Not because the agent made mistakes - every agent makes mistakes early in training. Because the <em>kind</em> of mistakes changed depending on which tools were available. And the kind of corrections the agent learned were not the same across tasks.</p>
+
+      <hr>
+
+      <h2>The uneven gains</h2>
+
+      <p>We trained a 3B parameter model on four types of legal reasoning tasks, with access to 18 specialized tools - legal databases, citation networks, court metadata, web search - constrained to 9 calls per episode.</p>
+
+      <p>The headline result: 10.5 percentage point improvement over baselines on LegalBench. But the headline obscures the interesting part.</p>
+
+      <p>The gains were not uniform:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Our model</th>
+            <th>Best baseline</th>
+            <th>Gap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Personal jurisdiction</td>
+            <td>67.8%</td>
+            <td>51.1%</td>
+            <td>+17.8</td>
+          </tr>
+          <tr>
+            <td>Learned hands business</td>
+            <td>60.3%</td>
+            <td>51.1%</td>
+            <td>+9.2</td>
+          </tr>
+          <tr>
+            <td>Learned hands domestic violence</td>
+            <td>58.0%</td>
+            <td>52.9%</td>
+            <td>+5.1</td>
+          </tr>
+          <tr>
+            <td>Citation prediction</td>
+            <td>57.4%</td>
+            <td>51.9%</td>
+            <td>+5.5</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Personal jurisdiction - the task requiring the agent to determine whether a court can exercise authority over a party based on complex, multi-state fact patterns - improved by nearly 18 points. Citation prediction, which is closer to pattern matching, improved by 5.5.</p>
+
+      <p>The tasks that require reasoning across multiple sources and jurisdictions benefited the most from tool access. The tasks closer to lookup or classification benefited the least.</p>
+
+      <p>This isn't surprising in retrospect. But it has implications that I think are underappreciated.</p>
+
+      <hr>
+
+      <h2>What the agent learned to do</h2>
+
+      <p>During evaluation, we tracked tool sequences. Three coordination patterns emerged:</p>
+
+      <p><strong>Research - Analysis - Validation.</strong> The agent would search for cases, retrieve the full opinion, then check which subsequent cases cited it. This mirrors how attorneys verify that a precedent hasn't been overruled.</p>
+
+      <p><strong>Broad - Narrow.</strong> On unfamiliar queries, the agent started with a general legal search, identified the relevant area of law, then issued targeted queries. On familiar patterns, it skipped the broad search entirely.</p>
+
+      <p><strong>Authority - Application.</strong> For IRAC-structured tasks, the agent retrieved the relevant authorities first, then applied them to the specific facts, then retrieved the full opinion to verify its reasoning.</p>
+
+      <p>The average was 5.7 tool calls per query. The 9-call cap was hit in only 6% of episodes. The agent learned when to stop.</p>
+
+      <p>Nobody programmed these sequences. They emerged from the reward signal - correct answers with fewer tool calls received higher rewards than correct answers with more.</p>
+
+      <hr>
+
+      <h2>Where it broke</h2>
+
+      <p>The Palsgraf case is a good example of what goes wrong.</p>
+
+      <p>The query asked about liability in <em>Palsgraf v. Long Island Railroad</em> - a foundational torts case taught in every first-year law class. The agent followed correct IRAC methodology. It identified the facts. It stated the issue. It retrieved the case from CourtListener.</p>
+
+      <p>Then it applied the wrong doctrine. It cited <em>res ipsa loquitur</em> (the thing speaks for itself) instead of the actual holding, which turns on foreseeability and proximate cause. The analysis was structurally sound but substantively wrong.</p>
+
+      <p>The agent used only two tools on this query: <code>get_opinion</code> and <code>search_legal_cases</code>. It didn't cross-reference. It didn't check citing opinions to see how later courts interpreted the holding. The tool coordination patterns that worked on jurisdiction questions - broad search, then narrow, then verify - didn't activate here because the agent had already retrieved the case and treated it as sufficient.</p>
+
+      <p>Two observations from this failure. First, the agent's learned efficiency (use fewer tools when you can) becomes a liability when the task requires deeper verification than the surface suggests. A famous case feels familiar; the agent acts on that familiarity instead of verifying. Second, tool access helps most when the agent <em>doesn't already think it knows the answer.</em> For questions where the model has strong parametric priors - even if those priors are wrong - tool use is suppressed rather than amplified.</p>
+
+      <hr>
+
+      <h2>The compliance gate</h2>
+
+      <p>The jurisdictional compliance mechanism is the part of this work I think about most in the context of safety.</p>
+
+      <p>We implemented a reward penalty that scaled from 10% reduction for minor jurisdictional confusion to complete nullification for potentially harmful guidance - for example, advising someone to take an action legal in one state but criminal in another.</p>
+
+      <p>During training, the agent triggered this penalty frequently. The 18% activation rate means roughly one in five episodes involved the agent attempting to cross jurisdictional boundaries incorrectly. The penalty didn't just reduce these errors. It changed the agent's research behavior. By late training, jurisdiction-ambiguous queries consistently triggered <code>get_court</code> calls as the first tool action - the agent learned to check where it was before deciding what law to apply.</p>
+
+      <p>The final 97% compliance rate is high. But the 3% failure rate on a safety-critical task - applying the wrong state's law - is not zero, and in a deployed legal system, 3% is not acceptable. The honest conclusion is that reward shaping can instill safety behaviors effectively but not perfectly, and the residual error rate in adversarial or ambiguous cases needs additional safeguards.</p>
+
+      <hr>
+
+      <h2>What I take from this</h2>
+
+      <p>Three things.</p>
+
+      <p><strong>Tool access doesn't improve models uniformly.</strong> It disproportionately helps tasks that require coordinating information across sources. Tasks that are already well-served by parametric knowledge see smaller gains. When measuring what an agent can do, the tool environment matters as much as the model weights.</p>
+
+      <p><strong>Learned efficiency has a shadow side.</strong> An agent trained to minimize unnecessary tool calls will sometimes skip verification on tasks where it's confident but wrong. The same optimization pressure that produces elegant research strategies also produces overconfident shortcuts. Evaluation needs to test specifically for cases where the model's confidence is high and its answer is wrong.</p>
+
+      <p><strong>Safety behaviors can be shaped through rewards, but the residual error rate matters.</strong> 97% jurisdictional compliance sounds good until you remember that the remaining 3% involves giving someone legal guidance under the wrong state's law. For domains where errors have real consequences, reward shaping is a starting point, not a solution.</p>
+
+      <p>I don't think current capability evaluations capture these dynamics well. Time-horizon metrics tell you how long an agent can work on a task. They don't tell you how the agent's failure modes change when you hand it a new set of tools, or which tasks become newly possible while others become newly dangerous.</p>
+
+      <p>The tool environment is part of the capability. Measure accordingly.</p>
+
+      <hr>
+
+      <p class="byline"><em>David Akinboro &middot; <a href="https://davidakinboro.com">davidakinboro.com</a></em></p>
+
+    </article>
+
+    <div class="back-link">
+      <a href="/writing">&larr; Back to Writing</a>
+    </div>
+
+    <footer>
+      &copy; 2026 David Akinboro
+    </footer>
+
+  </div>
+
+</body>
+</html>

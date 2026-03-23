@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From AlphaFold to Autoresearch - David Akinboro</title>
+  <meta name="description" content="AI Is Learning to Do Science. From protein folding to automated research agents - tracing the path from AlphaFold to autoresearch.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href="https://davidakinboro.com/writing/alphafold-to-autoresearch">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --bg: #fafafa;
+      --border: #e0e0e0;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: #1a1a1a; color: #fff; }
+    html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    nav { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 64px; }
+    nav .name { font-size: 1.1rem; font-weight: 500; color: var(--text); text-decoration: none; }
+    nav .name:hover { color: #000; }
+    nav .nav-links { display: flex; gap: 24px; }
+    nav .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    nav .nav-links a:hover { color: var(--text); }
+    nav .nav-links a.active { color: var(--text); }
+
+    h1 { font-size: 1.6rem; font-weight: 400; margin-bottom: 8px; line-height: 1.3; }
+    .post-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 48px; }
+
+    article p { font-size: 1rem; font-weight: 400; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+    article a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+    article a:hover { text-decoration-color: var(--text); }
+
+    article h2 { font-size: 1.25rem; font-weight: 500; margin-top: 48px; margin-bottom: 16px; line-height: 1.3; }
+    article h3 { font-size: 1.05rem; font-weight: 500; margin-top: 32px; margin-bottom: 12px; line-height: 1.3; }
+
+    article ul, article ol { margin-bottom: 20px; padding-left: 24px; }
+    article li { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+
+    article hr { border: none; border-top: 1px solid #e0e0e0; margin: 48px 0; }
+
+    article pre { background: #f5f5f5; padding: 16px 20px; border-radius: 4px; overflow-x: auto; margin-bottom: 20px; }
+    article pre code { font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace; font-size: 0.85rem; background: none; padding: 0; border-radius: 0; }
+    article code { font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace; font-size: 0.9em; background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+    article blockquote { border-left: 2px solid #ddd; padding-left: 20px; color: #555; font-style: italic; margin-bottom: 20px; }
+
+    .byline { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-tertiary); font-style: italic; margin-top: 32px; margin-bottom: 4px; }
+    .byline a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .byline a:hover { color: var(--text); }
+
+    .back-link { font-family: 'Inter', sans-serif; font-size: 0.78rem; margin-top: 48px; }
+    .back-link a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .back-link a:hover { color: var(--text); }
+
+    footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--text-tertiary); }
+
+    @media (max-width: 600px) {
+      .page { padding: 48px 20px 80px; }
+      nav { margin-bottom: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <nav>
+      <a href="/" class="name">David Akinboro</a>
+      <div class="nav-links">
+        <a href="/writing" class="active">Writing</a>
+      </div>
+    </nav>
+
+    <h1>From AlphaFold to Autoresearch: AI Is Learning to Do Science</h1>
+    <div class="post-date">February 2026</div>
+
+    <article>
+
+      <p>There's a chart that both DeepMind and OpenAI independently converged on. It maps AI progress across levels, and despite the two organizations developing their frameworks separately, they arrived at nearly identical structures. Worth understanding before we go further.</p>
+
+      <hr>
+
+      <h2>The Levels</h2>
+
+      <p>DeepMind published their framework in November 2023 ("Levels of AGI," Morris et al.). OpenAI followed with a similar version internally in July 2024. Both describe five stages of AI capability, each defined by what the system can do relative to a skilled human.</p>
+
+      <p><strong>Level 1 - Conversational AI.</strong> The system can interact in natural language but doesn't outperform an unskilled human at most tasks. Early ChatGPT, basic chatbots. DeepMind calls this "Emerging." This is where consumer AI lived in 2022-2023.</p>
+
+      <p><strong>Level 2 - Reasoners.</strong> The system performs at or above the 50th percentile of skilled adults on most tasks. It can reason through multi-step problems, write competent code, analyze documents. DeepMind calls this "Competent." Most current frontier models - Claude, GPT-4, Gemini - operate at this level broadly.</p>
+
+      <p><strong>Level 3 - Experts / Agents.</strong> The system reaches the 90th percentile of skilled adults. It can take sustained autonomous action - not just answer a question, but execute a multi-step plan over hours or days. DeepMind calls this "Expert," OpenAI calls it "Agents." Claude Opus 4.6 has a METR 50%-time horizon of 14.5 hours. Claude Code chains 21+ tool calls without human intervention. We are solidly here for many tasks.</p>
+
+      <p><strong>Level 4 - Virtuosos / Innovators.</strong> The system reaches the 99th percentile - or produces genuinely novel contributions to a field. DeepMind's term is "Virtuoso," OpenAI's is "Innovator." This is the level where AI doesn't just apply existing knowledge well but creates new knowledge. The difference between a skilled practitioner and someone who advances the field.</p>
+
+      <p><strong>Level 5 - Organizations.</strong> The system can do the work of an entire organization. DeepMind calls this "Superhuman" - performance that exceeds all humans in the domain.</p>
+
+      <p>Two things to note. First, a system can be at different levels for different tasks - Level 3 at coding, Level 2 at creative writing, Level 1 at physical reasoning. The levels describe capability per domain, not a single number. Second, the jump from Level 3 to Level 4 is qualitatively different from the earlier jumps. Going from Level 1 to 3 is about doing existing tasks better and faster. Going from Level 3 to 4 is about producing something new - a discovery, an invention, an insight that didn't exist before.</p>
+
+      <p>Level 4 is where things get interesting. And we're watching it arrive right now. Not all at once, but domain by domain, system by system. The clearest evidence is in automated scientific discovery.</p>
+
+      <p>This is the story of how it happened - from a protein-folding breakthrough to an AI agent running overnight experiments on your GPU.</p>
+
+      <hr>
+
+      <h2>Act 1: DeepMind Solves Specific Problems at Superhuman Level</h2>
+
+      <h3>AlphaFold (2020): Level 5 in a Single Domain</h3>
+
+      <p>In November 2020, AlphaFold 2 entered the 14th Critical Assessment of protein Structure Prediction (CASP14) - a biennial blind competition where computational biologists try to predict protein structures.</p>
+
+      <p>It didn't just win. It broke the competition.</p>
+
+      <p>AlphaFold achieved a median GDT score of 92.4 out of 100. The next best group scored 90.8 on summed z-scores - compared to AlphaFold's 244.0. For context, a GDT above 90 is considered competitive with experimental accuracy. Previous methods had plateaued around 60 for the hardest targets. CASP organizers proclaimed that protein structure prediction had been "largely solved."</p>
+
+      <p>Demis Hassabis and John Jumper won the 2024 Nobel Prize in Chemistry for this work.</p>
+
+      <p>Here's what matters for our story: <strong>AlphaFold is Level 5 - superhuman - but only for protein folding.</strong> It can't discover new drugs. It can't design experiments. It can't do anything other than predict how a protein folds from its amino acid sequence. It does that one thing better than any human who has ever lived.</p>
+
+      <h3>GNoME (2023): The Same Pattern, New Domain</h3>
+
+      <p>DeepMind's Graph Networks for Materials Exploration (GNoME) applied the same principle to materials science. Published in Nature in November 2023, GNoME discovered 2.2 million new crystal structures that are stable by current scientific standards - equivalent to roughly 800 years' worth of knowledge from traditional experimental approaches.</p>
+
+      <p>Of those, 380,000 are the most stable, and 736 had already been independently created in labs by external researchers. DeepMind contributed the predictions to the Materials Project, an open-access database used by over 400,000 researchers.</p>
+
+      <p>Same pattern as AlphaFold: superhuman performance, single domain, closed evaluation loop (you can computationally verify whether a crystal structure is stable).</p>
+
+      <h3>FunSearch (2023): LLMs Enter the Loop</h3>
+
+      <p>FunSearch changed the game. Published in Nature alongside GNoME, it paired a pre-trained LLM with an automated evaluator to search for novel mathematical constructions.</p>
+
+      <p>The result: FunSearch discovered new constructions for the cap set problem in extremal combinatorics that surpassed the best-known solutions - including the largest improvement in the asymptotic lower bound in 20 years. It also found new heuristics for online bin packing that outperformed widely-used baselines.</p>
+
+      <p>What made FunSearch different from AlphaFold and GNoME:</p>
+
+      <ul>
+        <li><strong>AlphaFold/GNoME</strong>: specialized neural networks trained for specific prediction tasks</li>
+        <li><strong>FunSearch</strong>: a general-purpose LLM + evaluator loop that searches for <em>programs</em>, not solutions</li>
+      </ul>
+
+      <p>FunSearch doesn't output "here's the answer." It outputs <em>code that generates the answer</em>. The programs are interpretable - researchers could inspect the discovered code and identify a new mathematical symmetry they hadn't previously known about.</p>
+
+      <p>This is the bridge to what comes next. FunSearch showed that LLMs, when paired with the right evaluation loop, can make genuine scientific discoveries. Not by being brilliant reasoners, but by being creative generators whose outputs are rigorously filtered.</p>
+
+      <hr>
+
+      <h2>Act 2: Sakana Automates the Full Research Process</h2>
+
+      <h3>AI Scientist v1 (August 2024): The Ambition</h3>
+
+      <p>In August 2024, Sakana AI released The AI Scientist - the first system designed to automate the <em>entire</em> scientific research lifecycle. Not just prediction. Not just search. Everything: idea generation, literature search, experiment design, code implementation, results analysis, figure generation, paper writing, and automated peer review.</p>
+
+      <p>The system could generate a complete machine learning research paper for approximately $15 per paper, discovering novel contributions in areas like diffusion models, transformers, and grokking.</p>
+
+      <p>But v1 had real limitations:</p>
+
+      <ul>
+        <li>It required human-provided code templates as starting points</li>
+        <li>It couldn't read its own generated figures (no vision capabilities)</li>
+        <li>It sometimes made critical errors comparing numbers</li>
+        <li>The system occasionally tried to modify its own execution script to extend timeout limits</li>
+      </ul>
+
+      <p>V1 automated the <em>form</em> of research better than the <em>substance</em>. Papers looked like papers, but the insights were often shallow.</p>
+
+      <h3>AI Scientist v2 (April 2025): The Breakthrough</h3>
+
+      <p>Eight months later, Sakana released v2 with three fundamental improvements.</p>
+
+      <p><strong>First, they eliminated human templates.</strong> V1 needed researchers to provide a starting codebase. V2 generates its own experimental code from a general idea description, making it deployable across diverse ML domains without human scaffolding.</p>
+
+      <p><strong>Second, they introduced agentic tree search.</strong> Instead of running experiments linearly, v2 uses a progressive tree-search algorithm managed by a dedicated experiment manager agent. The system branches experiments, debugs failures, refines approaches, and selects the best-performing path - then drills deeper. This is fundamentally different from "run experiment, write paper." It's <em>iterative scientific exploration</em>.</p>
+
+      <p><strong>Third, they added VLM feedback.</strong> A Vision-Language Model reviews figures and manuscript aesthetics iteratively, closing the loop that v1 couldn't.</p>
+
+      <p>The result: Sakana submitted three fully autonomous manuscripts to a peer-reviewed workshop at ICLR 2025. One manuscript - "Compositional Regularization: Unexpected Obstacles in Enhancing Neural Network Generalization" - achieved an average reviewer score of 6.33, exceeding the average human acceptance threshold.</p>
+
+      <p><strong>This was the first fully AI-generated paper to pass real peer review.</strong></p>
+
+      <p>The paper reported a <em>negative result</em> - it found that a promising approach to regularization didn't work as expected. The fact that an AI system discovered, reported, and correctly framed a negative result through peer review is arguably more impressive than if it had found a positive one. It demonstrated genuine scientific reasoning, not just metric optimization.</p>
+
+      <hr>
+
+      <h2>Act 3: Karpathy Strips It Down to the Core</h2>
+
+      <p>In March 2026, Andrej Karpathy released autoresearch - and took the opposite approach from Sakana. Instead of automating the full research lifecycle, he isolated a single question: <strong>what happens when you give an AI agent a real training setup and let it experiment autonomously?</strong></p>
+
+      <p>The setup is deliberately minimal. Three files:</p>
+
+      <ul>
+        <li><code>prepare.py</code> - fixed data prep and evaluation utilities (not modified)</li>
+        <li><code>train.py</code> - the full GPT model, optimizer, and training loop (agent modifies this)</li>
+        <li><code>program.md</code> - instructions for the agent (human modifies this)</li>
+      </ul>
+
+      <p>The agent modifies <code>train.py</code>, trains for exactly 5 minutes, checks if validation loss improved, keeps or discards, and repeats. No paper writing. No literature review. No figure generation. Just: <strong>modify, train, measure, iterate.</strong></p>
+
+      <p>The constraint is elegant: fixed 5-minute wall-clock budget per experiment, regardless of what the agent changes. This means roughly 12 experiments per hour, roughly 100 experiments overnight. Architecture, hyperparameters, optimizer, batch size - everything is fair game. The single metric is val_bpb (validation bits per byte), lower is better.</p>
+
+      <p>And here's the insight that matters: <strong>you're not programming the Python. You're programming the <code>program.md</code>.</strong> The human writes meta-instructions - the research strategy, the priorities, the constraints. The agent does the science. Karpathy describes it as finding "the research org code that achieves the fastest research progress."</p>
+
+      <p>39,000 GitHub stars in weeks. The idea clearly resonated.</p>
+
+      <hr>
+
+      <h2>Where Are We on the AGI Levels?</h2>
+
+      <p>Looking at the evidence across these systems:</p>
+
+      <p><strong>Level 3 is established.</strong> As described above, we're solidly here for many professional tasks.</p>
+
+      <p><strong>Level 4 is emerging, unevenly.</strong></p>
+
+      <p>AlphaFold and GNoME achieved Level 5 - superhuman - <em>within their specific domains</em>. But they can't generalize. FunSearch showed Level 4 capability in mathematical discovery - genuine innovation, but only when paired with the right evaluation loop. Sakana's AI Scientist v2 produced Level 4 output - a peer-reviewed contribution to scientific knowledge - but at workshop level, not at the level of proposing transformers or discovering new physics.</p>
+
+      <p>The pattern: <strong>Level 4 is arriving domain by domain, not all at once.</strong> Some domains (protein structure, crystal stability) are already at Level 5. Others (automated ML research) are at early Level 4. The frontier is uneven.</p>
+
+      <p>Here's where I think the field is underappreciating something: <strong>the evaluation loop is the bottleneck, not the model.</strong> AlphaFold, GNoME, and FunSearch all succeeded because verification is cheap and automated in their domains. You can computationally check whether a protein structure is stable, whether a crystal is thermodynamically favorable, whether a mathematical construction satisfies the constraints. The model generates candidates; the evaluator filters them. The tighter and cheaper the evaluation loop, the faster the domain reaches Level 4.</p>
+
+      <p>This has a corollary that most AI progress narratives ignore: domains where evaluation is expensive, slow, or ambiguous - social science, drug efficacy in humans, policy analysis, most of the humanities - may not reach Level 4 through this paradigm at all. Not because the models aren't capable enough, but because there's no cheap way to verify whether the model's output is a genuine contribution. Peer review at scale is slow. Clinical trials take years. Replication requires resources.</p>
+
+      <p>The implication is that Level 4 may arrive as a permanent patchwork - superhuman in some domains, barely competent in others - rather than as a uniform frontier that advances together. The AGI levels framework, as presented by both DeepMind and OpenAI, implies a single ladder. The evidence suggests it's more like separate ladders, one per domain, with the rungs spaced differently depending on how easy it is to check the answer.</p>
+
+      <hr>
+
+      <h2>What's Next</h2>
+
+      <p><strong>The generality question.</strong> Sakana and Karpathy are pushing toward general-purpose research agents. But there's a meaningful gap between "automate ML experiments" and "do science." Real scientific discovery often requires pulling in ideas from adjacent fields, recognizing unexpected connections, and changing research direction based on what you've read. Whether current architectures can develop this kind of judgment - or whether it requires fundamentally different approaches - remains an open empirical question. Researchers like Yann LeCun have argued that autoregressive LLMs lack the world models necessary for genuine understanding (LeCun, 2022); others, including work on world models from Li Fei-Fei's group and physical intelligence research, suggest that grounding language models in perception and action may close this gap. The honest answer is that nobody knows yet which path leads further.</p>
+
+      <p><strong>The compounding effect.</strong> Karpathy's epigraph to autoresearch imagines autonomous AI agent swarms running research across "compute cluster megastructures in the skies," with a self-modifying codebase that has "grown beyond human comprehension." That's science fiction today. But the trajectory from AlphaFold to FunSearch to AI Scientist to autoresearch is unmistakable: each step removed another layer of human scaffolding while expanding what the AI could discover.</p>
+
+      <p><strong>The evaluation bottleneck.</strong> If the argument above is right - that the evaluation loop determines when Level 4 arrives in a given domain - then the most important near-term research may not be in model capability at all. It may be in building better, cheaper, faster evaluation for domains that currently lack it. The group that figures out how to make drug discovery or materials testing as cheap to verify as mathematical proofs will unlock more Level 4 progress than any model improvement.</p>
+
+      <p>We are watching AI learn to do science. It started with proteins. It's now writing papers. The pace depends on whether we can build the evaluation infrastructure fast enough to keep up.</p>
+
+      <hr>
+
+      <p class="byline"><em>See also: <a href="/writing/what-tool-access-changes">What Tool Access Actually Changes</a> and <a href="/writing/orchestrated-vs-learned">Orchestrated vs. Learned: Two Paths to AI Research Agents</a>.</em></p>
+
+      <p class="byline"><em>References: AlphaFold (Jumper et al., Nature 2021); GNoME (Merchant et al., Nature 2023); FunSearch (Romera-Paredes et al., Nature 2023); AI Scientist v1 (Lu et al., arXiv 2408.06292, 2024); AI Scientist v2 (Yamada et al., arXiv 2504.08066, 2025); autoresearch (Karpathy, GitHub 2026); Levels of AGI (Morris et al., arXiv 2311.02462, 2023); OpenAI AGI Levels (Jul 2024); METR Time Horizons (Barnes et al., 2025); LeCun on world models (LeCun, "A Path Towards Autonomous Machine Intelligence," 2022); Search-R1 (Jin et al., arXiv 2503.09516, 2025)</em></p>
+
+    </article>
+
+    <div class="back-link">
+      <a href="/writing">&larr; Back to Writing</a>
+    </div>
+
+    <footer>
+      &copy; 2026 David Akinboro
+    </footer>
+
+  </div>
+
+</body>
+</html>
