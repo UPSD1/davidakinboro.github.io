@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Map Is Not Finished - David Akinboro</title>
+  <meta name="description" content="On inheriting unfinished maps, and the path from RLHF and legal AI research through Astute, Miola, Forge, and AEVE.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="canonical" href="https://davidakinboro.com/writing/the-map-is-not-finished">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-tertiary: #888;
+      --bg: #fafafa;
+      --border: #e0e0e0;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background: #1a1a1a; color: #fff; }
+    html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'Newsreader', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    nav { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 64px; }
+    nav .name { font-size: 1.1rem; font-weight: 500; color: var(--text); text-decoration: none; }
+    nav .name:hover { color: #000; }
+    nav .nav-links { display: flex; gap: 24px; }
+    nav .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    nav .nav-links a:hover { color: var(--text); }
+    nav .nav-links a.active { color: var(--text); }
+
+    h1 { font-size: 1.6rem; font-weight: 400; margin-bottom: 8px; line-height: 1.3; }
+    .post-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-tertiary); margin-bottom: 48px; }
+
+    article p { font-size: 1rem; font-weight: 400; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+    article a { color: var(--text); text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--border); transition: text-decoration-color 0.2s; }
+    article a:hover { text-decoration-color: var(--text); }
+
+    article h2 { font-size: 1.25rem; font-weight: 500; margin-top: 48px; margin-bottom: 16px; line-height: 1.3; }
+    article h3 { font-size: 1.05rem; font-weight: 500; margin-top: 32px; margin-bottom: 12px; line-height: 1.3; }
+
+    article ul, article ol { margin-bottom: 20px; padding-left: 24px; }
+    article li { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+
+    article hr { border: none; border-top: 1px solid #e0e0e0; margin: 48px 0; }
+
+    .byline { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--text-tertiary); font-style: italic; margin-top: 32px; margin-bottom: 4px; }
+    .byline a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .byline a:hover { color: var(--text); }
+
+    .back-link { font-family: 'Inter', sans-serif; font-size: 0.78rem; margin-top: 48px; }
+    .back-link a { color: var(--text-tertiary); text-decoration: none; transition: color 0.2s; }
+    .back-link a:hover { color: var(--text); }
+
+    footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--text-tertiary); }
+
+    @media (max-width: 600px) {
+      .page { padding: 48px 20px 80px; }
+      nav { margin-bottom: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <nav>
+      <a href="/" class="name">David Akinboro</a>
+      <div class="nav-links">
+        <a href="/writing" class="active">Writing</a>
+      </div>
+    </nav>
+
+    <h1>The Map Is Not Finished</h1>
+    <div class="post-date">September 2026</div>
+
+    <article>
+
+      <p>Every generation inherits maps from the people who came before it. Some routes are well marked. Others end where their knowledge ran out, and some no longer describe the world as it is. I believe it's our duty to understand what those maps show, then work with others on what comes next.</p>
+
+      <p>After college, I was clear about the kind of work I wanted to do. I wanted to build things from the ground up with the right people, or join a cause whose work could improve people's lives and strengthen the places it serves. That has taken me through research, products, and industries I did not expect to enter.</p>
+
+      <p>I began with a fellowship at the University of Pennsylvania, working on reinforcement learning from human feedback. Later, I had the chance to work on a frontier model. Models were improving quickly, and there was still so much to learn about how to shape their behavior, evaluate what they could do, and make them useful in fields where an answer has consequences.</p>
+
+      <p>I pursued those questions into NLP research at Cornell, where I wanted to work with Claire Cardie. My master's thesis took us into law. We asked whether a model could find the relevant legal authority, connect the facts of a case to a conclusion, and show enough of its reasoning for someone to check the answer. We studied how different training methods affected its performance on questions with fixed answers and questions that called for an explanation.</p>
+
+      <p>To ensure the explanations were logical, we spoke with law school students and lawyers, including junior lawyers, to understand the problems they encountered and the frameworks they used to work through a case. Those conversations helped shape what we trained the model to do and how we judged whether its answers were useful.</p>
+
+      <p>That research became <a href="https://lexlens.app/" target="_blank">LexLens</a>. I cared about the results of the research, and I cared about whether a student or junior lawyer could use the system to understand a case more clearly.</p>
+
+      <p>After finishing my master's, I took the following year to explore. From September 2025 to September 2026, I followed questions across different fields and asked where I wanted to put my time. Which problems deserved years of work? Who did I want to build with? What would it take for research to create value beyond the place where it began?</p>
+
+      <p><a href="https://aevelabs.co/" target="_blank">AEVE</a> began to take shape during that year. I wanted to build a home for founders and researchers who are willing to pursue ambitious questions together and carry promising answers into the world. The work might become research, a product, infrastructure, or a company of its own. What matters is giving good people the room and support to take a question seriously, then see it through.</p>
+
+      <p>One of the products our team worked on was <a href="https://docs.astuteapp.io/#/" target="_blank">Astute</a>, a UK platform helping businesses seeking funding connect with investors, lenders, and brokers. We spent about four months on its next version. Matching people was one part of the work. A financial relationship also needs trust, so the journeys had to account for identity and company verification, screening, source of funds, and the regulatory checks that apply to each participant. We learned a great deal together about what it takes to help a business reach suitable capital and give the people providing it confidence in the process.</p>
+
+      <p>During that same year, I joined <a href="https://www.miola.org/" target="_blank">Miola</a> because I believed in its effort to improve healthcare infrastructure across African health systems. One part of my work was privacy-preserving tokenization: researching how separate systems could recognize records belonging to the same patient without exchanging the identifying information used to make that connection. The aim was to make secure linkage across fragmented health records possible, with the safeguards that kind of exchange requires. I also worked on clinical decision support for people making decisions at the point of care.</p>
+
+      <p>In 2026, a friend and I came together to build <a href="https://www.forgeshipyard.com/" target="_blank">Forge</a>. We began with a problem in American shipyards: drawings and records can fall out of step with the vessel itself and with one another. Our first step is to reconstruct 3D models from old 2D plans and reconcile them with what has actually been built, repaired, or changed. From there, we are building a digital thread that keeps engineers and crews across the yard working from the same information. When a plan changes, everyone it affects should be able to see that change as it happens, before work begins. The aim is to prevent avoidable rework and help yards build and repair ships faster. There is much more we hope to build, but that is where we chose to begin.</p>
+
+      <p>I keep returning to <em>entelechy</em>, the realization of potential. I want to learn from what came before, build with people who care about the consequences, and leave behind systems that help others prosper.</p>
+
+      <hr>
+
+      <p class="byline"><em>David Akinboro &middot; <a href="https://davidakinboro.com">davidakinboro.com</a></em></p>
+
+    </article>
+
+    <div class="back-link">
+      <a href="/writing">&larr; Back to Writing</a>
+    </div>
+
+    <footer>
+      &copy; 2026 David Akinboro
+    </footer>
+
+  </div>
+
+</body>
+</html>
